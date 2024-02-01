@@ -7,17 +7,24 @@
         font-family: "Helvetica", sans-serif;}
 
 .container {
-
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         width: 100%;
         height: 100vh;
         background-image: url("cropped_image.jpg");
         background-position: center;
         background-size: cover;
-        display: flex;
-        align-items: center;
         offset: 10px;
         justify-content: center;
 
+}
+
+@media (max-width: 768px) {
+        .container {
+        flex-direction: column;
+        align-items: center;
+        }
 }
 
 .card {

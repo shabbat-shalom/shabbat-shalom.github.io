@@ -8,32 +8,21 @@
 </head>
 <body>
 
-  
-
 
   <div class="container">
     <a href="https://venmo.com/YourVenmoUsername" target="_blank">
           <img src="venmo-button.png" alt="Venmo" width="150px">
       </a>
     <div class="card" data-tilt>
-
       <div id="hebcal-shabbat"></div>
       <script>
       fetch('https://www.hebcal.com/shabbat?cfg=i2&geonameid=5128581&ue=on&b=18&M=on&lg=a&tgt=_top')
         .then(response => response.text())
         .then(data => document.getElementById('hebcal-shabbat').innerHTML = data);
       </script>
-
-
     </div>
-  
-
-
   </div>
-  
-    
 
-  
 <script src="vanilla-tilt.js"></script>
 </body>
 </html>
