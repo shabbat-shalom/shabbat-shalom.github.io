@@ -1,10 +1,12 @@
 
-
+/* GLOBAL CSS */
 * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: "Helvetica", sans-serif;}
+
+/* BACKGROUND */
 
 .container {
         display: flex;
@@ -12,7 +14,7 @@
         align-items: center;
         width: 100%;
         height: 100vh;
-        background-image: url("cropped_image.jpg");
+        background-image: url("assets/cropped_image.jpg");
         background-position: center;
         background-size: cover;
         offset: 10px;
@@ -20,12 +22,16 @@
 
 }
 
+/* MEDIA QUERIES */
+
 @media (max-width: 768px) {
         .container {
         flex-direction: column;
         align-items: center;
         }
 }
+
+/* CARD */
 
 .card {
         
@@ -60,6 +66,7 @@
 
 }
 
+/* CARD INFO */
 
 div.hebcal-container {
  font-family: "Helvetica","Gill Sans",GillSans,Arial,Helvetica,sans-serif;
@@ -80,9 +87,9 @@ div.hebcal-container div div.hebcal-results .havdalah { color: green }
 div.hebcal-container div div.hebcal-results .parashat { color: black; background: #ff9 }
 div.hebcal-container div div.hebcal-results .holiday { display: none }
 
-a:link {color: rgba(255, 255, 255, 0.2)}
+a:link {color: blue}
 
-a:visited {color: rgba(255, 255, 255, 0.2);}
+a:visited {color: green}
 
 a:hover {color: pink;}
 
@@ -91,3 +98,52 @@ a:hover {color: pink;}
 a.text-nowrap {color: #005EB8;}
 
 
+
+/* HEADER & NAVBAR */
+
+body {
+        
+min-height: 100vh;
+overflow-x: hidden;
+
+}
+
+header {
+
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+padding: 30px 50px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 100;
+
+}
+
+.logo {
+
+font-size: 2rem;
+color: rgb(23, 136, 171);
+pointer-events: none;
+
+}
+
+.navigation a {
+
+text-decoration: none;
+color: rgb(23, 136, 171);
+padding: 6px 15px;
+border-radius: 20px;
+margin: 0 10px;
+font-weight: 600;
+
+}
+
+.navigation a:hover {
+
+background: rgb(23, 136, 171);
+color: white;
+
+}
