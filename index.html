@@ -16,10 +16,11 @@
 
       gtag('config', 'G-WN2J1CN6FY');
     </script>
-   
+   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <title>Jewish Times</title>
 </head>
 <body>
+
 
   <header>
     <h2 class="logo">JTIMES.ORG</h2>
@@ -27,13 +28,94 @@
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="careers.html">Careers</a>
-          <a href="login.html">Login</a>
+          <button class="btnLogin-popup">Login</button>
       </nav>
   </header>
 
+<section class="section">
+  <div class="wrapper">
+    <span class="icon-close">
+      <box-icon name='x'></box-icon>
+    </span>
+    <div class="logreg-box">
 
+      <!--LOGIN FORM-->
 
+      <div class="form-box login">
+        <div class="logreg-title">
+          <h2>Login</h2>
+          <p>please login to use the platform</p>
+        </div>
+            <form action="#">
+              <div class="input-box">
+                <span class="icon"><box-icon type='solid' name='envelope'></box-icon></span>
+                <input type="email" required>
+                <label>Email</label>
+              </div>
+              <div class="input-box">
+                <span class="icon"><box-icon type='solid' name='lock-alt'></box-icon></span>
+                <input type="password" required>
+                <label>Password</label>
+              </div>
+              <div class="remember-forgot">
+                  <label><input type="checkbox">Remember me</label>
+                  <a href="#">Forgot Password?</a>
+              </div>
+              <button type="submit" class="btn">Login</button>
+              <div class="logreg-link">
+                <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+              </div>
+            </form>
+      </div>
 
+      <!--REGISTRATION FORM-->
+
+      <div class="form-box register">
+        <div class="logreg-title">
+          <h2>Registration</h2>
+          <p>Create an account</p>
+        </div>
+            <form action="#">
+              <div class="input-box">
+                <span class="icon"><box-icon type='solid' name='user-circle'></box-icon></span>
+                <input type="text" required>
+                <label>Full Name</label>
+              </div>
+              <div class="input-box">
+                <span class="icon"><box-icon type='solid' name='envelope'></box-icon></span>
+                <input type="email" required>
+                <label>Email</label>
+              </div>
+              <div class="input-box">
+                <span class="icon"><box-icon type='solid' name='lock-alt'></box-icon></span>
+                <input type="password" required>
+                <label>Password</label>
+              </div>
+              <div class="remember-forgot">
+                  <label><input type="checkbox">I agree to the terms & conditions</label>
+              </div>
+              <button type="submit" class="btn">Register</button>
+              <div class="logreg-link">
+                <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+              </div>
+            </form>
+      </div>
+
+    </div>
+    <div class="media-options">
+      <a href="#">
+        <box-icon type='logo' name='google'></box-icon>
+        <span>Login with Google</span>
+      </a>
+      <a href="#">
+        <box-icon name='facebook-circle' type='logo' ></box-icon>
+        <span>Login with Facebook</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
   <div class="container">
     <a href="https://venmo.com/YourVenmoUsername" target="_blank">
           <img src="assets/venmo-button.png" alt="Venmo" width="150px">
@@ -47,7 +129,8 @@
       </script>
     </div>
   </div>
-
+</section>
+<script src="script.js"></script>
 <script src="vanilla-tilt.js"></script>
 </body>
 </html>
