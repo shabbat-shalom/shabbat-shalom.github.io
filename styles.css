@@ -148,7 +148,7 @@ header {
         margin-right: 40px;
 }
 
-.navigation a:hover, .navigation button:hover {
+.navigation a:hover, .navigation button:hover, .navigation a.active {
         background: rgb(0, 0, 0);
         color: rgb(255, 255, 255);
 }
