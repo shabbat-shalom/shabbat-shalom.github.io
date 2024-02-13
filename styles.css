@@ -362,13 +362,13 @@ background-position: center;
 
 .remember-forgot a {
 
-        color: #000000;
+        color: #4f4f4f;
         text-decoration: underline;
 }
 
 .remember-forgot a:hover {
         text-decoration: none;
-        color: #ff00cc;
+        color: #000000;
 }
 
 .logreg-box .btn {
@@ -402,7 +402,7 @@ background-position: center;
 
 .logreg-link p a {
 
-        color: #000000;
+        color: #4f4f4f;
         text-decoration: underline;
         font-weight: 600;
 
@@ -411,7 +411,7 @@ background-position: center;
 .logreg-link p a:hover {
 
         text-decoration: none;
-        color: #ff00cc;
+        color: #000000;
 
 
 }
@@ -443,7 +443,7 @@ background-position: center;
 
 .media-options a:hover {
 
-        background: rgba(251, 0, 255, 0.7);
+        background: rgba(118, 118, 118, 0.7);
 
 }
 
