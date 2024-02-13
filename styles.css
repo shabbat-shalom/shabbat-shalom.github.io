@@ -37,7 +37,7 @@
         
         width: 90%;
         max-width: 350px;
-        color: #005EB8;
+        color: #000000;
         text-align: center;
         padding: 15px;
         border: 1px solid rgba(255, 255, 255, 0.3);
@@ -87,15 +87,16 @@ div.hebcal-container div div.hebcal-results .havdalah { color: green }
 div.hebcal-container div div.hebcal-results .parashat { color: black; background: #ff9 }
 div.hebcal-container div div.hebcal-results .holiday { display: none }
 
-a:link {color: blue}
+a:link {color: #4f4f4f}
 
-a:visited {color: green}
+a:visited {color: #4f4f4f}
 
-a:hover {color: pink;}
 
-.copyright {font-size: 5px; color: rgba(255, 255, 255, 0.2);}
 
-a.text-nowrap {color: #005EB8;}
+.copyright {font-size: 5px; color: rgba(0, 0, 0, 0.2);}
+
+a.text-nowrap {color: #4f4f4f;}
+
 
 
 
@@ -120,7 +121,7 @@ header {
 }
 
 .logo {
-        font-size: 2rem;
+        font-size: 1.75rem;
         color: rgb(0, 0, 0);
         pointer-events: none;
 }
@@ -148,8 +149,8 @@ header {
 }
 
 .navigation a:hover, .navigation button:hover {
-        background: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
+        background: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
 }
 
 .navigation .btnLogin-popup {
@@ -216,9 +217,9 @@ background-position: center;
         position: absolute;
         top: 0;
         right: 0;
-        width: 45px;
-        height: 45px;
-        background: #fff;
+        width: 65px;
+        height: 65px;
+        background: transparent;
         cursor: pointer;
         display: flex;
         justify-content: center;
@@ -460,3 +461,5 @@ background-position: center;
         font-weight: 500;
 
 }
+
+a box-icon {margin-left: 40px;}
