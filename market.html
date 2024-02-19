@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shabbat Essentials Marketplace</title>
+    <style>
+        /* Universal styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica", sans-serif;
+        }
+
+        /* Specific styles */
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            color: #000000;
+            pointer-events: none;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #000000;
+            padding: 6px 15px;
+            border-radius: 20px;
+            margin: 0 10px;
+            font-weight: 600;
+            font-size: 18px;
+            margin-right: 40px;
+        }
+
+        .navigation a:hover,
+        .navigation a.active {
+            background: #000000;
+            color: rgb(255, 255, 255);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 120px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .product img {
+            display: block;
+            margin: 0 auto 10px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2,
+        p {
+            margin-bottom: 10px;
+        }
+
+        .btn-shop {
+            display: block;
+            width: 180px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-shop:hover {
+            background-color: #002e96;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">JTIMES.ORG</h2>
+          <nav class="navigation">
+              <a href="index.html">Home</a>
+              <a href="about.html">About</a>
+              <a href="careers.html">Careers</a>
+              <a href="market.html" class="active">Marketplace</a>
+          </nav>
+      </header>
+
+    <div class="container">
+        <!--<div class="product">
+            <img src="https://via.placeholder.com/400x300" alt="Product Image">
+            <h2>Shabbat Candles</h2>
+            <p>Elevate your Shabbat experience with these elegant candlesticks. Crafted with precision and beauty in mind.</p>
+            <a href="#" class="btn-shop">Shop Now</a>
+        </div>
+-->
+        <div class="product">
+            <img src="assets/candles.jpg" alt="Product Image">
+            <h2>Traditional Shabbos Candles</h2>
+            <p>These elegant candles are made with high grade smooth wax that melts slowly with virtually no drip.</p>
+            <a target="_blank" class="btn-shop" href="https://www.amazon.com/Shabbat-Candles-Traditional-Shabbos-Hour/dp/B07RLVHS5M/ref=sr_1_2?dib=eyJ2IjoiMSJ9.6rq_V14Qrvp3g151gosphLXqRbLbd7hjkkALyDS5_YOYHhnnIOzVKL2e64zsIClipW8XAK6eZGgPXt0vquwZPxOskLXM_Zi8WSSQU8L1OE5HWneYDNwA4GDZptySwue65hLiJpCCGo0WYrL2QSdRQpzadARoL53P6oZpc6nsL0ynzXGoaKJbNNsXqFO8UbVvHeplwestC1F-EjZrBRqw5hOJLzmGMw2x621wjVbjSorZPUz_GR7_WpxJq6965-7xiSBNDwTaqacIPadRyGHA6hQ-O71DfhD8JOOYaF2wt6k.cMhTZy6fG54AzEa7Fmq0U_hsUARGizkbuGy8VVCkwbM&amp;dib_tag=se&amp;keywords=shabbat%252Bcandles&amp;qid=1707930759&amp;rdc=1&amp;sr=8-2-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;th=1&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=d9541d7fbb697ab012ae0f3df66d259d&camp=1789&creative=9325">Shop Now</a>
+
+        </div>
+
+        <!-- Add more products here -->
+    </div>
+
+</body>
+
+</html>
