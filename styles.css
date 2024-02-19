@@ -37,7 +37,7 @@
         
         width: 90%;
         max-width: 350px;
-        color: #005EB8;
+        color: #000000;
         text-align: center;
         padding: 15px;
         border: 1px solid rgba(255, 255, 255, 0.3);
@@ -87,15 +87,16 @@ div.hebcal-container div div.hebcal-results .havdalah { color: green }
 div.hebcal-container div div.hebcal-results .parashat { color: black; background: #ff9 }
 div.hebcal-container div div.hebcal-results .holiday { display: none }
 
-a:link {color: blue}
+a:link {color: #4f4f4f}
 
-a:visited {color: green}
+a:visited {color: #4f4f4f}
 
-a:hover {color: pink;}
 
-.copyright {font-size: 5px; color: rgba(255, 255, 255, 0.2);}
 
-a.text-nowrap {color: #005EB8;}
+.copyright {font-size: 5px; color: rgba(0, 0, 0, 0.2);}
+
+a.text-nowrap {color: #4f4f4f;}
+
 
 
 
@@ -115,18 +116,19 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        z-index: 100;
         
 }
 
 .logo {
-        font-size: 2rem;
-        color: rgb(155, 101, 2);
+        font-size: 1.75rem;
+        color: rgb(0, 0, 0);
         pointer-events: none;
 }
 
 .navigation a {
         text-decoration: none;
-        color: rgb(155, 101, 2);
+        color: rgb(0, 0, 0);
         padding: 6px 15px;
         border-radius: 20px;
         margin: 0 10px;
@@ -137,7 +139,7 @@ header {
 
 .navigation button {
         text-decoration: none;
-        color: rgb(155, 101, 2);
+        color: rgb(0, 0, 0);
         padding: 6px 15px;
         border-radius: 20px;
         margin: 0 10px;
@@ -146,9 +148,10 @@ header {
         margin-right: 40px;
 }
 
-.navigation a:hover, .navigation button:hover {
-        background: rgb(155, 101, 2);
-        color: white;
+.navigation a:hover, .navigation button:hover, .navigation a.active {
+        background: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        
 }
 
 .navigation .btnLogin-popup {
@@ -215,9 +218,9 @@ background-position: center;
         position: absolute;
         top: 0;
         right: 0;
-        width: 45px;
-        height: 45px;
-        background: #fff;
+        width: 65px;
+        height: 65px;
+        background: transparent;
         cursor: pointer;
         display: flex;
         justify-content: center;
@@ -265,7 +268,7 @@ background-position: center;
 .logreg-box .logreg-title {
         text-align: center;
         margin-bottom: 40px;
-        color: #fff;
+        color: #000000;
 }
 
 .logreg-title h2 {
@@ -288,7 +291,7 @@ background-position: center;
         width: 100%;
         height: 50px;
         margin: 30px 0;
-        border-bottom: 2px solid #fff;
+        border-bottom: 2px solid #000000;
 
 }
 
@@ -300,7 +303,7 @@ background-position: center;
         border: none;
         outline: none;
         font-size: 16px;
-        color: #fff;
+        color: #000000;
         font-weight: 500;
         padding-right: 25px;
 
@@ -315,7 +318,7 @@ background-position: center;
         left: 0;
         transform: translateY(-50%);
         font-size: 16px;
-        color: #fff;
+        color: #000000;
         font-weight: 500;
         pointer-events: none;
         transition: .5s;
@@ -343,7 +346,7 @@ background-position: center;
 .logreg-box .remember-forgot {
 
         font-size: 14.5px;
-        color: #fff;
+        color: #000000;
         font-weight: 500;
         margin: -15px 0 15px;
         display: flex;
@@ -354,33 +357,34 @@ background-position: center;
 
 .remember-forgot label input {
 
-        accent-color: #fff;
+        accent-color: #000000;
         margin-right: 3px;        
 
 }
 
 .remember-forgot a {
 
-        color: #fff;
-        text-decoration: none;
+        color: #4f4f4f;
+        text-decoration: underline;
 }
 
 .remember-forgot a:hover {
-        text-decoration: underline;
+        text-decoration: none;
+        color: #000000;
 }
 
 .logreg-box .btn {
 
         width: 100%;
         height: 45px;
-        background: #fff;
+        background: #000000;
         border: none;
         outline: none;
         border-radius: 40px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         font-size: 16px;
-        color: #222;
+        color: #ffffff;
         font-weight: 600;
 
 
@@ -390,7 +394,7 @@ background-position: center;
 .logreg-box .logreg-link {
 
         font-size: 14.5px;
-        color: #fff;
+        color: #000000;
         text-align: center;
         font-weight: 500;
         margin: 25px 0 15px;
@@ -400,15 +404,16 @@ background-position: center;
 
 .logreg-link p a {
 
-        color: #fff;
-        text-decoration: none;
+        color: #4f4f4f;
+        text-decoration: underline;
         font-weight: 600;
 
 }
 
 .logreg-link p a:hover {
 
-        text-decoration: underline;
+        text-decoration: none;
+        color: #000000;
 
 
 }
@@ -428,11 +433,11 @@ background-position: center;
         width: 100%;
         height: 50px;
         background: transparent;
-        border: 2px solid #fff;
+        border: 2px solid #000000;
         margin: 10px 0;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         border-radius: 40px;
-        color: #fff;
+        color: #000000;
         text-decoration: none;
         transition: .5s;
 
@@ -440,7 +445,7 @@ background-position: center;
 
 .media-options a:hover {
 
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(118, 118, 118, 0.7);
 
 }
 
@@ -457,3 +462,69 @@ background-position: center;
         font-weight: 500;
 
 }
+
+a box-icon {margin-left: 40px;}
+
+/* FOOTER */
+
+footer {
+        background-color: black;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .footer-content h1 {
+        margin-left: 30px;
+    }
+    
+    .footer-content nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-content nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+        position: relative;
+    }
+    
+    .footer-content nav ul li:last-child {
+        margin-right: 0;
+    }
+    
+    .footer-content nav ul li a {
+        color: white;
+        text-decoration: none;
+        position: relative;
+    }
+    
+    .footer-content nav ul li a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        height: 2px;
+        width: 0;
+        background-color: white;
+        transition: width 0.625s ease;
+    }
+    
+    .footer-content nav ul li a:hover::after {
+        width: 100%;
+    }
+    
+    .social-media {
+        display: flex;
+        align-items: center;
+        padding-right: 30px; /* Add padding to the right */
+    }
