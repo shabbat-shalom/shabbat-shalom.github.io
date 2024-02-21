@@ -17,6 +17,18 @@
       gtag('config', 'G-WN2J1CN6FY');
     </script>
    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+   <style>
+    #loadingIndicator {
+        display: none;
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+</style>
     <title>Jewish Times</title>
 </head>
 <body>
@@ -29,18 +41,21 @@
           <a href="about.html">About</a>
           <a href="careers.html">Careers</a>
           <a href="market.html">Marketplace</a>
-          <button class="btnLogin-popup">Login</button>
+          <!--<button class="btnLogin-popup">Login</button>-->
       </nav>
   </header>
 
+
+
+
 <section class="section">
-  <div class="wrapper">
+  <!--<div class="wrapper">
     <span class="icon-close">
       <box-icon name='x'></box-icon>
     </span>
     <div class="logreg-box">
 
-      <!--LOGIN FORM-->
+
 
       <div class="form-box login">
         <div class="logreg-title">
@@ -69,7 +84,7 @@
             </form>
       </div>
 
-      <!--REGISTRATION FORM-->
+
 
       <div class="form-box register">
         <div class="logreg-title">
@@ -113,23 +128,34 @@
         <span>Login with Facebook</span>
       </a>
     </div>
-  </div>
+  </div>-->
+
+
+
   <div class="container">
+  
     <a style="text-decoration: none;" href="https://venmo.com/shabbat-shalom" target="_blank">
-
-          <!--<img src="assets/venmo-button.png" alt="Venmo" width="150px">-->
-
       <box-icon type='logo' name='venmo' size="lg" animation="tada-hover"></box-icon>
-      <br><br><span>Help support this project!</span></a> 
+        <br><br><span>Help support this project!</span>
+    </a> 
+  
     <div class="card" data-tilt>
-      <div id="hebcal-shabbat"></div>
-      <script>
-      fetch('https://www.hebcal.com/shabbat?cfg=i2&geonameid=5128581&ue=on&b=18&M=on&lg=a&tgt=_top')
-        .then(response => response.text())
-        .then(data => document.getElementById('hebcal-shabbat').innerHTML = data);
-      </script>
+      <div id="inputContainer">
+        <label for="zipCodeInput">Enter Zip Code:</label>
+        <input type="text" id="zipCodeInput">
+        <button onclick="searchShabbatTimes()">Search</button>
+        <button onclick="useCurrentLocation()">Use Current Location</button>
+        <button onclick="resetSearch()">Reset</button>
+    </div>
+    <div id="shabbatTimes"></div>
+      <div id="loadingIndicator">
+        <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" alt="Loading..." style="width:45%; margin-top: 14px;">
+      </div>
     </div>
   </div>
+
+
+
 </section>
 
 <footer>
@@ -139,7 +165,7 @@
           <ul>
               <li><a href="about.html">Mission</a></li>
               <li><a href="careers.html">Careers</a></li>
-              <li><a href="#">Team</a></li>
+              <li><a href="about.html">Team</a></li>
               <li><a href="https://venmo.com/shabbat-shalom" target="_blank">Donate</a></li>
               <!--<li><a href="#">FAQ</a></li>-->
           </ul>
@@ -152,7 +178,91 @@
 </footer>
 
 
+<script>
+  function searchShabbatTimes() {
+      var inputContainer = document.getElementById("inputContainer");
+      var zipCode = document.getElementById("zipCodeInput").value;
+      if (!zipCode) {
+          alert("Please enter a zip code.");
+          return;
+      }
+      inputContainer.style.display = "none"; // Hide input fields and buttons
+      var loadingIndicator = document.getElementById("loadingIndicator");
+      loadingIndicator.style.display = "block"; // Show loading indicator
+      fetchShabbatTimes(zipCode);
+  }
 
+  function fetchShabbatTimes(zipCode) {
+      var url = "https://www.hebcal.com/shabbat?cfg=i2&zip=" + zipCode + "&ue=off&b=18&M=on&lg=s&tgt=_top";
+
+      fetch(url)
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById("shabbatTimes").innerHTML = data;
+              hideLoadingIndicator();
+              showInputContainer();
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+              document.getElementById("shabbatTimes").innerHTML = "Error: Unable to fetch Shabbat times. Check the zip code and try again.";
+              hideLoadingIndicator();
+              showInputContainer();
+          });
+  }
+
+  function useCurrentLocation() {
+      var inputContainer = document.getElementById("inputContainer");
+      var loadingIndicator = document.getElementById("loadingIndicator");
+
+      if (navigator.geolocation) {
+          inputContainer.style.display = "none"; // Hide input fields and buttons
+          loadingIndicator.style.display = "block"; // Show loading indicator
+
+          navigator.geolocation.getCurrentPosition(
+              position => {
+                  var latitude = position.coords.latitude;
+                  var longitude = position.coords.longitude;
+
+                  var url = `https://www.hebcal.com/shabbat?cfg=i2&latitude=${latitude}&longitude=${longitude}&ue=off&b=18&M=on&lg=s&tgt=_top`;
+                  fetch(url)
+                      .then(response => response.text())
+                      .then(data => {
+                          document.getElementById("shabbatTimes").innerHTML = data;
+                          hideLoadingIndicator();
+                          showInputContainer();
+                      })
+                      .catch(error => {
+                          console.error('Error fetching data:', error);
+                          document.getElementById("shabbatTimes").innerHTML = "Error: Unable to fetch Shabbat times. Please try again.";
+                          hideLoadingIndicator();
+                          showInputContainer();
+                      });
+              },
+              error => {
+                  console.error('Error getting location:', error);
+                  alert("Error: Unable to retrieve your location. Please make sure location services are enabled and try again.");
+                  hideLoadingIndicator();
+                  showInputContainer();
+              }
+          );
+      } else {
+          alert("Geolocation is not supported by your browser.");
+      }
+  }
+
+  function resetSearch() {
+      document.getElementById("zipCodeInput").value = "";
+      document.getElementById("shabbatTimes").innerHTML = "";
+  }
+
+  function hideLoadingIndicator() {
+      document.getElementById("loadingIndicator").style.display = "none";
+  }
+
+  function showInputContainer() {
+      document.getElementById("inputContainer").style.display = "block";
+  }
+</script>
 <script src="script.js"></script>
 <script src="vanilla-tilt.js"></script>
 </body>
