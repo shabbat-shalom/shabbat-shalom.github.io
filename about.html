@@ -104,6 +104,46 @@
             text-align: center;
             margin-bottom: 20px;
         }
+
+        /* TEAM */
+
+        .team-section {
+  padding: 40px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.team-members-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-member {
+  text-align: center;
+  width: 48%; /* Adjust as needed */
+}
+
+.team-member-img {
+  width: 100%;
+  border-radius: 50%;
+  max-width: 200px;
+  margin: 0 auto 15px;
+}
+
+.team-member-name {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.team-member-role {
+  font-size: 1rem;
+  color: #666;
+}
+
+        
     </style>
 </head>
 
@@ -118,7 +158,24 @@
         </nav>
     </header>
 
-    
+    <section id="team" class="team-section">
+        <div class="container">
+          <h2 class="section-title">Meet the Team</h2>
+          <div class="team-members-container">
+            <div class="team-member">
+              <img src="team-member1.jpg" alt="X" class="team-member-img">
+              <h3 class="team-member-name">X</h3>
+              <p class="team-member-role">Co-founder</p>
+            </div>
+            <div class="team-member">
+              <img src="team-member2.jpg" alt="Y" class="team-member-img">
+              <h3 class="team-member-name">Y</h3>
+              <p class="team-member-role">Co-founder</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
     <div class="container">
         <h1>About JTimes.org</h1>
         <p>Welcome to JTimes.org, where the rhythm of Jewish life finds its beat.</p>
@@ -128,7 +185,9 @@
         <p>Join us as we embark on this sacred journey together, uniting hearts and souls across the globe. Together, let's make every moment count.</p>
     </div>
 
-
+    
+      
+      
     
 </body>
 

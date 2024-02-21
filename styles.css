@@ -58,6 +58,7 @@
 }
 
 
+
 .card p {
 
   font-size: 18px;
@@ -528,3 +529,34 @@ footer {
         align-items: center;
         padding-right: 30px; /* Add padding to the right */
     }
+
+
+
+
+
+    /* ZIP CODE ENTRY STYLING */
+
+    #inputContainer input {border: 2px solid rgb(0, 0, 0);
+        border-radius: 4px; margin-bottom: 7px;}
+
+    #inputContainer button {padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px; 
+        transition-duration: 0.4s;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    
+
+        }
+
+    #inputContainer button:hover {
+        background-color: #000000; /* Green */
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+
+
+/* VENMO LOGO POSITION */
+      .container box-icon {margin-left: 64px;}
