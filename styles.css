@@ -4,7 +4,8 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Helvetica", sans-serif;}
+        font-family: "Helvetica", sans-serif;
+        }
 
 /* BACKGROUND */
 
@@ -14,23 +15,34 @@
         align-items: center;
         width: 100%;
         height: 100vh;
-        background-image: url("assets/background.JPG");
-        background-position: center;
-        background-size: cover;
         offset: 10px;
         justify-content: center;
 
 }
 
 /* MEDIA QUERIES */
-
+@media (min-width: 768px) {
+        #monkeyPatch {
+                display: none;
+        }
+}
 @media (max-width: 768px) {
         .container {
         flex-direction: column;
-        align-items: center;
+        }
+        .navigation {
+                display: none;
+        }
+
+        .mobileCenter {margin: auto;}
+        .footer-content {
+                overflow-x: hidden;
+        }
+        .footer-content h1 {
+                display: none;
+                /* to do: fix links alignment  */
         }
 }
-
 /* CARD */
 
 .card {
@@ -105,7 +117,13 @@ a.text-nowrap {color: #4f4f4f;}
 
 body {       
         min-height: 100vh;
+        max-width: 100%;
         overflow-x: hidden;
+        background-image: url("assets/background.JPG");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
 }
 
 header {
@@ -137,6 +155,18 @@ header {
         font-size: 18px;
         margin-right: 40px;
 }
+/* mobile nav */
+
+.card a {
+        text-decoration: underline;
+        color: rgb(0, 0, 0);
+        padding: 6px 15px;
+        border-radius: 20px;
+        margin: 0 10px;
+        font-weight: 600;
+        font-size: 18px;
+}
+/* mobile nav */
 
 .navigation button {
         text-decoration: none;
@@ -174,16 +204,7 @@ header {
         opacity: 0.85;
 }
 
-.section {
-min-height: 100vh;
-background: url(assets/cropped_image.jpg) no-repeat;
-background-size: cover;
-background-position: center;
-
-        
-
-}
-
+/* 
 .wrapper {
 
         position: absolute;
@@ -205,9 +226,9 @@ background-position: center;
 
     
 
-}
+} */
 
-.wrapper.active-popup {
+/* .wrapper.active-popup {
 
         opacity: 1;
         pointer-events: auto;
@@ -464,7 +485,7 @@ background-position: center;
 
 }
 
-a box-icon {margin-left: 40px;}
+a box-icon {margin-left: 40px;} */
 
 /* FOOTER */
 
@@ -558,5 +579,19 @@ footer {
       }
 
 
+      #loadingIndicator {
+        display: none;
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+
 /* VENMO LOGO POSITION */
-      .container box-icon {margin-left: 64px;}
+      .container box-icon {margin: auto;}
+
+    .venmo-tile {display: flex;
+                 flex-direction: column;
+                 text-align: right;
+                           
+}

@@ -17,31 +17,26 @@
       gtag('config', 'G-WN2J1CN6FY');
     </script>
    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-   <style>
-    #loadingIndicator {
-        display: none;
-        width: 50px;
-        height: 50px;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 9999;
-    }
-</style>
+   
+    
+
     <title>Jewish Times</title>
 </head>
 <body>
 
 
   <header>
-    <h2 class="logo">JTIMES.ORG</h2>
+    <div class="mobileCenter">
+      <h2 class="logo">JTIMES.ORG</h2>
+    </div>
       <nav class="navigation">
           <a href="index.html" class="active">Home</a>
           <a href="about.html">About</a>
           <a href="careers.html">Careers</a>
           <a href="market.html">Marketplace</a>
+          <!--To do: add SSO enabling login-->
           <!--<button class="btnLogin-popup">Login</button>-->
+          <!--To do: add SSO enabling login-->
       </nav>
   </header>
 
@@ -49,6 +44,7 @@
 
 
 <section class="section">
+  <!--To do: add SSO enabling login-->
   <!--<div class="wrapper">
     <span class="icon-close">
       <box-icon name='x'></box-icon>
@@ -129,34 +125,40 @@
       </a>
     </div>
   </div>-->
-
+<!--To do: add SSO enabling login-->
 
 
   <div class="container">
-  
     <a style="text-decoration: none;" href="https://venmo.com/shabbat-shalom" target="_blank">
-      <box-icon type='logo' name='venmo' size="lg" animation="tada-hover"></box-icon>
-        <br><br><span>Help support this project!</span>
-    </a> 
-  
+      <div class="venmo-tile">
+        <div class="mobileCenter">
+        <box-icon type='logo' name='venmo' size="lg" animation="tada-hover"></box-icon></div>
+        <p>We ask you, humbly, to help. 🙏 <br> Help, support this project! 📝 <br> Donate tzedakah with Venmo. 🤩 </p>
+      </div> 
+    </a>
+
     <div class="card" data-tilt>
       <div id="inputContainer">
         <label for="zipCodeInput">Enter Zip Code:</label>
-        <input type="text" id="zipCodeInput">
+        <input type="text" id="zipCodeInput" minLength="5" maxLength="5" required>
         <button onclick="searchShabbatTimes()">Search</button>
         <button onclick="useCurrentLocation()">Use Current Location</button>
         <button onclick="resetSearch()">Reset</button>
     </div>
+    
     <div id="shabbatTimes"></div>
       <div id="loadingIndicator">
-        <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" alt="Loading..." style="width:45%; margin-top: 14px;">
+        <img src="assets/loader.gif" alt="Loading...">
       </div>
     </div>
+
+    <div class="card" id="monkeyPatch" data-tilt>
+      <a href="market.html">Marketplace</a>
+    </div>
+
   </div>
-
-
-
 </section>
+
 
 <footer>
   <div class="footer-content">
