@@ -131,3 +131,6 @@ dist
 
 # python venv
 pyth/venv
+
+#vscode
+.vscode
