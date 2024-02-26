@@ -1,0 +1,607 @@
+
+/* GLOBAL CSS */
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Helvetica", sans-serif;
+        }
+
+/* BACKGROUND */
+
+.container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        offset: 10px;
+        justify-content: center;
+
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 768px) {
+        #monkeyPatch {
+                display: none;
+        }
+}
+
+@media (max-height: 684px) {
+        #monkeyPatch {
+                display: none;
+        }
+        #mPatch {
+                margin-top: 120px;
+        }
+}
+
+@media (max-width: 768px) {
+        .container {
+        flex-direction: column;
+        }
+        .navigation {
+                display: none;
+        }
+
+        .mobileCenter {margin: auto;}
+        .footer-content {
+                overflow-x: hidden;
+        }
+        .footer-content h1 {
+                display: none;
+                /* to do: fix links alignment  */
+        }
+}
+/* CARD */
+
+.card {
+        
+        width: 90%;
+        max-width: 350px;
+        color: #000000;
+        text-align: center;
+        padding: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        margin: 50px;
+
+}
+        
+.card h1 {
+
+        font-size: 40px;
+        font-weight: 600;
+        margin-top: 0px;
+
+}
+
+
+
+.card p {
+
+  font-size: 18px;
+  margin: 10px auto;
+  max-width: 330px;
+
+}
+
+/* CARD INFO */
+
+div.hebcal-container {
+ font-family: "Helvetica","Gill Sans",GillSans,Arial,Helvetica,sans-serif;
+ font-size: 18px;
+}
+div.hebcal-container div h3 {
+ font-family: Helvetica,Palatino,"Times New Roman",Times,serif;
+}
+div.hebcal-container div ul.hebcal-results { list-style-type: none }
+div.hebcal-container div ul.hebcal-results li {
+  margin: 10px 10px;
+  font-size: 12px;
+  font-weight: 200;
+  line-height: normal;
+}
+div.hebcal-container div div.hebcal-results .candles { color: red; font-size: 10px;}
+div.hebcal-container div div.hebcal-results .havdalah { color: green }
+div.hebcal-container div div.hebcal-results .parashat { color: black; background: #ff9 }
+div.hebcal-container div div.hebcal-results .holiday { display: none }
+
+a:link {color: #4f4f4f}
+
+a:visited {color: #4f4f4f}
+
+
+
+.copyright {font-size: 5px; color: rgba(0, 0, 0, 0.2);}
+
+a.text-nowrap {color: #4f4f4f;}
+
+
+
+
+/* HEADER & NAVBAR */
+
+body {       
+        min-height: 100vh;
+        max-width: 100%;
+        overflow-x: hidden;
+        background-image: url("../assets/background.JPG");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+}
+
+header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99;
+        
+}
+
+.logo {
+        font-size: 1.75rem;
+        color: rgb(0, 0, 0);
+        pointer-events: none;
+}
+
+.navigation a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        padding: 6px 15px;
+        border-radius: 20px;
+        margin: 0 10px;
+        font-weight: 600;
+        font-size: 18px;
+        margin-right: 40px;
+}
+/* mobile nav */
+
+.card a {
+        text-decoration: underline;
+        color: rgb(0, 0, 0);
+        padding: 6px 15px;
+        border-radius: 20px;
+        margin: 0 10px;
+        font-weight: 600;
+        font-size: 18px;
+}
+/* mobile nav */
+
+.navigation button {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        padding: 6px 15px;
+        border-radius: 20px;
+        margin: 0 10px;
+        font-weight: 600;
+        font-size: 19.5px;
+        margin-right: 40px;
+}
+
+.navigation a:hover, .navigation button:hover, .navigation a.active {
+        background: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        
+}
+
+.navigation .btnLogin-popup {
+        position: relative;
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+}
+
+.navigation .btnLogin-popup::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 100%;
+        height: 2px;
+        color: white;
+        opacity: 0.85;
+}
+
+/* 
+.wrapper {
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 450px;
+        height: 100%;
+        background: transparent;
+        backdrop-filter: blur(15px);
+        box-shadow: -1px 0 10px rgba(0, 0, 0, 0.2);
+        border-left: 2px solid rgba(255, 255, 255, 0.1);
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        opacity: 0;
+        pointer-events: none;
+
+    
+
+} */
+
+/* .wrapper.active-popup {
+
+        opacity: 1;
+        pointer-events: auto;
+
+}
+
+.icon-close {
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 65px;
+        height: 65px;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 10px;
+
+
+}
+
+.icon-close box-icon {
+
+        font-size: 32px;
+        color: #333;
+
+}
+
+.wrapper .logreg-box {
+
+        width: 100%;
+        
+
+}
+
+.wrapper .form-box.login {
+
+        display: block;
+}
+
+.wrapper.active .form-box.login {
+
+        display: none;
+}
+
+.wrapper .form-box.register {
+        
+        display: none;
+
+}
+.wrapper.active .form-box.register {
+        
+        display: block;
+
+}
+
+.logreg-box .logreg-title {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #000000;
+}
+
+.logreg-title h2 {
+
+        font-size: 32px;
+
+}
+
+.logreg-title p {
+
+        font-size: 14px;
+        font-weight: 500;
+
+}
+
+
+.logreg-box .input-box {
+
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+        border-bottom: 2px solid #000000;
+
+}
+
+.input-box input {
+
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: #000000;
+        font-weight: 500;
+        padding-right: 25px;
+
+
+
+}
+
+.input-box label {
+
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #000000;
+        font-weight: 500;
+        pointer-events: none;
+        transition: .5s;
+
+
+}
+
+.input-box input:focus~label, .input-box input:valid~label {
+
+        top: -5px;
+
+}
+
+.input-box .icon {
+
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        font-size: 19px;
+        color: #fff;
+
+}
+
+.logreg-box .remember-forgot {
+
+        font-size: 14.5px;
+        color: #000000;
+        font-weight: 500;
+        margin: -15px 0 15px;
+        display: flex;
+        justify-content: space-between;
+
+
+}
+
+.remember-forgot label input {
+
+        accent-color: #000000;
+        margin-right: 3px;        
+
+}
+
+.remember-forgot a {
+
+        color: #4f4f4f;
+        text-decoration: underline;
+}
+
+.remember-forgot a:hover {
+        text-decoration: none;
+        color: #000000;
+}
+
+.logreg-box .btn {
+
+        width: 100%;
+        height: 45px;
+        background: #000000;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        font-size: 16px;
+        color: #ffffff;
+        font-weight: 600;
+
+
+
+}
+
+.logreg-box .logreg-link {
+
+        font-size: 14.5px;
+        color: #000000;
+        text-align: center;
+        font-weight: 500;
+        margin: 25px 0 15px;
+
+
+}
+
+.logreg-link p a {
+
+        color: #4f4f4f;
+        text-decoration: underline;
+        font-weight: 600;
+
+}
+
+.logreg-link p a:hover {
+
+        text-decoration: none;
+        color: #000000;
+
+
+}
+
+.media-options {
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+}
+
+.media-options a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        background: transparent;
+        border: 2px solid #000000;
+        margin: 10px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 40px;
+        color: #000000;
+        text-decoration: none;
+        transition: .5s;
+
+}
+
+.media-options a:hover {
+
+        background: rgba(118, 118, 118, 0.7);
+
+}
+
+.media-options a box-icon {
+
+        font-size: 22px;
+        margin: 0 8px 1.5px 0;
+
+}
+
+.media-options a span {
+
+        font-size: 16px;
+        font-weight: 500;
+
+}
+
+a box-icon {margin-left: 40px;} */
+
+/* FOOTER */
+
+footer {
+        background-color: black;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .footer-content h1 {
+        margin-left: 30px;
+    }
+    
+    .footer-content nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-content nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+        position: relative;
+    }
+    
+    .footer-content nav ul li:last-child {
+        margin-right: 0;
+    }
+    
+    .footer-content nav ul li a {
+        color: white;
+        text-decoration: none;
+        position: relative;
+    }
+    
+    .footer-content nav ul li a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        height: 2px;
+        width: 0;
+        background-color: white;
+        transition: width 0.625s ease;
+    }
+    
+    .footer-content nav ul li a:hover::after {
+        width: 100%;
+    }
+    
+    .social-media {
+        display: flex;
+        align-items: center;
+        padding-right: 30px; /* Add padding to the right */
+    }
+
+
+
+
+
+    /* ZIP CODE ENTRY STYLING */
+
+    #inputContainer input {border: 2px solid rgb(0, 0, 0);
+        border-radius: 4px; margin-bottom: 7px;}
+
+    #inputContainer button {padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px; 
+        transition-duration: 0.4s;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    
+
+        }
+
+    #inputContainer button:hover {
+        background-color: #000000; /* Green */
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+
+
+      #loadingIndicator {
+        display: none;
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+
+/* VENMO LOGO POSITION */
+      .container box-icon {margin: auto;}
+
+    .venmo-tile {display: flex;
+                 flex-direction: column;
+                 text-align: right;
+                           
+}
