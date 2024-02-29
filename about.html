@@ -90,16 +90,28 @@
             opacity: 0.85;
         }
 
-        .container {
+        .container-team {
             max-width: 800px;
-            margin: 120px auto;
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container-about {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        h1,
+        h2,
         p {
             text-align: center;
             margin-bottom: 20px;
@@ -145,6 +157,7 @@
 
         
     </style>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 
 <body>
@@ -159,25 +172,27 @@
     </header>
 
     <section id="team" class="team-section">
-        <div class="container">
+        <div class="container-team">
           <h2 class="section-title">Meet the Team</h2>
           <div class="team-members-container">
             <div class="team-member">
-              <img src="team-member1.jpg" alt="X" class="team-member-img">
-              <h3 class="team-member-name">X</h3>
+              <!-- <img src="team-member1.jpg" alt="X" class="team-member-img"> -->
+              <box-icon name='wink-tongue' size='lg' animation='spin'></box-icon> <br>
+              <br><h3 class="team-member-name">X</h3>
               <p class="team-member-role">Co-founder</p>
             </div>
             <div class="team-member">
-              <img src="team-member2.jpg" alt="Y" class="team-member-img">
-              <h3 class="team-member-name">Y</h3>
+              <box-icon name='cool' size='lg' animation='spin'></box-icon> <br>
+              <!-- <img src="team-member2.jpg" alt="Y" class="team-member-img"> -->
+              <br><h3 class="team-member-name">Y</h3>
               <p class="team-member-role">Co-founder</p>
             </div>
           </div>
         </div>
       </section>
       
-    <div class="container">
-        <h1>About JTimes.org</h1>
+    <div class="container-about">
+        <h2>About JTimes.org</h2>
         <p>
           Welcome to JTimes.org! 🌟🕍✨ 
           <br><br>
