@@ -91,34 +91,42 @@
 
 /* CARD INFO */
 
+/* #shabbatTimes a {font-size: 18px; margin: 0; padding: 0;} */
+
 div.hebcal-container {
  font-family: "Helvetica","Gill Sans",GillSans,Arial,Helvetica,sans-serif;
- font-size: 18px;
 }
+
 div.hebcal-container div h3 {
- font-family: Helvetica,Palatino,"Times New Roman",Times,serif;
+ font-family: Helvetica,Palatino,"Times New Roman",Times,serif; font-size: 18px; /* applies to location */
 }
-div.hebcal-container div ul.hebcal-results { list-style-type: none }
+
+
+div.hebcal-container div ul.hebcal-results { list-style-type: none;}
 div.hebcal-container div ul.hebcal-results li {
-  margin: 10px 10px;
-  font-size: 12px;
+  margin: 6px 0;
+  font-size: 14px; /* applies to everything below the location, but copy */
   font-weight: 200;
   line-height: normal;
+  
 }
+
+div.hebcal-container div ul.hebcal-results a {font-size: 16px; text-decoration: underline;} /* applies to parsha */
+
 div.hebcal-container div div.hebcal-results .candles { color: red; font-size: 10px;}
 div.hebcal-container div div.hebcal-results .havdalah { color: green }
 div.hebcal-container div div.hebcal-results .parashat { color: black; background: #ff9 }
 div.hebcal-container div div.hebcal-results .holiday { display: none }
 
-a:link {color: #4f4f4f}
+a:link {color: #4f4f4f;}
 
 a:visited {color: #4f4f4f}
+        
+.copyright {font-size: 6px; color: black} /* applies to copy */
+
+div.hebcal-container div a {font-size: 6px; padding: 0; margin: 0; text-decoration: none;} /* applies to copy */
 
 
-
-.copyright {font-size: 5px; color: rgba(0, 0, 0, 0.2);}
-
-a.text-nowrap {color: #4f4f4f;}
 
 
 
@@ -578,6 +586,7 @@ footer {
         transition-duration: 0.4s;
         border-radius: 4px;
         margin-bottom: 10px;
+        background-color: white;
     
 
         }

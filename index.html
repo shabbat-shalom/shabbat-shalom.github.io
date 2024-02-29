@@ -146,11 +146,12 @@
     <div class="card" data-tilt>
       <div id="inputContainer">
         <label for="zipCodeInput">Enter Zip Code:</label>
-        <input type="text" id="zipCodeInput" minLength="5" maxLength="5" required>
-        <button onclick="searchShabbatTimes()">Search</button>
+        <input type="text" id="zipCodeInput" minlength="5" maxlength="5" required>
+        <button onclick="validateAndSearch()">Search</button>
         <button onclick="useCurrentLocation()">Use Current Location</button>
         <button onclick="resetSearch()">Reset</button>
     </div>
+    
     
     <div id="shabbatTimes"></div>
       <div id="loadingIndicator">
@@ -187,6 +188,15 @@
 
 
 <script>
+function validateAndSearch() {
+    var zipCode = document.getElementById("zipCodeInput").value;
+    if (zipCode.length < 5) {
+        alert("Please enter a valid zip code with at least 5 characters.");
+        return;
+    }
+    searchShabbatTimes();
+}
+  
   function searchShabbatTimes() {
       var inputContainer = document.getElementById("inputContainer");
       var zipCode = document.getElementById("zipCodeInput").value;
