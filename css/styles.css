@@ -137,12 +137,39 @@ body {
         min-height: 100vh;
         max-width: 100%;
         overflow-x: hidden;
-        background-image: url("../assets/background.JPG");
+        /* background-image: url("../assets/background.JPG");
         background-position: center;
         background-size: cover;
-        background-repeat: no-repeat;
-
+        background-repeat: no-repeat; */
+        height: 100vh;
+        background: linear-gradient(to right, #00b4d8, #0077b6, #90e0ef, #0077b6, #00b4d8, #0077b6);
+        background-size: 1600% 1100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        animation: hero-fadeIn 10s ease forwards, gradient-morph 30s infinite;
 }
+
+@keyframes hero-fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes gradient-morph {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
 
 header {
         position: absolute;
@@ -508,6 +535,10 @@ a box-icon {margin-left: 40px;} */
 /* FOOTER */
 
 footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
         background-color: black;
         color: white;
         padding: 20px 0;
@@ -612,5 +643,6 @@ footer {
     .venmo-tile {display: flex;
                  flex-direction: column;
                  text-align: right;
+                 color: #000000;
                            
 }
