@@ -1,272 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <!-- Meta Data -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A reference for Shabbat Times and a space for Jews on the World Wide Web">
-    <meta name="keywords" content="Shabbat, Zmanim, Jew, Jewish, Shalom, Shabbat Times, Sunset, Sunrise, Tzais, Kochavim, Tzais Hakochavim, 613, Shabbat start, Shabbat end, Shabbos times, Jew time, Jewish Times, Jewishtimes.org">
-    <meta name="robots" content="index, follow">
-     <!-- Styling -->
-    <link href="css/styles.css" rel="stylesheet">
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6549017979650711"
-     crossorigin="anonymous"></script>
-     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN2J1CN6FY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WN2J1CN6FY');
-    </script>
-     <!-- Boxicons -->
-   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <title>Shabbat Times - Jewish Times</title>
+
+<!-- =====================================META DATA===================================== -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A reference for Shabbat Times and a space for Jews on the World Wide Web">
+<meta name="keywords" content="Shabbat, Zmanim, Jew, Jewish, Shalom, Shabbat Times, Sunset, Sunrise, Tzais, Kochavim, Tzais Hakochavim, 613, Shabbat start, Shabbat end, Shabbos times, Jew time, Jewish Times, Jewishtimes.org">
+<meta name="robots" content="index, follow">
+<!-- =====================================CSS===================================== -->
+<link href="css/styles.css" rel="stylesheet">
+<!-- =====================================GOOGLE ADS===================================== -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6549017979650711"
+crossorigin="anonymous"></script>
+<!-- =====================================GOOGLE ANALYICS=====================================s -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WN2J1CN6FY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WN2J1CN6FY');
+</script>
+<!-- =====================================BOXICONS===================================== -->
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
    
     
 
-    <title>Shabbat Times - Jewish Times</title>
 </head>
+
+
+
+
+
 <body>
 
 
-  <header>
-    <div class="mobileCenter">
-      <h2 class="logo">JTIMES.ORG</h2>
+  <img src="./assets/JTimes.png" class="center">
+  
+  <div class="card">
+    <div id="inputContainer">
+      <h2>Shabbat Times</h2>
+      <label for="zipCodeInput">Enter Zip Code:</label>
+      <input type="text" id="zipCodeInput" minlength="5" maxlength="5" required>
+      <button onclick="validateAndSearch()">Search</button>
+      <button onclick="useCurrentLocation()">Use Current Location</button>
+      <button onclick="resetSearch()">Reset</button>
     </div>
-      <nav class="navigation">
-          <a href="index.html" class="active">Home</a>
-          <a href="about.html">About</a>
-          <a href="careers.html">Careers</a>
-          <a href="market.html">Marketplace</a>
-          <!--To do: add SSO enabling login-->
-          <!--<button class="btnLogin-popup">Login</button>-->
-          <!--To do: add SSO enabling login-->
-      </nav>
-  </header>
+    <div id="loadingIndicator" style="display: none;">
+    </div>
+    <div id="shabbatTimes">
+    </div>
+  </div>
+    
 
 
-
-
-<section class="section">
-  <!--To do: add SSO enabling login-->
-  <!--<div class="wrapper">
-    <span class="icon-close">
-      <box-icon name='x'></box-icon>
-    </span>
-    <div class="logreg-box">
-
-
-
-      <div class="form-box login">
-        <div class="logreg-title">
-          <h2>Login</h2>
-          <p>Login to access JTimes</p>
+  <div class="card">
+    <a style="text-decoration: none;" href="/" target="_blank" id="mPatch">
+      <div class="venmo-tile">
+        <div class="mobileCenter">
+          <box-icon type='solid' name='food-menu' size="lg" animation="tada-hover"></box-icon>
         </div>
-            <form action="#">
-              <div class="input-box">
-                <span class="icon"><box-icon type='solid' name='envelope'></box-icon></span>
-                <input type="email" required>
-                <label>Email</label>
-              </div>
-              <div class="input-box">
-                <span class="icon"><box-icon type='solid' name='lock-alt'></box-icon></span>
-                <input type="password" required>
-                <label>Password</label>
-              </div>
-              <div class="remember-forgot">
-                  <label><input type="checkbox">Remember me</label>
-                  <a href="#">Forgot Password?</a>
-              </div>
-              <button type="submit" class="btn">Login</button>
-              <div class="logreg-link">
-                <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
-              </div>
-            </form>
-      </div>
+        <p>
+          JTimes Cookbook
+        </p>
+        
+        <p>
+          (Coming Soon!)
+        </p>
+      </div> 
+    </a>
+  </div>
 
 
-
-      <div class="form-box register">
-        <div class="logreg-title">
-          <h2>Registration</h2>
-          <p>Create an account</p>
+  <div class="card">
+    <a style="text-decoration: none;" href="market.html" target="_blank" id="mPatch">
+      <div class="venmo-tile">
+        <div class="mobileCenter">
+          <box-icon type='solid' name='store-alt' size="lg" animation="tada-hover"></box-icon>
         </div>
-            <form action="#">
-              <div class="input-box">
-                <span class="icon"><box-icon type='solid' name='user-circle'></box-icon></span>
-                <input type="text" required>
-                <label>Full Name</label>
-              </div>
-              <div class="input-box">
-                <span class="icon"><box-icon type='solid' name='envelope'></box-icon></span>
-                <input type="email" required>
-                <label>Email</label>
-              </div>
-              <div class="input-box">
-                <span class="icon"><box-icon type='solid' name='lock-alt'></box-icon></span>
-                <input type="password" required>
-                <label>Password</label>
-              </div>
-              <div class="remember-forgot">
-                  <label><input type="checkbox">I agree to the terms & conditions</label>
-              </div>
-              <button type="submit" class="btn">Register</button>
-              <div class="logreg-link">
-                <p>Already have an account? <a href="#" class="login-link">Login</a></p>
-              </div>
-            </form>
-      </div>
 
-    </div>
-    <div class="media-options">
-      <a href="#">
-        <box-icon type='logo' name='google'></box-icon>
-        <span>Login with Google</span>
-      </a>
-      <a href="#">
-        <box-icon name='facebook-circle' type='logo' ></box-icon>
-        <span>Login with Facebook</span>
-      </a>
-    </div>
-  </div>-->
-<!--To do: add SSO enabling login-->
+        <p>
+          Shop for Shabbat
+        </p>
+      </div> 
+    </a>
+  </div>
 
-
-  <div class="container">
+  <div class="card">
     <a style="text-decoration: none;" href="https://venmo.com/shabbat-shalom" target="_blank" id="mPatch">
       <div class="venmo-tile">
         <div class="mobileCenter">
-        <box-icon type='logo' name='venmo' size="lg" animation="tada-hover"></box-icon></div>
-        <p>We ask you, humbly, to help. 🙏 <br> Help, support this project! 📝 <br> Donate tzedakah with Venmo. 🤩 </p>
+          <box-icon type='logo' name='venmo' size="lg" animation="tada-hover"></box-icon>
+        </div>
+
+        <p>
+          Help support this project! 
+        </p>
+        <p>
+          Donate with Venmo.
+        </p>
       </div> 
     </a>
-
-    <div class="card" data-tilt>
-      <div id="inputContainer">
-        <label for="zipCodeInput">Enter Zip Code:</label>
-        <input type="text" id="zipCodeInput" minlength="5" maxlength="5" required>
-        <button onclick="validateAndSearch()">Search</button>
-        <button onclick="useCurrentLocation()">Use Current Location</button>
-        <button onclick="resetSearch()">Reset</button>
-    </div>
-    
-    
-    <div id="shabbatTimes"></div>
-      <div id="loadingIndicator">
-        <img src="assets/loader.gif" alt="Loading...">
-      </div>
-    </div>
-
-    <div class="card" id="monkeyPatch" data-tilt>
-      <a href="market.html">Marketplace</a>
-    </div>
-
   </div>
-</section>
+    
+    
 
 
-<footer>
-  <div class="footer-content">
-      <h1>JTIMES.ORG</h1>
-      <nav>
-          <ul>
-              <li><a href="about.html">Mission</a></li>
-              <li><a href="careers.html">Careers</a></li>
-              <li><a href="about.html">Team</a></li>
-              <li><a href="https://venmo.com/shabbat-shalom" target="_blank">Donate</a></li>
-              <!--<li><a href="#">FAQ</a></li>-->
-          </ul>
-      </nav>
+
+
+
+    <div class="card">
+      <h3>Join the mishpacha!</h3>
+      <br>
       <div class="social-media">
-          <a href="https://www.instagram.com/jtimesorg/"><box-icon name='instagram' type='logo' color="white" animation="tada-hover"></box-icon></a>
-          <a href="https://x.com/jtimesorg?s=11"><box-icon name='twitter' type='logo' color="white" animation="tada-hover"></box-icon></a>
+          <a href="https://www.instagram.com/jtimesorg/"><box-icon name='instagram' type='logo' color="black" animation="tada-hover" size="md"></box-icon></a>
+          <a href="https://x.com/jtimesorg?s=11"><box-icon name='twitter' type='logo' color="black" animation="tada-hover" size="md"></box-icon></a>
       </div>
-  </div>
-</footer>
+    </div>
+
+
+
+
+
+    
+    
+
 
 
 <script>
+
 function validateAndSearch() {
     var zipCode = document.getElementById("zipCodeInput").value;
     if (zipCode.length < 5) {
-        alert("Please enter a valid zip code with at least 5 characters.");
+        alert("Please enter a valid zip code with at least 5 digits.");
         return;
     }
     searchShabbatTimes();
 }
-  
-  function searchShabbatTimes() {
-      var inputContainer = document.getElementById("inputContainer");
-      var zipCode = document.getElementById("zipCodeInput").value;
-      if (!zipCode) {
-          alert("Please enter a zip code.");
-          return;
-      }
-      inputContainer.style.display = "none"; // Hide input fields and buttons
-      var loadingIndicator = document.getElementById("loadingIndicator");
-      loadingIndicator.style.display = "block"; // Show loading indicator
-      fetchShabbatTimes(zipCode);
-  }
 
-  function fetchShabbatTimes(zipCode) {
-      var url = "https://www.hebcal.com/shabbat?cfg=i2&zip=" + zipCode + "&ue=off&b=18&M=on&lg=s&tgt=_top";
+function searchShabbatTimes() {
+    var zipCode = document.getElementById("zipCodeInput").value;
+    if (!zipCode) {
+        alert("Please enter a zip code.");
+        return;
+    }
+    var loadingIndicator = document.getElementById("loadingIndicator");
+    loadingIndicator.style.display = "block"; // Show loading indicator
+    fetchShabbatTimes(zipCode);
+}
 
-      fetch(url)
-          .then(response => response.text())
-          .then(data => {
-              document.getElementById("shabbatTimes").innerHTML = data;
-              hideLoadingIndicator();
-              showInputContainer();
-          })
-          .catch(error => {
-              console.error('Error fetching data:', error);
-              document.getElementById("shabbatTimes").innerHTML = "Error: Unable to fetch Shabbat times. Check the zip code and try again.";
-              hideLoadingIndicator();
-              showInputContainer();
-          });
-  }
+function fetchShabbatTimes(zipCode) {
+    var url = "https://www.hebcal.com/shabbat?cfg=i2&zip=" + zipCode + "&ue=on&b=18&M=on&lg=a&tgt=_top";
 
-  function useCurrentLocation() {
-      var inputContainer = document.getElementById("inputContainer");
-      var loadingIndicator = document.getElementById("loadingIndicator");
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("shabbatTimes").innerHTML = data;
+            hideLoadingIndicator();
+            showInputContainer();
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            document.getElementById("shabbatTimes").innerHTML = "Error: Unable to fetch Shabbat times. Check the zip code and try again.";
+            hideLoadingIndicator();
+            showInputContainer();
+        });
+}
 
-      if (navigator.geolocation) {
-          inputContainer.style.display = "none"; // Hide input fields and buttons
-          loadingIndicator.style.display = "block"; // Show loading indicator
+function hideLoadingIndicator() {
+    document.getElementById("loadingIndicator").style.display = "none";
+}
 
-          navigator.geolocation.getCurrentPosition(
-              position => {
-                  var latitude = position.coords.latitude;
-                  var longitude = position.coords.longitude;
+function useCurrentLocation() {
+    var inputContainer = document.getElementById("inputContainer");
+    var loadingIndicator = document.getElementById("loadingIndicator");
+    var zipCodeInput = document.getElementById("zipCodeInput");
+    var shabbatTimes = document.getElementById("shabbatTimes");
 
-                  var url = `https://www.hebcal.com/shabbat?cfg=i2&latitude=${latitude}&longitude=${longitude}&ue=off&b=18&M=on&lg=s&tgt=_top`;
-                  fetch(url)
-                      .then(response => response.text())
-                      .then(data => {
-                          document.getElementById("shabbatTimes").innerHTML = data;
-                          hideLoadingIndicator();
-                          showInputContainer();
-                      })
-                      .catch(error => {
-                          console.error('Error fetching data:', error);
-                          document.getElementById("shabbatTimes").innerHTML = "Error: Unable to fetch Shabbat times. Please try again.";
-                          hideLoadingIndicator();
-                          showInputContainer();
-                      });
-              },
-              error => {
-                  console.error('Error getting location:', error);
-                  alert("Error: Unable to retrieve your location. Please make sure location services are enabled and try again.");
-                  hideLoadingIndicator();
-                  showInputContainer();
-              }
-          );
-      } else {
-          alert("Geolocation is not supported by your browser.");
-      }
-  }
+    // Clear the zip code input area
+    zipCodeInput.value = "";
+
+    if (navigator.geolocation) {
+        // Hide input fields, shabbat times, and buttons
+        inputContainer.style.display = "none";
+        shabbatTimes.innerHTML = "";
+        loadingIndicator.style.display = "block"; // Show loading indicator
+
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                var url = `https://www.hebcal.com/shabbat?cfg=i2&latitude=${latitude}&longitude=${longitude}&ue=off&b=18&M=on&lg=s&tgt=_top`;
+                fetch(url)
+                    .then(response => response.text())
+                    .then(data => {
+                        shabbatTimes.innerHTML = data;
+                        hideLoadingIndicator();
+                        showInputContainer();
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                        shabbatTimes.innerHTML = "Error: Unable to fetch Shabbat times. Please try again.";
+                        hideLoadingIndicator();
+                        showInputContainer();
+                    });
+            },
+            error => {
+                console.error('Error getting location:', error);
+                alert("Error: Unable to retrieve your location. Please make sure location services are enabled and try again.");
+                hideLoadingIndicator();
+                showInputContainer();
+            }
+        );
+    } else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
 
   function resetSearch() {
       document.getElementById("zipCodeInput").value = "";
@@ -281,7 +233,6 @@ function validateAndSearch() {
       document.getElementById("inputContainer").style.display = "block";
   }
 </script>
-<script src="scripts/script.js"></script>
-<script src="scripts/vanilla-tilt.js"></script>
+
 </body>
 </html>
