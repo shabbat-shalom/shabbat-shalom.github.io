@@ -104,8 +104,8 @@ div.hebcal-container div h3 {
 
 div.hebcal-container div ul.hebcal-results { list-style-type: none;}
 div.hebcal-container div ul.hebcal-results li {
-  margin: 6px 0;
-  font-size: 14px; /* applies to everything below the location, but copy */
+  margin: 15px 0;
+  font-size: 21px; /* applies to everything below the location, but copy */
   font-weight: 200;
   line-height: normal;
   
