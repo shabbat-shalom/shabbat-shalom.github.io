@@ -41,77 +41,37 @@ crossorigin="anonymous"></script>
   
   <div class="card">
     <div id="inputContainer">
-      <h2>Shabbat Times</h2>
+      <h2 style="margin-bottom: 5px;">Shabbat Times & Zmanim</h2>
       <label for="zipCodeInput">Enter Zip Code:</label>
       <input type="text" id="zipCodeInput" minlength="5" maxlength="5" required>
       <button onclick="validateAndSearch()">Search</button>
       <button onclick="useCurrentLocation()">Use Current Location</button>
       <button onclick="resetSearch()">Reset</button>
+      <button onclick="copyToClipboard()" id="copyButton" style="display: none;">Copy to Clipboard</button>
     </div>
     <div id="loadingIndicator" style="display: none;">
     </div>
     <div id="shabbatTimes">
     </div>
+    <div id="copyFeedback" style="display: none; color: rgb(0, 0, 0); margin-top: 10px;">Shabbat times copied to clipboard!</div>
   </div>
     
 
 
-  <div class="card">
-    <a style="text-decoration: none;" href="/" target="_blank" id="mPatch">
-      <div class="venmo-tile">
-        <div class="mobileCenter">
-          <box-icon type='solid' name='food-menu' size="lg" animation="tada-hover"></box-icon>
-        </div>
-        <p>
-          JTimes Cookbook
-        </p>
-        
-        <p>
-          (Coming Soon!)
-        </p>
-      </div> 
-    </a>
-  </div>
+  
 
 
-  <div class="card">
-    <a style="text-decoration: none;" href="market.html" target="_blank" id="mPatch">
-      <div class="venmo-tile">
-        <div class="mobileCenter">
-          <box-icon type='solid' name='store-alt' size="lg" animation="tada-hover"></box-icon>
-        </div>
+  
 
-        <p>
-          Shop for Shabbat
-        </p>
-      </div> 
-    </a>
-  </div>
+  
 
-  <div class="card">
-    <a style="text-decoration: none;" href="https://venmo.com/shabbat-shalom" target="_blank" id="mPatch">
-      <div class="venmo-tile">
-        <div class="mobileCenter">
-          <box-icon type='logo' name='venmo' size="lg" animation="tada-hover"></box-icon>
-        </div>
-
-        <p>
-          Help support this project! 
-        </p>
-        <p>
-          Donate with Venmo.
-        </p>
-      </div> 
-    </a>
-  </div>
-    
     
 
 
 
 
 
-    <div class="card">
+    <div class="card" style="margin-bottom: 75px;">
       <h3>Join the mishpacha!</h3>
       <br>
       <div class="social-media">
@@ -126,7 +86,15 @@ crossorigin="anonymous"></script>
 
     
     
-
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('jtimes', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Ko-Fi',
+        'floating-chat.donateButton.background-color': '#00b9fe',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
 
 
 <script>
@@ -160,12 +128,14 @@ function fetchShabbatTimes(zipCode) {
             document.getElementById("shabbatTimes").innerHTML = data;
             hideLoadingIndicator();
             showInputContainer();
+            document.getElementById("copyButton").style.display = "inline-block"; // Show the copy button
         })
         .catch(error => {
             console.error('Error fetching data:', error);
             document.getElementById("shabbatTimes").innerHTML = "Error: Unable to fetch Shabbat times. Check the zip code and try again.";
             hideLoadingIndicator();
             showInputContainer();
+            document.getElementById("copyButton").style.display = "none"; // Hide the copy button
         });
 }
 
@@ -200,12 +170,14 @@ function useCurrentLocation() {
                         shabbatTimes.innerHTML = data;
                         hideLoadingIndicator();
                         showInputContainer();
+                        document.getElementById("copyButton").style.display = "inline-block"; // Show the copy button
                     })
                     .catch(error => {
                         console.error('Error fetching data:', error);
                         shabbatTimes.innerHTML = "Error: Unable to fetch Shabbat times. Please try again.";
                         hideLoadingIndicator();
                         showInputContainer();
+                        document.getElementById("copyButton").style.display = "none"; // Hide the copy button
                     });
             },
             error => {
@@ -220,18 +192,45 @@ function useCurrentLocation() {
     }
 }
 
-  function resetSearch() {
-      document.getElementById("zipCodeInput").value = "";
-      document.getElementById("shabbatTimes").innerHTML = "";
-  }
+function copyToClipboard() {
+  const shabbatTimesDiv = document.getElementById("shabbatTimes");
+  const textToCopy = shabbatTimesDiv.innerText;
+  const copyFeedback = document.getElementById("copyFeedback");
 
-  function hideLoadingIndicator() {
-      document.getElementById("loadingIndicator").style.display = "none";
-  }
+  navigator.clipboard.writeText(textToCopy).then(function() {
+    // Show feedback message
+    copyFeedback.style.display = "block";
+    
+    // Hide feedback message after 2 seconds
+    setTimeout(function() {
+      copyFeedback.style.display = "none";
+    }, 2000);
+  }, function(err) {
+    console.error('Could not copy text: ', err);
+    copyFeedback.textContent = "Failed to copy. Please try again.";
+    copyFeedback.style.color = "red";
+    copyFeedback.style.display = "block";
+    
+    // Hide error message after 3 seconds
+    setTimeout(function() {
+      copyFeedback.style.display = "none";
+    }, 3000);
+  });
+}
 
-  function showInputContainer() {
-      document.getElementById("inputContainer").style.display = "block";
-  }
+function resetSearch() {
+    document.getElementById("zipCodeInput").value = "";
+    document.getElementById("shabbatTimes").innerHTML = "";
+    document.getElementById("copyButton").style.display = "none"; // Hide the copy button
+}
+
+function hideLoadingIndicator() {
+    document.getElementById("loadingIndicator").style.display = "none";
+}
+
+function showInputContainer() {
+    document.getElementById("inputContainer").style.display = "block";
+}
 </script>
 
 </body>
