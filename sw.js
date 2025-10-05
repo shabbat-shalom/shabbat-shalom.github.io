@@ -14,6 +14,7 @@ const CORE_ASSETS = [
 	'/css/styles.css',
 	'/app.js',
 	'/manifest.webmanifest',
+	'/logo.png',
 	'/assets/JTimes.png',
 	'/assets/candles.jpg',
 	'/assets/challah cover.jpg',

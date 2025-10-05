@@ -14,19 +14,19 @@
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "/assets/JTimes.png",
+      "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/assets/JTimes.png",
+      "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/assets/JTimes.png",
+      "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -34,7 +34,7 @@
   ],
   "screenshots": [
     {
-      "src": "/assets/JTimes.png",
+      "src": "/logo.png",
       "sizes": "540x720",
       "type": "image/png",
       "form_factor": "narrow"
@@ -48,7 +48,7 @@
       "url": "/?shortcut=times",
       "icons": [
         {
-          "src": "/assets/JTimes.png",
+          "src": "/logo.png",
           "sizes": "192x192",
           "type": "image/png"
         }
@@ -61,7 +61,7 @@
       "url": "/market.html?shortcut=marketplace",
       "icons": [
         {
-          "src": "/assets/JTimes.png",
+          "src": "/logo.png",
           "sizes": "192x192",
           "type": "image/png"
         }
