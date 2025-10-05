@@ -1,237 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <title>Shabbat Times - Jewish Times</title>
-
-<!-- =====================================META DATA===================================== -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A reference for Shabbat Times and a space for Jews on the World Wide Web">
-<meta name="keywords" content="Shabbat, Zmanim, Jew, Jewish, Shalom, Shabbat Times, Sunset, Sunrise, Tzais, Kochavim, Tzais Hakochavim, 613, Shabbat start, Shabbat end, Shabbos times, Jew time, Jewish Times, Jewishtimes.org">
-<meta name="robots" content="index, follow">
-<!-- =====================================CSS===================================== -->
-<link href="css/styles.css" rel="stylesheet">
-<!-- =====================================GOOGLE ADS===================================== -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6549017979650711"
-crossorigin="anonymous"></script>
-<!-- =====================================GOOGLE ANALYICS=====================================s -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WN2J1CN6FY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-WN2J1CN6FY');
-</script>
-<!-- =====================================BOXICONS===================================== -->
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-   
-    
-
+  <!-- ===================================== META DATA ===================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Shabbat Times - Jewish Times | Find Accurate Shabbat & Zmanim</title>
+  <meta name="description" content="Find accurate Shabbat times and Zmanim for your location. A modern reference for Jewish times on the World Wide Web. Search by zip code or use your current location.">
+  <meta name="keywords" content="Shabbat, Zmanim, Jew, Jewish, Shalom, Shabbat Times, Sunset, Sunrise, Tzais, Kochavim, Tzais Hakochavim, 613, Shabbat start, Shabbat end, Shabbos times, Jew time, Jewish Times, Jewishtimes.org">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Jewish Times">
+  
+  <!-- ===================================== OPEN GRAPH ===================================== -->
+  <meta property="og:title" content="Shabbat Times - Jewish Times">
+  <meta property="og:description" content="Find accurate Shabbat times and Zmanim for your location">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shabbat-shalom.github.io/">
+  <meta property="og:image" content="https://shabbat-shalom.github.io/assets/JTimes.png">
+  
+  <!-- ===================================== TWITTER CARD ===================================== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shabbat Times - Jewish Times">
+  <meta name="twitter:description" content="Find accurate Shabbat times and Zmanim for your location">
+  <meta name="twitter:image" content="https://shabbat-shalom.github.io/assets/JTimes.png">
+  
+  <!-- ===================================== FONTS ===================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- ===================================== CSS ===================================== -->
+  <link href="css/styles.css" rel="stylesheet">
+  
+  <!-- ===================================== PWA MANIFEST ===================================== -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0038b8">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- iOS standalone mode & status bar -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JTimes">
+  <link rel="apple-touch-icon" href="/assets/JTimes.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="shortcut icon" href="/logo.png">
+  
+  <!-- ===================================== GOOGLE ADS ===================================== -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6549017979650711" crossorigin="anonymous"></script>
+  
+  <!-- ===================================== GOOGLE ANALYTICS ===================================== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN2J1CN6FY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WN2J1CN6FY');
+  </script>
+  
+  <!-- ===================================== BOXICONS ===================================== -->
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 
-
-
-
-
 <body>
-
-
-  <img src="./assets/JTimes.png" class="center">
-  
-  <div class="card">
-    <div id="inputContainer">
-      <h2 style="margin-bottom: 5px;">Shabbat Times & Zmanim</h2>
-      <label for="zipCodeInput">Enter Zip Code:</label>
-      <input type="text" id="zipCodeInput" minlength="5" maxlength="5" required>
-      <button onclick="validateAndSearch()">Search</button>
-      <button onclick="useCurrentLocation()">Use Current Location</button>
-      <button onclick="resetSearch()">Reset</button>
-      <button onclick="copyToClipboard()" id="copyButton" style="display: none;">Copy to Clipboard</button>
+  <!-- Hero Section -->
+  <header class="hero-section" role="banner">
+    <div class="logo-container">
+      <img src="logo.png" alt="Shabbat Shalom Logo" width="120" height="120">
     </div>
-    <div id="loadingIndicator" style="display: none;">
+    <div class="hero-text">
+      <h1 class="main-title">Shabbat Times & Zmanim</h1>
+      <p class="subtitle">Find accurate Shabbat times for your location</p>
     </div>
-    <div id="shabbatTimes">
-    </div>
-    <div id="copyFeedback" style="display: none; color: rgb(0, 0, 0); margin-top: 10px;">Shabbat times copied to clipboard!</div>
-  </div>
     
+    <button id="install-btn" class="btn-install" hidden aria-label="Install app">
+      <box-icon name='download' color='#ffffff' size='xs'></box-icon>
+      Install App
+    </button>
+  </header>
 
-
-  
-
-
-  
-
-  
-
-    
-
-
-
-
-
-    <div class="card" style="margin-bottom: 75px;">
-      <h3>Join the mishpacha!</h3>
-      <br>
-      <div class="social-media">
-          <a href="https://www.instagram.com/jtimesorg/"><box-icon name='instagram' type='logo' color="black" animation="tada-hover" size="md"></box-icon></a>
-          <a href="https://x.com/jtimesorg?s=11"><box-icon name='twitter' type='logo' color="black" animation="tada-hover" size="md"></box-icon></a>
+  <!-- Main Content -->
+  <main class="main-container">
+    <div class="card">
+      <div id="inputContainer">
+        <div class="input-group">
+          <label for="zipCodeInput" class="input-label">
+            ZIP CODE
+          </label>
+          <input 
+            type="text" 
+            id="zipCodeInput" 
+            placeholder="Enter 5-digit zip code" 
+            minlength="5" 
+            maxlength="5" 
+            inputmode="numeric"
+            pattern="[0-9]{5}"
+            aria-label="Zip code input"
+            required>
+        </div>
+        
+        <div class="button-grid">
+          <button onclick="validateAndSearch()" class="btn btn-primary" aria-label="Search Shabbat times">
+            <box-icon name='search' color='#ffffff' size='xs'></box-icon>
+            Search
+          </button>
+          <button onclick="useCurrentLocation()" class="btn btn-secondary" aria-label="Use current location">
+            <box-icon name='current-location' type='solid' color='#ffffff' size='xs'></box-icon>
+            Current Location
+          </button>
+        </div>
+        
+        <div class="action-buttons">
+          <button onclick="resetSearch()" class="btn btn-ghost" aria-label="Reset search">
+            <box-icon name='reset' color='#0038b8' size='xs'></box-icon>
+            Reset
+          </button>
+          <button onclick="copyToClipboard()" id="copyButton" class="btn btn-ghost" style="display: none;" aria-label="Copy times to clipboard">
+            <box-icon name='copy' color='#0038b8' size='xs'></box-icon>
+            Copy Times
+          </button>
+        </div>
+      </div>
+      
+      <div id="loadingIndicator" style="display: none;" role="status" aria-live="polite">
+        <div class="loader" aria-hidden="true"></div>
+        <p class="loading-text">Fetching Shabbat times...</p>
+      </div>
+      
+      <div id="shabbatTimes" role="region" aria-live="polite" aria-label="Shabbat times results"></div>
+      
+      <div id="copyFeedback" class="feedback-message" style="display: none;" role="alert">
+        <box-icon name='check-circle' type='solid' color='#10b981' size='sm'></box-icon>
+        Shabbat times copied to clipboard!
       </div>
     </div>
+  </main>
 
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <h3 class="footer-title">Join the mishpacha!</h3>
+      <p class="footer-subtitle">Stay connected with our community</p>
+      
+      <nav class="social-media" aria-label="Social media links">
+        <a href="https://www.instagram.com/jtimesorg/" class="social-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+          <box-icon name='instagram' type='logo' color="#ffffff" size="md"></box-icon>
+        </a>
+        <a href="https://x.com/jtimesorg?s=11" class="social-link" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer">
+          <box-icon name='twitter' type='logo' color="#ffffff" size="md"></box-icon>
+        </a>
+      </nav>
+      
+      <nav class="navigation" aria-label="Site navigation" style="margin-top: 1rem;">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="market.html">Marketplace</a>
+      </nav>
+      
+      <p class="footer-copyright">© 2025 Jewish Times. All rights reserved.</p>
+    </div>
+  </footer>
 
-
-
-
-    
-    
-<!--     <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-    <script>
-      kofiWidgetOverlay.draw('jtimes', {
-        'type': 'floating-chat',
-        'floating-chat.donateButton.text': 'Ko-Fi',
-        'floating-chat.donateButton.background-color': '#00b9fe',
-        'floating-chat.donateButton.text-color': '#fff'
-      });
-    </script> -->
-
-
-<script>
-
-function validateAndSearch() {
-    var zipCode = document.getElementById("zipCodeInput").value;
-    if (zipCode.length < 5) {
-        alert("Please enter a valid zip code with at least 5 digits.");
+  <!-- ===================================== JAVASCRIPT ===================================== -->
+  <script>
+    // Validate and search
+    function validateAndSearch() {
+      const zipCode = document.getElementById("zipCodeInput").value.trim();
+      
+      if (zipCode.length < 5) {
+        showErrorMessage("Please enter a valid 5-digit zip code.");
         return;
-    }
-    searchShabbatTimes();
-}
-
-function searchShabbatTimes() {
-    var zipCode = document.getElementById("zipCodeInput").value;
-    if (!zipCode) {
-        alert("Please enter a zip code.");
+      }
+      
+      if (!/^\d{5}$/.test(zipCode)) {
+        showErrorMessage("Please enter only numbers (5 digits).");
         return;
+      }
+      
+      searchShabbatTimes();
     }
-    var loadingIndicator = document.getElementById("loadingIndicator");
-    loadingIndicator.style.display = "block"; // Show loading indicator
-    fetchShabbatTimes(zipCode);
-}
 
-function fetchShabbatTimes(zipCode) {
-    var url = "https://www.hebcal.com/shabbat?cfg=i2&zip=" + zipCode + "&ue=on&b=18&M=on&lg=a&tgt=_top";
+    // Search Shabbat times
+    function searchShabbatTimes() {
+      const zipCode = document.getElementById("zipCodeInput").value.trim();
+      
+      if (!zipCode) {
+        showErrorMessage("Please enter a zip code.");
+        return;
+      }
+      
+      showLoadingIndicator();
+      fetchShabbatTimes(zipCode);
+    }
 
-    fetch(url)
-        .then(response => response.text())
+    // Fetch Shabbat times from Hebcal API (JSON format)
+    function fetchShabbatTimes(zipCode) {
+      const url = `https://www.hebcal.com/shabbat?cfg=json&zip=${zipCode}&b=18&M=on`;
+
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
         .then(data => {
-            document.getElementById("shabbatTimes").innerHTML = data;
-            hideLoadingIndicator();
-            showInputContainer();
-            document.getElementById("copyButton").style.display = "inline-block"; // Show the copy button
+          displayShabbatTimes(data);
+          hideLoadingIndicator();
+          showInputContainer();
+          document.getElementById("copyButton").style.display = "inline-flex";
+          
+          // Announce success to screen readers
+          announceToScreenReader("Shabbat times loaded successfully");
         })
         .catch(error => {
-            console.error('Error fetching data:', error);
-            document.getElementById("shabbatTimes").innerHTML = "Error: Unable to fetch Shabbat times. Check the zip code and try again.";
-            hideLoadingIndicator();
-            showInputContainer();
-            document.getElementById("copyButton").style.display = "none"; // Hide the copy button
+          console.error('Error fetching data:', error);
+          showErrorMessage("Unable to fetch Shabbat times. Please check the zip code and try again.");
+          hideLoadingIndicator();
+          showInputContainer();
+          document.getElementById("copyButton").style.display = "none";
         });
-}
-
-function hideLoadingIndicator() {
-    document.getElementById("loadingIndicator").style.display = "none";
-}
-
-function useCurrentLocation() {
-    var inputContainer = document.getElementById("inputContainer");
-    var loadingIndicator = document.getElementById("loadingIndicator");
-    var zipCodeInput = document.getElementById("zipCodeInput");
-    var shabbatTimes = document.getElementById("shabbatTimes");
-
-    // Clear the zip code input area
-    zipCodeInput.value = "";
-
-    if (navigator.geolocation) {
-        // Hide input fields, shabbat times, and buttons
-        inputContainer.style.display = "none";
-        shabbatTimes.innerHTML = "";
-        loadingIndicator.style.display = "block"; // Show loading indicator
-
-        navigator.geolocation.getCurrentPosition(
-            position => {
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-
-                var url = `https://www.hebcal.com/shabbat?cfg=i2&latitude=${latitude}&longitude=${longitude}&ue=off&b=18&M=on&lg=s&tgt=_top`;
-                fetch(url)
-                    .then(response => response.text())
-                    .then(data => {
-                        shabbatTimes.innerHTML = data;
-                        hideLoadingIndicator();
-                        showInputContainer();
-                        document.getElementById("copyButton").style.display = "inline-block"; // Show the copy button
-                    })
-                    .catch(error => {
-                        console.error('Error fetching data:', error);
-                        shabbatTimes.innerHTML = "Error: Unable to fetch Shabbat times. Please try again.";
-                        hideLoadingIndicator();
-                        showInputContainer();
-                        document.getElementById("copyButton").style.display = "none"; // Hide the copy button
-                    });
-            },
-            error => {
-                console.error('Error getting location:', error);
-                alert("Error: Unable to retrieve your location. Please make sure location services are enabled and try again.");
-                hideLoadingIndicator();
-                showInputContainer();
-            }
-        );
-    } else {
-        alert("Geolocation is not supported by your browser.");
     }
-}
 
-function copyToClipboard() {
-  const shabbatTimesDiv = document.getElementById("shabbatTimes");
-  const textToCopy = shabbatTimesDiv.innerText;
-  const copyFeedback = document.getElementById("copyFeedback");
+    // Use current location
+    function useCurrentLocation() {
+      const inputContainer = document.getElementById("inputContainer");
+      const loadingIndicator = document.getElementById("loadingIndicator");
+      const zipCodeInput = document.getElementById("zipCodeInput");
+      const shabbatTimes = document.getElementById("shabbatTimes");
 
-  navigator.clipboard.writeText(textToCopy).then(function() {
-    // Show feedback message
-    copyFeedback.style.display = "block";
-    
-    // Hide feedback message after 2 seconds
-    setTimeout(function() {
-      copyFeedback.style.display = "none";
-    }, 2000);
-  }, function(err) {
-    console.error('Could not copy text: ', err);
-    copyFeedback.textContent = "Failed to copy. Please try again.";
-    copyFeedback.style.color = "red";
-    copyFeedback.style.display = "block";
-    
-    // Hide error message after 3 seconds
-    setTimeout(function() {
-      copyFeedback.style.display = "none";
-    }, 3000);
-  });
-}
+      zipCodeInput.value = "";
 
-function resetSearch() {
-    document.getElementById("zipCodeInput").value = "";
-    document.getElementById("shabbatTimes").innerHTML = "";
-    document.getElementById("copyButton").style.display = "none"; // Hide the copy button
-}
+      if (!navigator.geolocation) {
+        showErrorMessage("Geolocation is not supported by your browser.");
+        return;
+      }
 
-function hideLoadingIndicator() {
-    document.getElementById("loadingIndicator").style.display = "none";
-}
+      inputContainer.style.display = "none";
+      shabbatTimes.innerHTML = "";
+      loadingIndicator.style.display = "block";
 
-function showInputContainer() {
-    document.getElementById("inputContainer").style.display = "block";
-}
-</script>
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
 
+          const url = `https://www.hebcal.com/shabbat?cfg=json&latitude=${latitude}&longitude=${longitude}&b=18&M=on`;
+          
+          fetch(url)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+            })
+            .then(data => {
+              displayShabbatTimes(data);
+              hideLoadingIndicator();
+              showInputContainer();
+              document.getElementById("copyButton").style.display = "inline-flex";
+              announceToScreenReader("Shabbat times loaded for your location");
+            })
+            .catch(error => {
+              console.error('Error fetching data:', error);
+              showErrorMessage("Unable to fetch Shabbat times. Please try again.");
+              hideLoadingIndicator();
+              showInputContainer();
+              document.getElementById("copyButton").style.display = "none";
+            });
+        },
+        error => {
+          console.error('Error getting location:', error);
+          let errorMsg = "Unable to retrieve your location. ";
+          
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              errorMsg += "Please enable location permissions and try again.";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              errorMsg += "Location information is unavailable.";
+              break;
+            case error.TIMEOUT:
+              errorMsg += "Location request timed out.";
+              break;
+            default:
+              errorMsg += "An unknown error occurred.";
+          }
+          
+          showErrorMessage(errorMsg);
+          hideLoadingIndicator();
+          showInputContainer();
+        }
+      );
+    }
+
+    // Display Shabbat times in iOS-native format
+    function displayShabbatTimes(data) {
+      const container = document.getElementById("shabbatTimes");
+      
+      if (!data || !data.items || data.items.length === 0) {
+        showErrorMessage("No Shabbat times found for this location.");
+        return;
+      }
+
+      // Build iOS-style grouped list
+      let html = '<div class="hebcal-container">';
+      
+      // Location header
+      if (data.location && data.location.title) {
+        html += `<div><h3>${data.location.title}</h3>`;
+      }
+      
+      // Times list
+      html += '<ul class="hebcal-results">';
+      
+      data.items.forEach((item, index) => {
+        const category = item.category || '';
+        const title = item.title || '';
+        const date = item.date ? new Date(item.date).toLocaleDateString('en-US', { 
+          weekday: 'short',
+          month: 'short', 
+          day: 'numeric'
+        }) : '';
+        
+        // Determine item type for styling
+        let itemClass = '';
+        let timeStr = '';
+        
+        if (category === 'candles') {
+          itemClass = 'candles';
+          timeStr = formatTime(item.date);
+        } else if (category === 'havdalah') {
+          itemClass = 'havdalah';
+          timeStr = formatTime(item.date);
+        } else if (category === 'parashat') {
+          itemClass = 'parashat';
+        } else if (category === 'holiday') {
+          itemClass = 'holiday';
+        }
+        
+        // Format the display with better structure
+        let displayText = '';
+        if (timeStr) {
+          // Candle/Havdalah times - show time prominently
+          displayText = `
+            <div class="time-row">
+              <span class="time-label">${title}</span>
+              <span class="time-value">${timeStr}</span>
+            </div>
+            <div class="time-date">${date}</div>
+          `;
+        } else if (category === 'parashat' || category === 'holiday') {
+          // Torah portion and holidays - blue with subtitle
+          displayText = `
+            <div class="event-title">${title}</div>
+            ${item.hebrew ? `<div class="event-subtitle">${item.hebrew}</div>` : ''}
+            ${date ? `<div class="event-date">${date}</div>` : ''}
+          `;
+        } else {
+          // Other items
+          displayText = `<div class="event-title">${title}</div>${date ? `<div class="event-date">${date}</div>` : ''}`;
+        }
+        
+        html += `<li class="${itemClass}">${displayText}</li>`;
+      });
+      
+      html += '</ul>';
+      
+      // Add link to Hebcal
+      if (data.link) {
+        html += `<div class="copyright">
+          <a href="${data.link}" target="_blank" rel="noopener">Powered by Hebcal.com</a>
+        </div>`;
+      }
+      
+      html += '</div></div>';
+      
+      container.innerHTML = html;
+    }
+
+    // Helper function to format time
+    function formatTime(dateString) {
+      if (!dateString) return '';
+      const date = new Date(dateString);
+      return date.toLocaleTimeString('en-US', { 
+        hour: 'numeric', 
+        minute: '2-digit',
+        hour12: true 
+      });
+    }
+
+    // Copy to clipboard
+    function copyToClipboard() {
+      const shabbatTimesDiv = document.getElementById("shabbatTimes");
+      const textToCopy = shabbatTimesDiv.innerText;
+      const copyFeedback = document.getElementById("copyFeedback");
+
+      if (!navigator.clipboard) {
+        fallbackCopyToClipboard(textToCopy, copyFeedback);
+        return;
+      }
+
+      navigator.clipboard.writeText(textToCopy).then(
+        function() {
+          copyFeedback.style.display = "flex";
+          announceToScreenReader("Shabbat times copied to clipboard");
+          
+          setTimeout(function() {
+            copyFeedback.style.display = "none";
+          }, 3000);
+        },
+        function(err) {
+          console.error('Could not copy text: ', err);
+          showErrorMessage("Failed to copy. Please try again.");
+        }
+      );
+    }
+
+    // Fallback copy method for older browsers
+    function fallbackCopyToClipboard(text, feedback) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.select();
+      
+      try {
+        document.execCommand('copy');
+        feedback.style.display = "flex";
+        announceToScreenReader("Shabbat times copied to clipboard");
+        
+        setTimeout(function() {
+          feedback.style.display = "none";
+        }, 3000);
+      } catch (err) {
+        console.error('Fallback: Could not copy text: ', err);
+        showErrorMessage("Failed to copy. Please try again.");
+      }
+      
+      document.body.removeChild(textArea);
+    }
+
+    // Reset search
+    function resetSearch() {
+      document.getElementById("zipCodeInput").value = "";
+      document.getElementById("shabbatTimes").innerHTML = "";
+      document.getElementById("copyButton").style.display = "none";
+      document.getElementById("copyFeedback").style.display = "none";
+      announceToScreenReader("Search reset");
+    }
+
+    // Show/hide helpers
+    function showLoadingIndicator() {
+      document.getElementById("loadingIndicator").style.display = "block";
+    }
+
+    function hideLoadingIndicator() {
+      document.getElementById("loadingIndicator").style.display = "none";
+    }
+
+    function showInputContainer() {
+      document.getElementById("inputContainer").style.display = "block";
+    }
+
+    function showErrorMessage(message) {
+      const shabbatTimes = document.getElementById("shabbatTimes");
+      shabbatTimes.innerHTML = `<div style="padding: 1.5rem; background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); color: #ef4444; border: 2px solid #ef4444; border-radius: 0.75rem; font-weight: 600; text-align: center;">
+        <box-icon name='error-circle' type='solid' color='#ef4444' size='md'></box-icon>
+        <p style="margin-top: 0.5rem;">${message}</p>
+      </div>`;
+      announceToScreenReader(message);
+    }
+
+    // Screen reader announcement
+    function announceToScreenReader(message) {
+      const announcement = document.createElement('div');
+      announcement.setAttribute('role', 'status');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.className = 'sr-only';
+      announcement.textContent = message;
+      document.body.appendChild(announcement);
+      
+      setTimeout(() => {
+        document.body.removeChild(announcement);
+      }, 1000);
+    }
+
+    // Enter key support for zip code input
+    document.getElementById("zipCodeInput").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        validateAndSearch();
+      }
+    });
+
+    // Auto-focus on zip code input (desktop only)
+    if (window.innerWidth > 768) {
+      window.addEventListener('load', () => {
+        document.getElementById("zipCodeInput").focus();
+      });
+    }
+  </script>
+
+  <!-- ===================================== PWA APP.JS ===================================== -->
+  <script src="/app.js"></script>
+
+  <!-- ===================================== SERVICE WORKER REGISTRATION ===================================== -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js")
+          .then(registration => {
+            console.log("✅ Service Worker registered successfully:", registration.scope);
+            
+            // Check for updates periodically
+            setInterval(() => {
+              registration.update();
+            }, 60 * 60 * 1000); // Check every hour
+          })
+          .catch(error => {
+            console.log("❌ Service Worker registration failed:", error);
+          });
+      });
+    }
+  </script>
 </body>
 </html>

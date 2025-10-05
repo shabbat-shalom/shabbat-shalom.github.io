@@ -1,173 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shabbat Essentials Marketplace</title>
-    <style>
-        /* Universal styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Helvetica", sans-serif;
-        }
-
-        /* Specific styles */
-        body {
-            min-height: 100vh;
-            overflow-x: hidden;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo {
-            font-size: 1.75rem;
-            color: #000000;
-            pointer-events: none;
-        }
-
-        .navigation {
-            display: flex;
-            flex-direction: row;
-            margin: 0 auto;
-        }
-
-        .navigation a {
-            text-decoration: none;
-            color: #000000;
-            padding: 6px 15px;
-            border-radius: 20px;
-            margin: 0 10px;
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .navigation a:hover,
-        .navigation a.active {
-            background: #000000;
-            color: rgb(255, 255, 255);
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 120px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .product {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .product img {
-            display: block;
-            margin: 0 auto 10px;
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        h2,
-        p {
-            margin-bottom: 10px;
-        }
-
-        .btn-shop {
-            display: block;
-            width: 180px;
-            margin: 0 auto;
-            padding: 10px 20px;
-            background-color: #000000;
-            color: #fff;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-shop:hover {
-            background-color: #002e96;
-        }
-    </style>
+  <!-- ===================================== META DATA ===================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Shabbat Essentials Marketplace - Jewish Times</title>
+  <meta name="description" content="Discover beautiful Shabbat essentials including candles, Kiddush cups, challah covers, and more. Quality Judaica for your Shabbat table.">
+  <meta name="keywords" content="Shabbat candles, Kiddush cup, challah cover, havdalah, besamim, Jewish marketplace, Shabbat essentials, Judaica">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Jewish Times">
+  
+  <!-- ===================================== OPEN GRAPH ===================================== -->
+  <meta property="og:title" content="Shabbat Essentials Marketplace - Jewish Times">
+  <meta property="og:description" content="Discover beautiful Shabbat essentials for your table">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shabbat-shalom.github.io/market.html">
+  <meta property="og:image" content="https://shabbat-shalom.github.io/assets/JTimes.png">
+  
+  <!-- ===================================== TWITTER CARD ===================================== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shabbat Essentials Marketplace">
+  <meta name="twitter:description" content="Discover beautiful Shabbat essentials for your table">
+  <meta name="twitter:image" content="https://shabbat-shalom.github.io/assets/JTimes.png">
+  
+  <!-- ===================================== FONTS ===================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- ===================================== CSS ===================================== -->
+  <link href="css/styles.css" rel="stylesheet">
+  
+  <!-- ===================================== PWA MANIFEST ===================================== -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0038b8">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- iOS standalone mode & status bar -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JTimes">
+  <link rel="apple-touch-icon" href="/assets/JTimes.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="shortcut icon" href="/logo.png">
+  
+  <!-- ===================================== GOOGLE ADS ===================================== -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6549017979650711" crossorigin="anonymous"></script>
+  
+  <!-- ===================================== GOOGLE ANALYTICS ===================================== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN2J1CN6FY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WN2J1CN6FY');
+  </script>
+  
+  <!-- ===================================== BOXICONS ===================================== -->
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 
 <body>
-    <header>
-          <nav class="navigation">
-              <a href="index.html">Home</a>
-              <a href="market.html" class="active">Marketplace</a>
-          </nav>
-      </header>
+  <!-- Navigation Header -->
+  <header class="header" role="banner">
+    <nav class="navigation" aria-label="Site navigation">
+      <a href="index.html">Home</a>
+      <a href="market.html" class="active" aria-current="page">Marketplace</a>
+    </nav>
+  </header>
 
-    <div class="container">
-       
-        <div class="product">
-            <img src="assets/candles.jpg" alt="Product Image">
-            <h2>Traditional Shabbos Candles</h2>
-            <p>These elegant candles are made with high grade smooth wax that melts slowly with virtually no drip.</p>
-            <a target="_blank" class="btn-shop" href="https://www.amazon.com/Shabbat-Candles-Traditional-Shabbos-Hour/dp/B07RLVHS5M/ref=sr_1_2?dib=eyJ2IjoiMSJ9.6rq_V14Qrvp3g151gosphLXqRbLbd7hjkkALyDS5_YOYHhnnIOzVKL2e64zsIClipW8XAK6eZGgPXt0vquwZPxOskLXM_Zi8WSSQU8L1OE5HWneYDNwA4GDZptySwue65hLiJpCCGo0WYrL2QSdRQpzadARoL53P6oZpc6nsL0ynzXGoaKJbNNsXqFO8UbVvHeplwestC1F-EjZrBRqw5hOJLzmGMw2x621wjVbjSorZPUz_GR7_WpxJq6965-7xiSBNDwTaqacIPadRyGHA6hQ-O71DfhD8JOOYaF2wt6k.cMhTZy6fG54AzEa7Fmq0U_hsUARGizkbuGy8VVCkwbM&amp;dib_tag=se&amp;keywords=shabbat%252Bcandles&amp;qid=1707930759&amp;rdc=1&amp;sr=8-2-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;th=1&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=d9541d7fbb697ab012ae0f3df66d259d&camp=1789&creative=9325">Shop Now</a>
-        </div>
-        <div class="product">
-            <img src="assets/kiddush cup.jpg" alt="Product Image">
-            <h2>Kiddush Cup</h2>
-            <p>Crafted with love and reverence, this Kiddush Cup is more than just a vessel for wine, it's a symbol of tradition, connection, and celebration.</p>
-            <a target="_blank" class="btn-shop" href="https://www.amazon.com/Emanuel-Kiddush-Stainless-Colorful-Oriental/dp/B09MJJ1WN4/ref=sr_1_3?crid=2BEICDTWW40HL&amp;dib=eyJ2IjoiMSJ9.v80KSCJ_u8ZEwQCniaKEvE32z7T9dJK181qmqDhqo49cw4_zkbyUzM9Jd282Oij3r-A9ESX5IgWmkEdy6ahm4_zS-UuOx4-C2O0KhSs7Jnu1tMWsYlgsPReyhpMYSIG75XUV-MxDBjW_YcZo6P22RbeKb8w3bhgT7gm-9HG5ZjRVVammK0RAS-TYIpibxYt-qoKYVl5sHQlYD1H6WaUur__CCMNc6o4ADddLv9uOZCU.FumYZsByPyGtrbStWdlrvXJA9X3UGjtbWP_i8BRSRUM&amp;dib_tag=se&amp;keywords=silver+kiddush+fountain&amp;qid=1708983590&amp;refinements=p_85%253A2470955011%252Cp_36%253A1253524011&amp;rnid=386465011&amp;rps=1&amp;s=home-garden&amp;sprefix=silver+kiddush+fountain%252Caps%252C166&amp;sr=1-3&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=310b5257e2980d17b8ba02c8779c7e12&camp=1789&creative=9325">Shop Now</a>
-        </div>
-        <!-- <div class="product">
-            <img src="assets/kiddush fountain.jpg" alt="Product Image">
-            <h2>Kiddush Fountain</h2>
-            <p>Watch as the wine gracefully cascades from tier to tier, symbolizing abundance, joy, and spiritual connection.</p>
-            <a target="_blank" class="btn-shop" href="https://www.amazon.com/Yair-Emanuel-Hammer-Kiddush-Fountain/dp/B00YOWZMTE/ref=sr_1_17?crid=2GGLRVI0CL8W9&amp;dib=eyJ2IjoiMSJ9.pmRlAO9e9dFdM5XI-3U3rYwtR7WVkfUMpuR1jJR8_dIUEeaBJYFwclb5PGF06ubzGt2cA5lOrC48ib4JkdbZICg4eOon_ovmfeTnVdXTL53skbuttNKr092uzmCnZryQxx2v2Z7YVb6YY_8y4rUBEuUnSeSc-j0xNqwUyiu1iY4Jin4wKa2SMsFYnR8QcIpj3nmbi50OvoWK3XxG31Xdn250PJfWRA7ENp8ZBnmmKmKaE1B6ztYzUTimu4ysNUC_.vXywiLng1YZgW3vWEsoPPHIkKWnPA7Oxxy5RRlrzngc&amp;dib_tag=se&amp;keywords=silver+kiddush+fountain&amp;qid=1708983689&amp;refinements=p_36%253A1253526011&amp;rnid=386465011&amp;s=home-garden&amp;sprefix=silver+kiddush+fountain%252Cgarden%252C199&amp;sr=1-17&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=c4f05db6635727172216e090a5e9050b&camp=1789&creative=9325">Shop Now</a>        </div> -->
-        <div class="product">
-            <img src="assets/challah cover.jpg" alt="Product Image">
-            <h2>Challah Cover</h2>
-            <p>Crafted with care and attention to detail, our cover adds a touch of elegance to your sacred bread, creating a beautiful focal point for your table. </p>
-            <a target="_blank" class="btn-shop" href="https://www.amazon.com/Emanuel-Embroidered-Challah-Shabbat-Judaica/dp/B09RVX54XC/ref=sr_1_5?crid=3J90M3PKISDS7&amp;dib=eyJ2IjoiMSJ9.9pCDE56rAaawccAcjgxBRaRoligMwpWVwHk8F84lBOtKOG3LpOktJOtIeB02gTyl05Rpurcf54E9FXDnHcN72R8EHJTAa9bDf50eK7ev43VVnzxgMlHA4S8Ozl3nTsmAndvclwOJ_FNRHNz-MRL9B2sO1F9XhQMpZn4VbsoI6Kh6MaofnGhx7f2nQfu6fSMPXdSq_sEgr04C3BNHn4lugpsEP2QgmZzIZV5MF8bojT0SbwrG74BIS0chHj7oaWddlqNgLiPsan7ArKcVm-VYA8LjzH1q88l7fACkD4uFBlA.im7XoIYIqwoMaVBl-94ueOANP1_4v2i6emqddp49L48&amp;dib_tag=se&amp;keywords=challah+cover&amp;qid=1708984388&amp;s=home-garden&amp;sprefix=challah+cove%252Cgarden%252C177&amp;sr=1-5&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=4ceb77186159879163b923877a40e4ff&camp=1789&creative=9325">Shop Now</a></div>
-
-        
-        <div class="product">
-            <img src="assets/grape juice.jpg" alt="Product Image">
-            <h2>Grape Juice</h2>
-            <p>Indulge in the rich heritage of Jewish tradition with Kedem Grape Juice, a timeless classic that has been blessing tables for generations.</p>
-            <a target="_blank" class="btn-shop" href="https://www.amazon.com/Kedem-Concord-Grape-Plastic-Bottle/dp/B07D7ZJR42/ref=sr_1_2?dib=eyJ2IjoiMSJ9.Ylh2LAVAdOi7Le2Wt5r6_1hcABiD0_OEbFiCSn4JSTGtKK3olofVc8R7nfyDxTjUKmtrLOX-xigSJRAz9qyptOCKjABX_wZcL8FWLyZ3wkjst-XMXO7jcQ0Ltz_-fUcet1cvM1D5LcrOCyN5B_Pw6nzeX9MY4H7ezR5l33wFx-HyZ5l6MTAewzB6eeBiZxMswaXbINrYKvn22WKQ3LME1lXJ4Sv1DHN-9kVMdiT4R1YBSCw81LcGqJg-55-YYiZOkNqDSckmhUKYUMHfkAO3O1ea8pVhZC7hxAUR9Ed2Ot8.tKd_zcqVs5AJhleH2iA58Vek__elaGlgE5i0_bWUIFk&amp;dib_tag=se&amp;keywords=grape+juice&amp;qid=1708984736&amp;sr=8-2-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=42e228222e0fa03c1758401fd9bc6242&camp=1789&creative=9325">Shop Now</a></div>        
-        
-        <div class="product">
-            <img src="assets/havdalah candle.jpg" alt="Product Image" style="height:500px;">
-            <h2>Havdalah Candle</h2>
-            <p>Step into the mystical transition from holy time to the ordinary world with our exquisite Havdalah Candle, a beacon of light and tradition.</p>
-            <a target="_blank" class="btn-shop" href="https://www.amazon.com/Braided-Beeswax-Havdalah-Candle-Shabbat/dp/B007K8E2QS/ref=sxin_14_pa_sp_search_thematic?content-id=amzn1.sym.432a6361-82bd-4986-a20f-2d4d577f5af5%253Aamzn1.sym.432a6361-82bd-4986-a20f-2d4d577f5af5&amp;crid=2631RJ0A27J8J&amp;cv_ct_cx=havdalah+candle&amp;dib=eyJ2IjoiMSJ9.7ExWxJDieQNq2QM1ybYp7A9w0ucx90kP-jeLbRlvRXq69wNkvsMsA38pk37kD_hyOizUjsNiL-p_s7WN9Cia1Q.WcV0Nfrd4G5QTCJe0yBCndnnhfjf2LKETRnpETLwSCk&amp;dib_tag=se&amp;keywords=havdalah+candle&amp;pd_rd_i=B007K8E2QS&amp;pd_rd_r=9d277b66-2087-429b-8063-2910b911bbce&amp;pd_rd_w=GsV4a&amp;pd_rd_wg=CRar0&amp;pf_rd_p=432a6361-82bd-4986-a20f-2d4d577f5af5&amp;pf_rd_r=KNQE7P3WP6HJCVPQ17YN&amp;qid=1708984964&amp;sbo=RZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D&amp;sprefix=havda%252Caps%252C187&amp;sr=1-2-3f7eb011-4703-48ad-8058-43dbff1e6b87-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&amp;psc=1&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=91d0dd2b5d103d4b1b9bc4d5e8cac7d1&camp=1789&creative=9325">Shop Now</a></div>        
-        
-        <div class="product">
-            <img src="assets/besamim.jpg" alt="Product Image" style="height:500px;">
-            <h2>Besamim</h2>
-            <p>Elevate your Havdalah ceremony with this exquisite Besamim, a blend of aromatic spices that awakens the senses and elevates the spirit. </p>
-            <a target="_blank" class="btn-shop" href="https://www.amazon.com/Embroidered-Havdalah-Besamim-Spice-Cloves/dp/B007PIQG94/ref=sr_1_6?crid=1NBS8REKK8WRT&amp;dib=eyJ2IjoiMSJ9.Qo3l3RV-sosT_TtU6Jjk3p8y0SarLLyHavAgmfa67VfWLRx8N0DCDTcfUnA_jqVP6HUdEctW3B0jiYsAWe6F2zHIKG8neOFkaGlYEmnmwbt9PabRWNXF5NFRJzhKj_hxm_VBh7buTfh_rt5uk4rT_ochFAEVYwsENiW4dO7OpvYAQQSa1T8qW-p9WWSJ-m3ooczcGA_6_MjS55_9rUSBQxibJQ7hdrMKzrrHfx5EN5WBsE6wITvtiU6ymT6lOUVcXo_2D70Pqmrg202i5fbkA2viNGiXiagPsu1TzoR4jUU.RzZ0gCO1qFNEFOxoHd24zcq2zzRKQcJhn8ktJyFIV1g&amp;dib_tag=se&amp;keywords=besamim&amp;qid=1708985578&amp;sprefix=besamim%252Caps%252C189&amp;sr=8-6&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=9feb79f233196ecf44d60853a5ec42fd&camp=1789&creative=9325">Shop Now</a></div>        
-        
-        
-        
-            <!-- Add more products here -->
+  <!-- Marketplace Header -->
+  <section class="hero-section" role="banner">
+    <div class="marketplace-header">
+      <h1 class="marketplace-title">Shabbat Essentials</h1>
+      <p class="marketplace-subtitle">Beautiful items for your Shabbat table</p>
     </div>
+    
+    <button id="install-btn" class="btn-install" hidden aria-label="Install app">
+      <box-icon name='download' color='#ffffff' size='xs'></box-icon>
+      Install App
+    </button>
+  </section>
 
+  <!-- Main Content -->
+  <main class="marketplace-container">
+    <div class="products-grid">
+      <!-- Product 1: Shabbos Candles -->
+      <article class="product">
+        <img src="assets/candles.jpg" alt="Traditional Shabbos Candles" loading="lazy">
+        <h2>Traditional Shabbos Candles</h2>
+        <p>These elegant candles are made with high grade smooth wax that melts slowly with virtually no drip. Perfect for welcoming the Shabbat with beauty and tradition.</p>
+        <a 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-shop" 
+          href="https://www.amazon.com/Shabbat-Candles-Traditional-Shabbos-Hour/dp/B07RLVHS5M/ref=sr_1_2?dib=eyJ2IjoiMSJ9.6rq_V14Qrvp3g151gosphLXqRbLbd7hjkkALyDS5_YOYHhnnIOzVKL2e64zsIClipW8XAK6eZGgPXt0vquwZPxOskLXM_Zi8WSSQU8L1OE5HWneYDNwA4GDZptySwue65hLiJpCCGo0WYrL2QSdRQpzadARoL53P6oZpc6nsL0ynzXGoaKJbNNsXqFO8UbVvHeplwestC1F-EjZrBRqw5hOJLzmGMw2x621wjVbjSorZPUz_GR7_WpxJq6965-7xiSBNDwTaqacIPadRyGHA6hQ-O71DfhD8JOOYaF2wt6k.cMhTZy6fG54AzEa7Fmq0U_hsUARGizkbuGy8VVCkwbM&amp;dib_tag=se&amp;keywords=shabbat%252Bcandles&amp;qid=1707930759&amp;rdc=1&amp;sr=8-2-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;th=1&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=d9541d7fbb697ab012ae0f3df66d259d&camp=1789&creative=9325"
+          aria-label="Shop Traditional Shabbos Candles on Amazon">
+          <box-icon name='shopping-bag' color='#ffffff' size='xs'></box-icon>
+          Shop Now
+        </a>
+      </article>
+
+      <!-- Product 2: Kiddush Cup -->
+      <article class="product">
+        <img src="assets/kiddush cup.jpg" alt="Kiddush Cup" loading="lazy">
+        <h2>Kiddush Cup</h2>
+        <p>Crafted with love and reverence, this Kiddush Cup is more than just a vessel for wine—it's a symbol of tradition, connection, and celebration. Elevate your Shabbat experience.</p>
+        <a 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-shop" 
+          href="https://www.amazon.com/Emanuel-Kiddush-Stainless-Colorful-Oriental/dp/B09MJJ1WN4/ref=sr_1_3?crid=2BEICDTWW40HL&amp;dib=eyJ2IjoiMSJ9.v80KSCJ_u8ZEwQCniaKEvE32z7T9dJK181qmqDhqo49cw4_zkbyUzM9Jd282Oij3r-A9ESX5IgWmkEdy6ahm4_zS-UuOx4-C2O0KhSs7Jnu1tMWsYlgsPReyhpMYSIG75XUV-MxDBjW_YcZo6P22RbeKb8w3bhgT7gm-9HG5ZjRVVammK0RAS-TYIpibxYt-qoKYVl5sHQlYD1H6WaUur__CCMNc6o4ADddLv9uOZCU.FumYZsByPyGtrbStWdlrvXJA9X3UGjtbWP_i8BRSRUM&amp;dib_tag=se&amp;keywords=silver+kiddush+fountain&amp;qid=1708983590&amp;refinements=p_85%253A2470955011%252Cp_36%253A1253524011&amp;rnid=386465011&amp;rps=1&amp;s=home-garden&amp;sprefix=silver+kiddush+fountain%252Caps%252C166&amp;sr=1-3&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=310b5257e2980d17b8ba02c8779c7e12&camp=1789&creative=9325"
+          aria-label="Shop Kiddush Cup on Amazon">
+          <box-icon name='shopping-bag' color='#ffffff' size='xs'></box-icon>
+          Shop Now
+        </a>
+      </article>
+
+      <!-- Product 3: Challah Cover -->
+      <article class="product">
+        <img src="assets/challah cover.jpg" alt="Challah Cover" loading="lazy">
+        <h2>Challah Cover</h2>
+        <p>Crafted with care and attention to detail, our cover adds a touch of elegance to your sacred bread, creating a beautiful focal point for your table.</p>
+        <a 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-shop" 
+          href="https://www.amazon.com/Emanuel-Embroidered-Challah-Shabbat-Judaica/dp/B09RVX54XC/ref=sr_1_5?crid=3J90M3PKISDS7&amp;dib=eyJ2IjoiMSJ9.9pCDE56rAaawccAcjgxBRaRoligMwpWVwHk8F84lBOtKOG3LpOktJOtIeB02gTyl05Rpurcf54E9FXDnHcN72R8EHJTAa9bDf50eK7ev43VVnzxgMlHA4S8Ozl3nTsmAndvclwOJ_FNRHNz-MRL9B2sO1F9XhQMpZn4VbsoI6Kh6MaofnGhx7f2nQfu6fSMPXdSq_sEgr04C3BNHn4lugpsEP2QgmZzIZV5MF8bojT0SbwrG74BIS0chHj7oaWddlqNgLiPsan7ArKcVm-VYA8LjzH1q88l7fACkD4uFBlA.im7XoIYIqwoMaVBl-94ueOANP1_4v2i6emqddp49L48&amp;dib_tag=se&amp;keywords=challah+cover&amp;qid=1708984388&amp;s=home-garden&amp;sprefix=challah+cove%252Cgarden%252C177&amp;sr=1-5&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=4ceb77186159879163b923877a40e4ff&camp=1789&creative=9325"
+          aria-label="Shop Challah Cover on Amazon">
+          <box-icon name='shopping-bag' color='#ffffff' size='xs'></box-icon>
+          Shop Now
+        </a>
+      </article>
+
+      <!-- Product 4: Grape Juice -->
+      <article class="product">
+        <img src="assets/grape juice.jpg" alt="Kedem Grape Juice" loading="lazy">
+        <h2>Grape Juice</h2>
+        <p>Indulge in the rich heritage of Jewish tradition with Kedem Grape Juice, a timeless classic that has been blessing tables for generations. Perfect for Kiddush.</p>
+        <a 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-shop" 
+          href="https://www.amazon.com/Kedem-Concord-Grape-Plastic-Bottle/dp/B07D7ZJR42/ref=sr_1_2?dib=eyJ2IjoiMSJ9.Ylh2LAVAdOi7Le2Wt5r6_1hcABiD0_OEbFiCSn4JSTGtKK3olofVc8R7nfyDxTjUKmtrLOX-xigSJRAz9qyptOCKjABX_wZcL8FWLyZ3wkjst-XMXO7jcQ0Ltz_-fUcet1cvM1D5LcrOCyN5B_Pw6nzeX9MY4H7ezR5l33wFx-HyZ5l6MTAewzB6eeBiZxMswaXbINrYKvn22WKQ3LME1lXJ4Sv1DHN-9kVMdiT4R1YBSCw81LcGqJg-55-YYiZOkNqDSckmhUKYUMHfkAO3O1ea8pVhZC7hxAUR9Ed2Ot8.tKd_zcqVs5AJhleH2iA58Vek__elaGlgE5i0_bWUIFk&amp;dib_tag=se&amp;keywords=grape+juice&amp;qid=1708984736&amp;sr=8-2-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=42e228222e0fa03c1758401fd9bc6242&camp=1789&creative=9325"
+          aria-label="Shop Kedem Grape Juice on Amazon">
+          <box-icon name='shopping-bag' color='#ffffff' size='xs'></box-icon>
+          Shop Now
+        </a>
+      </article>
+
+      <!-- Product 5: Havdalah Candle -->
+      <article class="product">
+        <img src="assets/havdalah candle.jpg" alt="Havdalah Candle" loading="lazy">
+        <h2>Havdalah Candle</h2>
+        <p>Step into the mystical transition from holy time to the ordinary world with our exquisite Havdalah Candle, a beacon of light and tradition. Beautifully braided beeswax.</p>
+        <a 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-shop" 
+          href="https://www.amazon.com/Braided-Beeswax-Havdalah-Candle-Shabbat/dp/B007K8E2QS/ref=sxin_14_pa_sp_search_thematic?content-id=amzn1.sym.432a6361-82bd-4986-a20f-2d4d577f5af5%253Aamzn1.sym.432a6361-82bd-4986-a20f-2d4d577f5af5&amp;crid=2631RJ0A27J8J&amp;cv_ct_cx=havdalah+candle&amp;dib=eyJ2IjoiMSJ9.7ExWxJDieQNq2QM1ybYp7A9w0ucx90kP-jeLbRlvRXq69wNkvsMsA38pk37kD_hyOizUjsNiL-p_s7WN9Cia1Q.WcV0Nfrd4G5QTCJe0yBCndnnhfjf2LKETRnpETLwSCk&amp;dib_tag=se&amp;keywords=havdalah+candle&amp;pd_rd_i=B007K8E2QS&amp;pd_rd_r=9d277b66-2087-429b-8063-2910b911bbce&amp;pd_rd_w=GsV4a&amp;pd_rd_wg=CRar0&amp;pf_rd_p=432a6361-82bd-4986-a20f-2d4d577f5af5&amp;pf_rd_r=KNQE7P3WP6HJCVPQ17YN&amp;qid=1708984964&amp;sbo=RZvfv%252F%252FHxDF%252BO5021pAnSA%253D%253D&amp;sprefix=havda%252Caps%252C187&amp;sr=1-2-3f7eb011-4703-48ad-8058-43dbff1e6b87-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&amp;psc=1&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=91d0dd2b5d103d4b1b9bc4d5e8cac7d1&camp=1789&creative=9325"
+          aria-label="Shop Havdalah Candle on Amazon">
+          <box-icon name='shopping-bag' color='#ffffff' size='xs'></box-icon>
+          Shop Now
+        </a>
+      </article>
+
+      <!-- Product 6: Besamim -->
+      <article class="product">
+        <img src="assets/besamim.jpg" alt="Besamim Spice Box" loading="lazy">
+        <h2>Besamim</h2>
+        <p>Elevate your Havdalah ceremony with this exquisite Besamim, a blend of aromatic spices that awakens the senses and elevates the spirit. Beautiful embroidered design.</p>
+        <a 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-shop" 
+          href="https://www.amazon.com/Embroidered-Havdalah-Besamim-Spice-Cloves/dp/B007PIQG94/ref=sr_1_6?crid=1NBS8REKK8WRT&amp;dib=eyJ2IjoiMSJ9.Qo3l3RV-sosT_TtU6Jjk3p8y0SarLLyHavAgmfa67VfWLRx8N0DCDTcfUnA_jqVP6HUdEctW3B0jiYsAWe6F2zHIKG8neOFkaGlYEmnmwbt9PabRWNXF5NFRJzhKj_hxm_VBh7buTfh_rt5uk4rT_ochFAEVYwsENiW4dO7OpvYAQQSa1T8qW-p9WWSJ-m3ooczcGA_6_MjS55_9rUSBQxibJQ7hdrMKzrrHfx5EN5WBsE6wITvtiU6ymT6lOUVcXo_2D70Pqmrg202i5fbkA2viNGiXiagPsu1TzoR4jUU.RzZ0gCO1qFNEFOxoHd24zcq2zzRKQcJhn8ktJyFIV1g&amp;dib_tag=se&amp;keywords=besamim&amp;qid=1708985578&amp;sprefix=besamim%252Caps%252C189&amp;sr=8-6&_encoding=UTF8&tag=jtimes-20&linkCode=ur2&linkId=9feb79f233196ecf44d60853a5ec42fd&camp=1789&creative=9325"
+          aria-label="Shop Besamim on Amazon">
+          <box-icon name='shopping-bag' color='#ffffff' size='xs'></box-icon>
+          Shop Now
+        </a>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <h3 class="footer-title">Join the mishpacha!</h3>
+      <p class="footer-subtitle">Stay connected with our community</p>
+      
+      <nav class="social-media" aria-label="Social media links">
+        <a href="https://www.instagram.com/jtimesorg/" class="social-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+          <box-icon name='instagram' type='logo' color="#ffffff" size="md"></box-icon>
+        </a>
+        <a href="https://x.com/jtimesorg?s=11" class="social-link" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer">
+          <box-icon name='twitter' type='logo' color="#ffffff" size="md"></box-icon>
+        </a>
+      </nav>
+      
+      <p class="footer-copyright">© 2025 Jewish Times. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===================================== PWA APP.JS ===================================== -->
+  <script src="/app.js"></script>
+
+  <!-- ===================================== SERVICE WORKER REGISTRATION ===================================== -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js")
+          .then(registration => {
+            console.log("✅ Service Worker registered successfully:", registration.scope);
+            
+            // Check for updates periodically
+            setInterval(() => {
+              registration.update();
+            }, 60 * 60 * 1000); // Check every hour
+          })
+          .catch(error => {
+            console.log("❌ Service Worker registration failed:", error);
+          });
+      });
+    }
+  </script>
 </body>
-
 </html>
