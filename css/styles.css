@@ -901,6 +901,196 @@ box-icon {
 }
 
 /* ===================================== 
+   iOS INSTALL MODAL
+   ===================================== */
+#ios-install-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+
+.ios-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-16);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.ios-modal-content {
+  background: var(--secondary-grouped-background);
+  border-radius: var(--large-corner-radius);
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+.ios-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-20) var(--spacing-20) var(--spacing-16);
+  border-bottom: 0.5px solid var(--separator);
+}
+
+.ios-modal-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--label);
+  margin: 0;
+  letter-spacing: 0.352px;
+}
+
+.ios-modal-close {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: var(--quaternary-fill);
+  color: var(--secondary-label);
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  font-family: var(--font-system);
+  transition: background var(--transition-fast);
+}
+
+.ios-modal-close:hover {
+  background: var(--tertiary-fill);
+}
+
+.ios-modal-close:active {
+  opacity: 0.5;
+}
+
+.ios-modal-body {
+  padding: var(--spacing-20);
+}
+
+.ios-modal-intro {
+  font-size: 15px;
+  color: var(--secondary-label);
+  text-align: center;
+  margin-bottom: var(--spacing-24);
+  line-height: 1.4;
+  letter-spacing: -0.24px;
+}
+
+.ios-install-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
+  margin-bottom: var(--spacing-24);
+}
+
+.ios-install-step {
+  display: flex;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16);
+  background: var(--grouped-background);
+  border-radius: var(--corner-radius);
+  border: 0.5px solid var(--separator);
+}
+
+.ios-step-number {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ios-blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.41px;
+}
+
+.ios-step-content {
+  flex: 1;
+}
+
+.ios-step-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--label);
+  margin-bottom: var(--spacing-8);
+  letter-spacing: -0.41px;
+}
+
+.ios-icon-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-12) 0;
+}
+
+.ios-step-hint {
+  font-size: 13px;
+  color: var(--secondary-label);
+  margin-top: var(--spacing-8);
+  letter-spacing: -0.08px;
+}
+
+.ios-modal-button {
+  width: 100%;
+  min-height: 50px;
+  background: var(--theme-color);
+  color: white;
+  border: none;
+  border-radius: var(--corner-radius);
+  font-family: var(--font-system);
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: -0.41px;
+  transition: opacity var(--transition-fast);
+}
+
+.ios-modal-button:active {
+  opacity: 0.7;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================== 
    DARK MODE - iOS System
    ===================================== */
 @media (prefers-color-scheme: dark) {
@@ -941,5 +1131,9 @@ box-icon {
   
   .social-link box-icon {
     filter: invert(1);
+  }
+  
+  .ios-modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
   }
 }
