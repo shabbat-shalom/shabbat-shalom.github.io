@@ -53,9 +53,9 @@ function init() {
 		// Show iOS install button
 		if (installBtn) {
 			installBtn.hidden = false;
-			installBtn.style.display = 'inline-flex';
+			installBtn.style.display = 'flex';
 			installBtn.innerHTML =
-				'<box-icon name="info-circle" color="#ffffff" size="xs"></box-icon>How to Install';
+				'<box-icon name="info-circle" color="#007AFF" size="sm"></box-icon>How to Install';
 			installBtn.addEventListener('click', showIOSInstallGuide);
 		}
 
@@ -196,9 +196,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
 	// Show the install button
 	if (installBtn) {
 		installBtn.hidden = false;
-		installBtn.style.display = 'inline-flex';
+		installBtn.style.display = 'flex';
 		installBtn.innerHTML =
-			'<box-icon name="download" color="#ffffff" size="xs"></box-icon>Install App';
+			'<box-icon name="download" color="#007AFF" size="sm"></box-icon>Install App';
 
 		// Add click event listener
 		installBtn.addEventListener('click', installApp);

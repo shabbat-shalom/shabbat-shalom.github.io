@@ -43,8 +43,8 @@
   <link rel="apple-touch-icon" href="/assets/JTimes.png">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/logo.png">
-  <link rel="shortcut icon" href="/logo.png">
+  <link rel="icon" type="image/png" href="/assets/JTimes.png">
+  <link rel="shortcut icon" href="/assets/JTimes.png">
   
   <!-- ===================================== GOOGLE ADS ===================================== -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6549017979650711" crossorigin="anonymous"></script>
@@ -63,29 +63,54 @@
 </head>
 
 <body>
-  <!-- Navigation Header -->
-  <header class="header" role="banner">
-    <nav class="navigation" aria-label="Site navigation">
-      <a href="index.html">Home</a>
-      <a href="market.html" class="active" aria-current="page">Marketplace</a>
-    </nav>
+  <!-- Header with Logo and Hamburger -->
+  <header class="app-header" role="banner">
+    <div class="header-content">
+      <div class="header-logo">
+        <img src="logo.png" alt="Shabbat Shalom Logo" width="44" height="44">
+      </div>
+      <button class="hamburger-menu" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
   </header>
 
-  <!-- Marketplace Header -->
-  <section class="hero-section" role="banner">
+  <!-- Hamburger Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-content">
+      <div class="menu-header">
+        <h2>Menu</h2>
+        <button class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
+      </div>
+      <nav class="menu-navigation" aria-label="Site navigation">
+        <a href="index.html" class="menu-item">
+          <box-icon name='home' color='#007AFF' size='sm'></box-icon>
+          Home
+        </a>
+        <a href="market.html" class="menu-item active" aria-current="page">
+          <box-icon name='shopping-bag' color='#007AFF' size='sm'></box-icon>
+          Marketplace
+        </a>
+        <a href="about.html" class="menu-item">
+          <box-icon name='info-circle' color='#007AFF' size='sm'></box-icon>
+          About & Disclaimer
+        </a>
+      </nav>
+      <div class="menu-footer">
+        <p>© 2025 Jewish Times</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="marketplace-container">
+    <!-- Page Title -->
     <div class="marketplace-header">
       <h1 class="marketplace-title">Shabbat Essentials</h1>
       <p class="marketplace-subtitle">Beautiful items for your Shabbat table</p>
     </div>
-    
-    <button id="install-btn" class="btn-install" hidden aria-label="Install app">
-      <box-icon name='download' color='#ffffff' size='xs'></box-icon>
-      Install App
-    </button>
-  </section>
-
-  <!-- Main Content -->
-  <main class="marketplace-container">
     <div class="products-grid">
       <!-- Product 1: Shabbos Candles -->
       <article class="product">
@@ -203,6 +228,70 @@
       <p class="footer-copyright">© 2025 Jewish Times. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Buy Me a Coffee Widget -->
+  <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="jzsilbq" data-description="Support me on Buy me a coffee!" data-message="" data-color="#40DCA5" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+  <!-- ===================================== JAVASCRIPT ===================================== -->
+  <script>
+    // Helper function to close Buy Me a Coffee modal
+    function closeBMCModal() {
+      const bmcOverlay = document.querySelector('div[id*="bmc"][style*="position: fixed"]');
+      if (bmcOverlay) {
+        bmcOverlay.style.display = 'none';
+      }
+    }
+
+    // Add event listener for closing BMC modal when clicking outside
+    document.addEventListener('click', function(e) {
+      const bmcOverlay = document.querySelector('div[id*="bmc"][style*="position: fixed"]');
+      if (bmcOverlay && e.target === bmcOverlay) {
+        closeBMCModal();
+      }
+    });
+
+    // Add escape key support for closing BMC modal
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeBMCModal();
+      }
+    });
+  </script>
+  <script>
+    // Hamburger Menu Functionality
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuClose = document.getElementById('menu-close');
+
+    function openMenu() {
+      menuOverlay.classList.add('menu-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menuOverlay.classList.remove('menu-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    
+    // Close menu when clicking outside
+    menuOverlay.addEventListener('click', (e) => {
+      if (e.target === menuOverlay) {
+        closeMenu();
+      }
+    });
+
+    // Close menu with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuOverlay.classList.contains('menu-open')) {
+        closeMenu();
+      }
+    });
+  </script>
 
   <!-- ===================================== PWA APP.JS ===================================== -->
   <script src="/app.js"></script>

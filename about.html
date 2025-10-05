@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===================================== META DATA ===================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>About & Disclaimer - Jewish Times</title>
+  <meta name="description" content="Important halachic disclaimer and attribution information for Jewish Times Shabbat application.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Jewish Times">
+  
+  <!-- ===================================== OPEN GRAPH ===================================== -->
+  <meta property="og:title" content="About & Disclaimer - Jewish Times">
+  <meta property="og:description" content="Halachic disclaimer and attribution information">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shabbat-shalom.github.io/about.html">
+  <meta property="og:image" content="https://shabbat-shalom.github.io/assets/JTimes.png">
+  
+  <!-- ===================================== FONTS ===================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- ===================================== CSS ===================================== -->
+  <link href="css/styles.css" rel="stylesheet">
+  
+  <!-- ===================================== PWA MANIFEST ===================================== -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0038b8">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- iOS standalone mode & status bar -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JTimes">
+  <link rel="apple-touch-icon" href="/assets/JTimes.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/JTimes.png">
+  <link rel="shortcut icon" href="/assets/JTimes.png">
+  
+  <!-- ===================================== GOOGLE ANALYTICS ===================================== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN2J1CN6FY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WN2J1CN6FY');
+  </script>
+  
+  <!-- ===================================== BOXICONS ===================================== -->
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</head>
+
+<body>
+  <!-- Header with Logo and Hamburger -->
+  <header class="app-header" role="banner">
+    <div class="header-content">
+      <div class="header-logo">
+        <img src="logo.png" alt="Shabbat Shalom Logo" width="44" height="44">
+      </div>
+      <button class="hamburger-menu" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hamburger Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-content">
+      <div class="menu-header">
+        <h2>Menu</h2>
+        <button class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
+      </div>
+      <nav class="menu-navigation" aria-label="Site navigation">
+        <a href="index.html" class="menu-item">
+          <box-icon name='home' color='#007AFF' size='sm'></box-icon>
+          Home
+        </a>
+        <a href="market.html" class="menu-item">
+          <box-icon name='shopping-bag' color='#007AFF' size='sm'></box-icon>
+          Marketplace
+        </a>
+        <a href="about.html" class="menu-item active" aria-current="page">
+          <box-icon name='info-circle' color='#007AFF' size='sm'></box-icon>
+          About & Disclaimer
+        </a>
+        <button id="install-btn" class="menu-item menu-install-btn" hidden aria-label="Install app">
+          <box-icon name='download' color='#007AFF' size='sm'></box-icon>
+          Install App
+        </button>
+      </nav>
+      <div class="menu-footer">
+        <p>© 2025 Jewish Times</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <!-- Page Title -->
+    <div class="page-title">
+      <h1>About & Disclaimer</h1>
+    </div>
+
+    <!-- Disclaimer Card -->
+    <div class="card">
+      <div style="padding: 1.5rem;">
+        <div style="margin-bottom: 2rem;">
+          <h2 style="color: #ffffff; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">
+            <box-icon name='error-circle' color='#ffffff' size='sm' style="vertical-align: middle; margin-right: 0.5rem;"></box-icon>
+            Halachic Disclaimer
+          </h2>
+          <p style="color: #ffffff; line-height: 1.8; margin-bottom: 1rem;">
+            The Shabbat and holiday times provided by this application are calculated based on standard astronomical algorithms and geographical coordinates. <strong>These times are intended for informational and planning purposes only.</strong>
+          </p>
+          <p style="color: #ffffff; line-height: 1.8; margin-bottom: 1rem;">
+            <strong>Important:</strong> The precise observance of Shabbat and Jewish holidays may vary based on:
+          </p>
+          <ul style="color: #ffffff; line-height: 1.8; margin-left: 1.5rem; margin-bottom: 1rem;">
+            <li>Local community customs (<em>minhagim</em>)</li>
+            <li>Specific rabbinic rulings</li>
+            <li>Geographical considerations</li>
+            <li>Individual family traditions</li>
+          </ul>
+          <p style="color: #ffffff; line-height: 1.8; margin-bottom: 1rem;">
+            Candle lighting times are calculated 18 minutes before sunset by default, and Havdalah times are calculated 50 minutes after sunset. However, different communities may observe different customs (e.g., 40 minutes before sunset in Jerusalem, or 72 minutes after sunset for Havdalah in some communities).
+          </p>
+          <p style="color: #ef4444; line-height: 1.8; font-weight: 600; padding: 1rem; background: #fef2f2; border-left: 4px solid #ef4444; border-radius: 0.5rem;">
+            <box-icon name='alarm-exclamation' type='solid' color='#ef4444' size='sm' style="vertical-align: middle; margin-right: 0.5rem;"></box-icon>
+            For authoritative halachic times and guidance, please consult your local rabbi or rabbinic authority (<em>posek</em>).
+          </p>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+          <h2 style="color: #ffffff; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">
+            <box-icon name='award' type='solid' color='#ffffff' size='sm' style="vertical-align: middle; margin-right: 0.5rem;"></box-icon>
+            Attribution & Credits
+          </h2>
+          <p style="color: #ffffff; line-height: 1.8; margin-bottom: 1rem;">
+            Jewish Times is powered by data from <strong><a href="https://www.hebcal.com/" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline; font-weight: 600;">Hebcal.com</a></strong>, a comprehensive and reliable source for Jewish calendar information.
+          </p>
+          <div style="background: linear-gradient(135deg, rgba(0, 56, 184, 0.2) 0%, rgba(0, 56, 184, 0.3) 100%); padding: 1.5rem; border-radius: 0.75rem; border: 2px solid #ffffff; margin-bottom: 1rem;">
+            <p style="color: #ffffff; line-height: 1.8; margin-bottom: 0.5rem;">
+              <strong>Data Source:</strong> Jewish holidays, Shabbat times, candle lighting, Havdalah times, and Torah portions are provided by <a href="https://www.hebcal.com/" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">Hebcal.com</a>
+            </p>
+            <p style="color: #ffffff; line-height: 1.8; margin: 0;">
+              <strong>License:</strong> Content is used under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>
+            </p>
+          </div>
+          <p style="color: #ffffff; line-height: 1.8;">
+            We are grateful to Hebcal for their dedication to providing accurate and accessible Jewish calendar data to the global Jewish community. Their API and algorithms power countless applications and websites worldwide.
+          </p>
+        </div>
+
+        <div>
+          <h2 style="color: #ffffff; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">
+            <box-icon name='heart' type='solid' color='#ffffff' size='sm' style="vertical-align: middle; margin-right: 0.5rem;"></box-icon>
+            About Jewish Times
+          </h2>
+          <p style="color: #ffffff; line-height: 1.8; margin-bottom: 1rem;">
+            Jewish Times (JTimes) is a modern, user-friendly Progressive Web App designed to help Jewish communities worldwide access accurate Shabbat and holiday times. Our mission is to make Jewish observance more accessible through technology while maintaining the highest respect for halachic standards and traditions.
+          </p>
+          <p style="color: #ffffff; line-height: 1.8; margin-bottom: 1rem;">
+            This application is provided free of charge as a service to the Jewish community. If you find it useful, please consider supporting its continued development and maintenance.
+          </p>
+          <div style="text-align: center; margin-top: 1.5rem;">
+            <a href="index.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; text-decoration: none;">
+              <box-icon name='home' color='#ffffff' size='xs'></box-icon>
+              Return to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <p class="footer-copyright">Shabbat Shalom</p>
+    </div>
+  </footer>
+
+  <!-- Buy Me a Coffee Widget -->
+  <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="jzsilbq" data-description="Support me on Buy me a coffee!" data-message="" data-color="#40DCA5" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+  <!-- ===================================== JAVASCRIPT ===================================== -->
+  <script>
+    // Helper function to close Buy Me a Coffee modal
+    function closeBMCModal() {
+      const bmcOverlay = document.querySelector('div[id*="bmc"][style*="position: fixed"]');
+      if (bmcOverlay) {
+        bmcOverlay.style.display = 'none';
+      }
+    }
+
+    // Add event listener for closing BMC modal when clicking outside
+    document.addEventListener('click', function(e) {
+      const bmcOverlay = document.querySelector('div[id*="bmc"][style*="position: fixed"]');
+      if (bmcOverlay && e.target === bmcOverlay) {
+        closeBMCModal();
+      }
+    });
+
+    // Add escape key support for closing BMC modal
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeBMCModal();
+      }
+    });
+  </script>
+  <script>
+    // Hamburger Menu Functionality
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuClose = document.getElementById('menu-close');
+
+    function openMenu() {
+      menuOverlay.classList.add('menu-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menuOverlay.classList.remove('menu-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    
+    // Close menu when clicking outside
+    menuOverlay.addEventListener('click', (e) => {
+      if (e.target === menuOverlay) {
+        closeMenu();
+      }
+    });
+
+    // Close menu with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuOverlay.classList.contains('menu-open')) {
+        closeMenu();
+      }
+    });
+  </script>
+
+  <!-- ===================================== PWA APP.JS ===================================== -->
+  <script src="/app.js"></script>
+
+  <!-- ===================================== SERVICE WORKER REGISTRATION ===================================== -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js")
+          .then(registration => {
+            console.log("✅ Service Worker registered successfully:", registration.scope);
+            
+            // Check for updates periodically
+            setInterval(() => {
+              registration.update();
+            }, 60 * 60 * 1000); // Check every hour
+          })
+          .catch(error => {
+            console.log("❌ Service Worker registration failed:", error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
