@@ -4,6 +4,7 @@
 
 let deferredPrompt;
 let installBtn;
+let iosInstallModal;
 
 // Wait for the DOM to be ready
 if (document.readyState === 'loading') {
@@ -21,11 +22,168 @@ function init() {
 		window.navigator.standalone === true
 	) {
 		console.log('✅ App is already installed');
+		// Mark as installed in localStorage
+		localStorage.setItem('jtimes_installed', 'true');
 		return;
+	}
+
+	// Check if user has dismissed the guide
+	const hasSeenGuide = localStorage.getItem('jtimes_install_guide_seen');
+	const isInstalled = localStorage.getItem('jtimes_installed');
+
+	if (isInstalled === 'true') {
+		console.log('✅ App previously installed');
+		return;
+	}
+
+	// Detect iOS devices
+	const isIOS =
+		/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+	const isIOSSafari =
+		isIOS &&
+		!navigator.standalone &&
+		!window.matchMedia('(display-mode: standalone)').matches;
+
+	// Check for test parameter in URL (allows testing on any device)
+	const urlParams = new URLSearchParams(window.location.search);
+	const testMode = urlParams.has('test-install');
+
+	// Allow testing with ?test-install in URL or show on actual iOS
+	if (isIOSSafari || testMode) {
+		// Show iOS install button
+		if (installBtn) {
+			installBtn.hidden = false;
+			installBtn.style.display = 'inline-flex';
+			installBtn.innerHTML =
+				'<box-icon name="info-circle" color="#ffffff" size="xs"></box-icon>How to Install';
+			installBtn.addEventListener('click', showIOSInstallGuide);
+		}
+
+		// Show guide automatically on first visit (optional) - only on actual iOS, not test mode
+		if (!hasSeenGuide && isIOSSafari && !testMode) {
+			// Delay showing guide on first load
+			setTimeout(() => {
+				showIOSInstallGuide();
+			}, 2000);
+		}
 	}
 }
 
-// Listen for the beforeinstallprompt event
+// Helper function to reset install state (for testing)
+window.resetInstallState = function () {
+	localStorage.removeItem('jtimes_installed');
+	localStorage.removeItem('jtimes_install_guide_seen');
+	console.log(
+		'✅ Install state reset. Reload the page to see the install button.'
+	);
+	location.reload();
+};
+
+// iOS Installation Guide
+function showIOSInstallGuide() {
+	// Mark as seen
+	localStorage.setItem('jtimes_install_guide_seen', 'true');
+
+	// Create modal if it doesn't exist
+	if (!iosInstallModal) {
+		iosInstallModal = document.createElement('div');
+		iosInstallModal.id = 'ios-install-modal';
+		iosInstallModal.innerHTML = `
+			<div class="ios-modal-overlay">
+				<div class="ios-modal-content">
+					<div class="ios-modal-header">
+						<h2>Install JTimes</h2>
+						<button class="ios-modal-close" aria-label="Close">✕</button>
+					</div>
+					<div class="ios-modal-body">
+						<p class="ios-modal-intro">Add JTimes to your home screen for quick access to Shabbat times!</p>
+						
+						<div class="ios-install-steps">
+							<div class="ios-install-step">
+								<div class="ios-step-number">1</div>
+								<div class="ios-step-content">
+									<p class="ios-step-text">Tap the <strong>Share</strong> button</p>
+									<div class="ios-icon-demo">
+										<box-icon name='share' type='solid' color='#007AFF' size='lg'></box-icon>
+									</div>
+									<p class="ios-step-hint">Look for it at the bottom of Safari</p>
+								</div>
+							</div>
+							
+							<div class="ios-install-step">
+								<div class="ios-step-number">2</div>
+								<div class="ios-step-content">
+									<p class="ios-step-text">Scroll and tap <strong>"Add to Home Screen"</strong></p>
+									<div class="ios-icon-demo">
+										<box-icon name='plus-square' color='#007AFF' size='lg'></box-icon>
+									</div>
+									<p class="ios-step-hint">You may need to scroll down in the menu</p>
+								</div>
+							</div>
+							
+							<div class="ios-install-step">
+								<div class="ios-step-number">3</div>
+								<div class="ios-step-content">
+									<p class="ios-step-text">Tap <strong>"Add"</strong> to confirm</p>
+									<p class="ios-step-hint">The app will appear on your home screen!</p>
+								</div>
+							</div>
+						</div>
+						
+						<button class="ios-modal-button" onclick="closeIOSInstallGuide()">Got it!</button>
+					</div>
+				</div>
+			</div>
+		`;
+
+		document.body.appendChild(iosInstallModal);
+
+		// Add close button functionality
+		const closeBtn = iosInstallModal.querySelector('.ios-modal-close');
+		const overlay = iosInstallModal.querySelector('.ios-modal-overlay');
+
+		closeBtn.addEventListener('click', closeIOSInstallGuide);
+		overlay.addEventListener('click', (e) => {
+			if (e.target === overlay) {
+				closeIOSInstallGuide();
+			}
+		});
+	}
+
+	// Show modal
+	iosInstallModal.style.display = 'block';
+	document.body.style.overflow = 'hidden';
+
+	// Announce to screen readers
+	announceToScreenReader('Installation guide opened');
+}
+
+// Close iOS Install Guide
+function closeIOSInstallGuide() {
+	if (iosInstallModal) {
+		iosInstallModal.style.display = 'none';
+		document.body.style.overflow = '';
+	}
+}
+
+// Make closeIOSInstallGuide available globally
+window.closeIOSInstallGuide = closeIOSInstallGuide;
+
+// Screen reader announcement helper
+function announceToScreenReader(message) {
+	const announcement = document.createElement('div');
+	announcement.setAttribute('role', 'status');
+	announcement.setAttribute('aria-live', 'polite');
+	announcement.className = 'sr-only';
+	announcement.textContent = message;
+	document.body.appendChild(announcement);
+
+	setTimeout(() => {
+		document.body.removeChild(announcement);
+	}, 1000);
+}
+
+// Listen for the beforeinstallprompt event (Chrome/Android)
 window.addEventListener('beforeinstallprompt', (e) => {
 	console.log('💡 beforeinstallprompt event fired');
 
@@ -39,13 +197,15 @@ window.addEventListener('beforeinstallprompt', (e) => {
 	if (installBtn) {
 		installBtn.hidden = false;
 		installBtn.style.display = 'inline-flex';
+		installBtn.innerHTML =
+			'<box-icon name="download" color="#ffffff" size="xs"></box-icon>Install App';
 
 		// Add click event listener
 		installBtn.addEventListener('click', installApp);
 	}
 });
 
-// Install app function
+// Install app function (Chrome/Android)
 async function installApp() {
 	if (!deferredPrompt) {
 		console.log('⚠️ No deferred prompt available');
@@ -67,6 +227,7 @@ async function installApp() {
 
 	if (outcome === 'accepted') {
 		console.log('✅ User accepted the install prompt');
+		localStorage.setItem('jtimes_installed', 'true');
 
 		// Show success message
 		showNotification('App installed successfully! 🎉', 'success');
@@ -89,9 +250,13 @@ async function installApp() {
 window.addEventListener('appinstalled', (e) => {
 	console.log('✅ PWA successfully installed!');
 
-	// Hide the install button
+	// Mark as installed
+	localStorage.setItem('jtimes_installed', 'true');
+
+	// Hide the install button permanently
 	if (installBtn) {
 		installBtn.hidden = true;
+		installBtn.remove();
 	}
 
 	// Show success message
