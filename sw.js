@@ -2,7 +2,7 @@
 // Service Worker - JTimes PWA
 // =====================================
 
-const CACHE_VERSION = 'jtimes-v3.0';
+const CACHE_VERSION = 'jtimes-v3.1';
 const CACHE_NAME = `${CACHE_VERSION}-cache`;
 
 // Assets to cache on install
@@ -10,6 +10,7 @@ const CORE_ASSETS = [
 	'/',
 	'/index.html',
 	'/market.html',
+	'/about.html',
 	'/css/styles.css',
 	'/app.js',
 	'/manifest.webmanifest',

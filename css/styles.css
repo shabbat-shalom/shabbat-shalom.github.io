@@ -96,7 +96,15 @@ body {
   letter-spacing: -0.41px;
   color: var(--label);
   background: var(--grouped-background);
+  background-image: url('../assets/background.JPG');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   min-height: 100vh;
+  /* Flexbox layout for sticky footer */
+  display: flex;
+  flex-direction: column;
   /* PWA safe areas */
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
@@ -186,12 +194,10 @@ a:active {
 }
 
 /* ===================================== 
-   NAVIGATION BAR - iOS Style
+   HEADER - Clean App Header
    ===================================== */
-.hero-section {
+.app-header {
   background: var(--system-background);
-  padding: var(--spacing-16);
-  text-align: center;
   border-bottom: 0.5px solid var(--separator);
   position: sticky;
   top: 0;
@@ -201,60 +207,213 @@ a:active {
   background: rgba(255, 255, 255, 0.72);
 }
 
-.logo-container {
-  margin: 0 auto var(--spacing-12);
-  width: 60px;
-  height: 60px;
+.header-content {
+  max-width: 672px;
+  margin: 0 auto;
+  padding: var(--spacing-12) var(--spacing-16);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
 }
 
-.logo-container img {
+.header-logo img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 9.8px; /* 44px × 22.22% iOS standard */
+}
+
+/* ===================================== 
+   HAMBURGER MENU BUTTON
+   ===================================== */
+.hamburger-menu {
+  background: none;
+  border: none;
+  padding: var(--spacing-8);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger-line {
+  width: 22px;
+  height: 2px;
+  background: var(--label);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu:active .hamburger-line {
+  opacity: 0.5;
+}
+
+/* ===================================== 
+   MENU OVERLAY
+   ===================================== */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  border-radius: 13.33px; /* 60px × 22.22% iOS standard */
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.hero-text {
-  margin-bottom: 0;
+.menu-overlay.menu-open {
+  opacity: 1;
+  visibility: visible;
 }
 
-.main-title {
+.menu-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 280px;
+  max-width: 80vw;
+  height: 100%;
+  background: var(--secondary-grouped-background);
+  box-shadow: -2px 0 20px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-overlay.menu-open .menu-content {
+  transform: translateX(0);
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-20) var(--spacing-16);
+  border-bottom: 0.5px solid var(--separator);
+}
+
+.menu-header h2 {
   font-size: 22px;
   font-weight: 700;
   color: var(--label);
-  margin-bottom: var(--spacing-2);
+  margin: 0;
   letter-spacing: 0.352px;
-  line-height: 1.27273;
 }
 
-.subtitle {
-  font-size: 13px;
-  color: var(--secondary-label);
-  font-weight: 400;
-  letter-spacing: -0.08px;
-  line-height: 1.23077;
-}
-
-.btn-install {
-  display: inline-flex;
+.menu-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: var(--quaternary-fill);
+  color: var(--label);
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-4);
-  padding: 8px 16px;
-  margin-top: var(--spacing-12);
-  border: none;
-  border-radius: 14px;
-  background: var(--theme-color);
-  color: white;
+  font-weight: 300;
   font-family: var(--font-system);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  letter-spacing: -0.24px;
 }
 
-.btn-install:active {
-  opacity: 0.6;
+.menu-close:active {
+  opacity: 0.5;
+}
+
+.menu-navigation {
+  flex: 1;
+  padding: var(--spacing-16) 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--label);
+  text-decoration: none;
+  letter-spacing: -0.41px;
+  border-bottom: 0.5px solid var(--separator);
+  transition: background 0.2s ease;
+}
+
+.menu-item:active {
+  background: var(--quaternary-fill);
+}
+
+.menu-item.active {
+  color: var(--ios-blue);
+  font-weight: 600;
+}
+
+.menu-install-btn {
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  font-family: var(--font-system);
+  background: transparent;
+  color: var(--label);
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.menu-footer {
+  padding: var(--spacing-16);
+  border-top: 0.5px solid var(--separator);
+  text-align: center;
+}
+
+.menu-footer p {
+  font-size: 13px;
+  color: var(--secondary-label);
+  margin: 0;
+  letter-spacing: -0.08px;
+}
+
+/* ===================================== 
+   PAGE TITLE (Above Widget)
+   ===================================== */
+.page-title {
+  text-align: center;
+  padding: var(--spacing-24) var(--spacing-16) var(--spacing-16);
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-radius: var(--large-corner-radius);
+  margin: var(--spacing-16) var(--spacing-16) 0;
+  border: 0.5px solid var(--separator);
+}
+
+.page-title h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--label);
+  margin-bottom: var(--spacing-4);
+  letter-spacing: 0.364px;
+  line-height: 1.14286;
+}
+
+.page-subtitle {
+  font-size: 15px;
+  color: var(--secondary-label);
+  font-weight: 400;
+  letter-spacing: -0.24px;
+  line-height: 1.33333;
+  margin: 0;
 }
 
 /* ===================================== 
@@ -264,17 +423,21 @@ a:active {
   max-width: 672px; /* iOS standard content width */
   margin: 0 auto;
   padding: 0;
+  flex: 1; /* Grow to fill available space, pushing footer to bottom */
 }
 
 /* ===================================== 
    iOS INSET GROUPED LIST STYLE
    ===================================== */
 .card {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
   margin: 36px 16px;
-  border-radius: 0;
-  padding: 0;
+  border-radius: var(--large-corner-radius);
+  padding: var(--spacing-16);
   box-shadow: none;
+  border: 0.5px solid var(--separator);
 }
 
 /* ===================================== 
@@ -625,9 +788,9 @@ div.hebcal-container div a:active {
    ===================================== */
 .footer {
   background: var(--grouped-background);
-  padding: var(--spacing-44) var(--spacing-16);
+  padding: var(--spacing-20) var(--spacing-16);
   text-align: center;
-  margin-top: var(--spacing-44);
+  margin-top: var(--spacing-24);
 }
 
 .footer-content {
@@ -636,7 +799,7 @@ div.hebcal-container div a:active {
 }
 
 .footer-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--label);
   margin-bottom: var(--spacing-4);
@@ -646,7 +809,7 @@ div.hebcal-container div a:active {
 .footer-subtitle {
   color: var(--secondary-label);
   font-size: 15px;
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-16);
   letter-spacing: -0.24px;
 }
 
@@ -654,15 +817,15 @@ div.hebcal-container div a:active {
   display: flex;
   gap: var(--spacing-12);
   justify-content: center;
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-16);
 }
 
 .social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   background: var(--secondary-grouped-background);
   border-radius: 50%;
   border: 0.5px solid var(--separator);
@@ -675,7 +838,7 @@ div.hebcal-container div a:active {
 .footer-copyright {
   color: var(--secondary-label);
   font-size: 13px;
-  margin-top: var(--spacing-16);
+  margin-top: var(--spacing-8);
   letter-spacing: -0.08px;
 }
 
@@ -731,6 +894,7 @@ div.hebcal-container div a:active {
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--spacing-16);
+  flex: 1; /* Grow to fill available space, pushing footer to bottom */
 }
 
 .marketplace-header {
@@ -872,6 +1036,64 @@ box-icon {
 }
 
 /* ===================================== 
+   BUY ME A COFFEE WIDGET - RESPONSIVE
+   ===================================== */
+/* Adjust widget for mobile devices */
+@media (max-width: 640px) {
+  #bmc-wbtn {
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+  
+  /* Make widget slightly smaller on mobile */
+  #bmc-wbtn img {
+    max-width: 48px !important;
+    max-height: 48px !important;
+  }
+  
+  /* Make the modal/iframe smaller on mobile */
+  iframe[src*="buymeacoffee.com"] {
+    max-width: 90vw !important;
+    max-height: 80vh !important;
+    width: 90vw !important;
+    height: auto !important;
+  }
+  
+  /* Adjust the BMC widget container */
+  div[id*="bmc"] {
+    max-width: 90vw !important;
+  }
+}
+
+/* Ensure widget doesn't interfere with content */
+#bmc-wbtn {
+  z-index: 9999 !important;
+}
+
+/* Make iframe responsive on all devices */
+iframe[src*="buymeacoffee.com"] {
+  max-width: 100%;
+  border-radius: var(--large-corner-radius);
+}
+
+/* Hide the X/close button for BMC modal only */
+.bmc-btn-close,
+iframe[src*="buymeacoffee.com"] + div button,
+div[id*="bmc"] button[style*="position: absolute"] {
+  display: none !important;
+}
+
+/* Ensure menu close button is visible */
+.menu-close {
+  display: flex !important;
+}
+
+/* Make overlay clickable to close */
+div[id*="bmc"][style*="position: fixed"] {
+  pointer-events: auto !important;
+}
+
+/* ===================================== 
    PRINT
    ===================================== */
 @media print {
@@ -879,11 +1101,17 @@ box-icon {
     background: white;
   }
   
-  .hero-section,
+  .app-header,
+  .menu-overlay,
   .footer,
   .btn,
-  #inputContainer {
-    display: none;
+  #inputContainer,
+  #bmc-wbtn {
+    display: none !important;
+  }
+  
+  .page-title {
+    padding-top: 0;
   }
 }
 
@@ -1124,16 +1352,29 @@ box-icon {
     --ios-red: #FF453A;
   }
   
-  .hero-section,
+  .app-header,
   .header {
     background: rgba(0, 0, 0, 0.72);
+  }
+  
+  .page-title {
+    background: rgba(28, 28, 30, 0.70);
+  }
+  
+  .card {
+    background: rgba(28, 28, 30, 0.70);
   }
   
   .social-link box-icon {
     filter: invert(1);
   }
   
-  .ios-modal-overlay {
+  .ios-modal-overlay,
+  .menu-overlay {
     background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .menu-content {
+    background: var(--tertiary-system-background);
   }
 }
