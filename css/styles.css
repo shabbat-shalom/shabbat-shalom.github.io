@@ -101,7 +101,9 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  /* Use dynamic viewport height with fallback for mobile browsers */
+  min-height: 100dvh;
+  min-height: 100vh; /* Fallback for browsers that don't support dvh */
   /* Flexbox layout for sticky footer */
   display: flex;
   flex-direction: column;
@@ -205,6 +207,10 @@ a:active {
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   background: rgba(255, 255, 255, 0.72);
+  /* Ensure full viewport coverage on mobile */
+  width: 100vw;
+  left: 0;
+  right: 0;
 }
 
 .header-content {
@@ -791,6 +797,13 @@ div.hebcal-container div a:active {
   padding: var(--spacing-20) var(--spacing-16);
   text-align: center;
   margin-top: var(--spacing-24);
+  /* Ensure full viewport coverage on mobile */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .footer-content {
