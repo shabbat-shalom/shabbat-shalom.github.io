@@ -105,7 +105,7 @@ function showInstallButton() {
   installBtn.hidden = false;
   installBtn.style.display = 'flex';
   installBtn.innerHTML =
-    '<box-icon name="info-circle" color="#007AFF" size="sm"></box-icon>How to Install';
+    '<box-icon name="info-circle" color="currentColor" size="sm"></box-icon>How to Install';
   installBtn.onclick = handleInstallButtonClick;
 }
 

@@ -104,15 +104,6 @@ export function renderShabbatTimes(data) {
   }
   inner.append(list);
 
-  // Attribution required by Hebcal's API terms
-  const copyright = el('div', 'copyright');
-  const link = el('a', null, 'Powered by Hebcal.com');
-  link.href = data.link || 'https://www.hebcal.com/';
-  link.target = '_blank';
-  link.rel = 'noopener noreferrer';
-  copyright.append(link);
-  inner.append(copyright);
-
   wrapper.append(inner);
   container.append(wrapper);
 

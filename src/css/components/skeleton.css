@@ -6,9 +6,11 @@
 }
 
 .skeleton-list {
-  background: var(--tertiary-fill);
+  background: var(--elevated-background);
   border-radius: var(--corner-radius);
   overflow: hidden;
+  border: 1px solid rgba(5, 39, 66, 0.14);
+  box-shadow: 0 16px 34px rgba(5, 39, 66, 0.09);
 }
 
 .skeleton-row {
@@ -18,7 +20,7 @@
   gap: var(--spacing-16);
   padding: 14px 16px;
   min-height: 44px;
-  border-bottom: 0.5px solid var(--separator);
+  border-bottom: 1px solid var(--separator);
 }
 
 .skeleton-row:last-child {
@@ -28,14 +30,8 @@
 .skeleton-bar {
   height: 14px;
   border-radius: 7px;
-  background: linear-gradient(
-    90deg,
-    var(--quaternary-fill) 25%,
-    var(--secondary-fill) 50%,
-    var(--quaternary-fill) 75%
-  );
-  background-size: 200% 100%;
-  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  background: var(--secondary-fill);
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
 }
 
 .skeleton-bar--label {
@@ -46,12 +42,12 @@
   width: 20%;
 }
 
-@keyframes skeleton-shimmer {
-  from {
-    background-position: 200% 0;
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 0.55;
   }
-  to {
-    background-position: -200% 0;
+  50% {
+    opacity: 1;
   }
 }
 
@@ -59,5 +55,12 @@
   .skeleton-bar {
     animation: none;
     background: var(--quaternary-fill);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .skeleton-list {
+    background: var(--elevated-background);
+    border-color: rgba(255, 244, 220, 0.14);
   }
 }

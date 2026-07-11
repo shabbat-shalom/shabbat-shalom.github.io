@@ -1,5 +1,5 @@
 /* ===================================== 
-   iOS INSTALL MODAL
+   INSTALL MODAL
    ===================================== */
 #ios-install-modal {
   display: none;
@@ -11,7 +11,9 @@
 .ios-modal-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(5, 22, 36, 0.64);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: var(--spacing-16);
   overflow-y: auto;
   animation: fadeIn 0.3s ease-out;
@@ -23,10 +25,11 @@
   max-height: 85vh;
   margin: var(--spacing-32) auto 0;
   overflow: hidden;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
-  color: #111827;
+  background: var(--elevated-background);
+  border: 1px solid rgba(200, 148, 60, 0.28);
+  border-radius: var(--large-corner-radius);
+  box-shadow: var(--shadow-soft);
+  color: var(--label);
   animation: slideUp 0.3s ease-out;
 }
 
@@ -36,12 +39,12 @@
   justify-content: space-between;
   gap: var(--spacing-16);
   padding: var(--spacing-16) var(--spacing-20);
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid var(--separator);
 }
 
 .ios-modal-header h2 {
   margin: 0;
-  color: #111827;
+  color: var(--brand-navy);
   font-size: 18px;
   font-weight: 700;
   line-height: 1.55;
@@ -58,8 +61,8 @@
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: transparent;
-  color: #9ca3af;
+  background: rgba(5, 39, 66, 0.08);
+  color: var(--brand-navy);
   cursor: pointer;
   font-size: 24px;
   font-weight: 300;
@@ -70,8 +73,8 @@
 
 .ios-modal-close:hover,
 .ios-modal-close:focus-visible {
-  background: #f3f4f6;
-  color: #4b5563;
+  background: var(--secondary-fill);
+  color: var(--brand-navy);
   outline: none;
 }
 
@@ -86,7 +89,7 @@
   max-height: calc(85vh - 65px);
   overflow-y: auto;
   padding: var(--spacing-16) var(--spacing-20);
-  color: #374151;
+  color: var(--secondary-label);
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: 0;
@@ -94,8 +97,9 @@
 
 .ios-install-card {
   padding: var(--spacing-12);
-  background: #f9fafb;
-  border-radius: 12px;
+  background: rgba(255, 253, 247, 0.62);
+  border: 1px solid rgba(200, 148, 60, 0.24);
+  border-radius: var(--corner-radius);
 }
 
 .ios-install-row {
@@ -109,7 +113,7 @@
   flex: 1;
   min-width: 0;
   margin: 0;
-  color: #374151;
+  color: var(--secondary-label);
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: 0;
@@ -120,10 +124,11 @@
   flex-shrink: 0;
   align-items: center;
   gap: var(--spacing-8);
+  order: -1;
 }
 
 .ios-install-icon-row span {
-  color: #9ca3af;
+  color: var(--tertiary-label);
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0;
@@ -135,9 +140,9 @@
   width: 44px;
   height: 44px;
   padding: 4px;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background: #ffffff;
+  border: 1px solid var(--separator);
+  border-radius: var(--corner-radius);
+  background: var(--brand-ivory);
   object-fit: contain;
 }
 
@@ -152,7 +157,8 @@
   }
 
   .ios-install-icon-row {
-    align-self: flex-end;
+    align-self: flex-start;
+    order: 0;
   }
 }
 
@@ -180,5 +186,20 @@
 @media (prefers-color-scheme: dark) {
   .ios-modal-overlay {
     background: rgba(0, 0, 0, 0.7);
+  }
+
+  .ios-modal-content {
+    background: var(--elevated-background);
+    border-color: rgba(224, 184, 102, 0.24);
+  }
+
+  .ios-modal-header h2,
+  .ios-modal-close {
+    color: var(--label);
+  }
+
+  .ios-install-card {
+    background: rgba(255, 250, 240, 0.06);
+    border-color: rgba(224, 184, 102, 0.20);
   }
 }

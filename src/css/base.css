@@ -19,21 +19,33 @@ body {
   font-family: var(--font-system);
   font-size: 17px;
   line-height: 1.41176;
-  letter-spacing: -0.41px;
+  letter-spacing: 0;
   color: var(--label);
   background: var(--grouped-background);
+  background-attachment: fixed;
   /* Use dynamic viewport height with fallback for mobile browsers */
-  min-height: 100dvh;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   /* PWA safe areas - header handles top, footer handles bottom */
   padding-top: calc(44px + env(safe-area-inset-top));
   padding-bottom: env(safe-area-inset-bottom);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: transparent;
 }
 
 /* =====================================
-   TYPOGRAPHY - iOS System
+   TYPOGRAPHY
    ===================================== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-system);
@@ -45,49 +57,49 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 34px;
   font-weight: 700;
-  letter-spacing: 0.374px;
+  letter-spacing: 0;
   line-height: 1.17647;
 }
 
 h2 {
   font-size: 28px;
   font-weight: 700;
-  letter-spacing: 0.364px;
+  letter-spacing: 0;
   line-height: 1.14286;
 }
 
 h3 {
   font-size: 22px;
   font-weight: 700;
-  letter-spacing: 0.352px;
+  letter-spacing: 0;
   line-height: 1.27273;
 }
 
 .headline {
   font-size: 17px;
   font-weight: 600;
-  letter-spacing: -0.41px;
+  letter-spacing: 0;
   line-height: 1.29412;
 }
 
 body, p {
   font-size: 17px;
   font-weight: 400;
-  letter-spacing: -0.41px;
+  letter-spacing: 0;
   line-height: 1.41176;
 }
 
 .subheadline {
   font-size: 15px;
   font-weight: 400;
-  letter-spacing: -0.24px;
+  letter-spacing: 0;
   line-height: 1.33333;
 }
 
 .footnote {
   font-size: 13px;
   font-weight: 400;
-  letter-spacing: -0.08px;
+  letter-spacing: 0;
   line-height: 1.23077;
 }
 
@@ -101,10 +113,19 @@ body, p {
 a {
   color: var(--accent);
   text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+a:hover {
+  color: var(--brand-navy-2);
 }
 
 a:active {
-  opacity: 0.3;
+  opacity: 0.72;
+}
+
+::selection {
+  background: rgba(200, 148, 60, 0.28);
 }
 
 /* =====================================
@@ -129,6 +150,25 @@ a:active {
 box-icon {
   display: inline-block;
   vertical-align: middle;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(200, 148, 60, 0.36);
+  outline-offset: 3px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--grouped-background);
+  }
+
+  body::before {
+    background: transparent;
+  }
+
+  a:hover {
+    color: var(--brand-gold-2);
+  }
 }
 
 /* =====================================

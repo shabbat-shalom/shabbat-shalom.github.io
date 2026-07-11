@@ -1,63 +1,82 @@
 /* =====================================
-   iOS DESIGN TOKENS
+   MODERN APP DESIGN TOKENS
    ===================================== */
 :root {
   color-scheme: light dark;
 
-  /* iOS System Colors - Light Mode */
-  --ios-blue: #007AFF;
-  --ios-green: #34C759;
-  --ios-red: #FF3B30;
-  --ios-orange: #FF9500;
-  --ios-yellow: #FFCC00;
-  --ios-teal: #5AC8FA;
-  --ios-purple: #AF52DE;
+  /* Logo-inspired brand palette */
+  --brand-ink: #052742;
+  --brand-navy: #073252;
+  --brand-navy-2: #0d456f;
+  --brand-parchment: #f7f0df;
+  --brand-parchment-2: #efe2c7;
+  --brand-ivory: #fffaf0;
+  --brand-gold: #c8943c;
+  --brand-gold-2: #e0b866;
+  --brand-copper: #a95b32;
+  --brand-sage: #277063;
+
+  /* Core palette */
+  --ios-blue: var(--brand-navy-2);
+  --ios-green: var(--brand-sage);
+  --ios-red: var(--brand-copper);
+  --ios-orange: #b87926;
+  --ios-yellow: var(--brand-gold-2);
+  --ios-teal: var(--brand-sage);
+  --ios-purple: #624f82;
 
   /* Theme color from manifest */
-  --theme-color: #0038b8;
+  --theme-color: var(--brand-navy);
 
   /* Semantic aliases */
-  --accent: var(--ios-blue);
+  --accent: var(--brand-gold);
+  --accent-contrast: #ffffff;
+  --brand-warm: var(--brand-gold);
   --danger: var(--ios-red);
   --success: var(--ios-green);
   --warning: var(--ios-orange);
 
   /* iOS System Grays */
-  --ios-gray: #8E8E93;
-  --ios-gray2: #AEAEB2;
-  --ios-gray3: #C7C7CC;
-  --ios-gray4: #D1D1D6;
-  --ios-gray5: #E5E5EA;
-  --ios-gray6: #F2F2F7;
+  --ios-gray: #8d8374;
+  --ios-gray2: #aaa08f;
+  --ios-gray3: #c7bba7;
+  --ios-gray4: #d8ccb6;
+  --ios-gray5: #e8ddc9;
+  --ios-gray6: #f5eddd;
 
-  /* iOS System Backgrounds */
-  --system-background: #FFFFFF;
-  --secondary-system-background: #F2F2F7;
-  --tertiary-system-background: #FFFFFF;
-  --grouped-background: #F2F2F7;
-  --secondary-grouped-background: #FFFFFF;
+  /* Surfaces */
+  --system-background: var(--brand-ivory);
+  --secondary-system-background: #faf3e5;
+  --tertiary-system-background: #f1e5ce;
+  --grouped-background: var(--brand-parchment);
+  --secondary-grouped-background: rgba(255, 250, 240, 0.9);
+  --elevated-background: #fffdf7;
 
-  /* iOS Labels */
-  --label: #000000;
-  --secondary-label: rgba(60, 60, 67, 0.6);
-  --tertiary-label: rgba(60, 60, 67, 0.3);
-  --quaternary-label: rgba(60, 60, 67, 0.18);
+  /* Text */
+  --label: #09233b;
+  --secondary-label: #5f5546;
+  --tertiary-label: #8b806d;
+  --quaternary-label: #b8ac96;
 
-  /* iOS Separators */
-  --separator: rgba(60, 60, 67, 0.29);
-  --opaque-separator: #C6C6C8;
+  /* Lines and fills */
+  --separator: rgba(5, 39, 66, 0.14);
+  --opaque-separator: #decfaf;
 
-  /* iOS Fills */
-  --fill: rgba(120, 120, 128, 0.2);
-  --secondary-fill: rgba(120, 120, 128, 0.16);
-  --tertiary-fill: rgba(118, 118, 128, 0.12);
-  --quaternary-fill: rgba(116, 116, 128, 0.08);
+  --fill: rgba(5, 39, 66, 0.09);
+  --secondary-fill: rgba(200, 148, 60, 0.16);
+  --tertiary-fill: rgba(5, 39, 66, 0.06);
+  --quaternary-fill: rgba(200, 148, 60, 0.09);
 
   /* Danger surfaces (error cards / alerts) */
-  --danger-background: #fef2f2;
+  --danger-background: #fff0e8;
 
   /* Translucent chrome (header/footer bars) */
-  --chrome-background: rgba(255, 255, 255, 0.72);
+  --chrome-background: rgba(255, 250, 240, 0.84);
+
+  /* Shadows */
+  --shadow-soft: 0 22px 58px rgba(5, 39, 66, 0.16);
+  --shadow-card: 0 14px 32px rgba(5, 39, 66, 0.11);
+  --shadow-control: 0 12px 28px rgba(5, 39, 66, 0.22);
 
   /* iOS Spacing */
   --spacing-2: 2px;
@@ -70,15 +89,15 @@
   --spacing-32: 32px;
   --spacing-44: 44px;
 
-  /* iOS Typography */
-  --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  /* Typography */
+  --font-system: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
 
-  /* iOS Corner Radius */
-  --corner-radius: 10px;
-  --large-corner-radius: 13px;
+  /* Corner Radius */
+  --corner-radius: 8px;
+  --large-corner-radius: 8px;
 
-  /* iOS Transitions */
-  --transition-fast: 0.2s ease-out;
+  /* Transitions */
+  --transition-fast: 0.18s ease-out;
 }
 
 /* =====================================
@@ -86,30 +105,39 @@
    ===================================== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --system-background: #000000;
-    --secondary-system-background: #1C1C1E;
-    --tertiary-system-background: #2C2C2E;
-    --grouped-background: #000000;
-    --secondary-grouped-background: #1C1C1E;
+    --theme-color: #f0c979;
+    --accent: #e0b866;
+    --accent-contrast: #09233b;
+    --brand-warm: #e0b866;
 
-    --label: #FFFFFF;
-    --secondary-label: rgba(235, 235, 245, 0.6);
-    --tertiary-label: rgba(235, 235, 245, 0.3);
-    --quaternary-label: rgba(235, 235, 245, 0.18);
+    --system-background: #061826;
+    --secondary-system-background: #0a2135;
+    --tertiary-system-background: #12314a;
+    --grouped-background: #071b2a;
+    --secondary-grouped-background: rgba(8, 31, 49, 0.9);
+    --elevated-background: #0c263b;
 
-    --separator: rgba(84, 84, 88, 0.6);
-    --opaque-separator: #38383A;
+    --label: #fff8eb;
+    --secondary-label: #d8ccb9;
+    --tertiary-label: #a99d88;
+    --quaternary-label: #756c5c;
 
-    --fill: rgba(120, 120, 128, 0.36);
-    --secondary-fill: rgba(120, 120, 128, 0.32);
-    --tertiary-fill: rgba(118, 118, 128, 0.24);
-    --quaternary-fill: rgba(118, 118, 128, 0.18);
+    --separator: rgba(255, 244, 220, 0.16);
+    --opaque-separator: #29455e;
 
-    --ios-blue: #0A84FF;
-    --ios-green: #30D158;
-    --ios-red: #FF453A;
+    --fill: rgba(224, 184, 102, 0.15);
+    --secondary-fill: rgba(255, 250, 240, 0.08);
+    --tertiary-fill: rgba(255, 250, 240, 0.07);
+    --quaternary-fill: rgba(224, 184, 102, 0.10);
 
-    --danger-background: rgba(255, 69, 58, 0.12);
-    --chrome-background: rgba(0, 0, 0, 0.72);
+    --ios-blue: #9ec9f3;
+    --ios-green: #7ec7a5;
+    --ios-red: #f39a76;
+
+    --danger-background: rgba(169, 91, 50, 0.16);
+    --chrome-background: rgba(6, 24, 38, 0.84);
+    --shadow-soft: 0 24px 62px rgba(0, 0, 0, 0.42);
+    --shadow-card: 0 16px 38px rgba(0, 0, 0, 0.34);
+    --shadow-control: 0 14px 32px rgba(0, 0, 0, 0.36);
   }
 }

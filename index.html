@@ -10,7 +10,33 @@
 
   <!-- Main Content -->
   <main class="main-container">
-    <div class="card">
+    <aside class="ad-rent-sign" aria-label="Advertising">
+      <a class="ad-panel ad-panel--available" href="market.html" aria-label="Rent this advertising space">
+        <span>Your Ad Here</span>
+      </a>
+      <a
+        class="ad-panel ad-panel--forest"
+        href="https://foresthillsweb.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit ForestHillsWeb.com">
+        <span>ForestHillsWeb.com</span>
+        <small>Visit sponsor</small>
+      </a>
+    </aside>
+
+    <section class="card times-card" aria-labelledby="times-title">
+      <div class="search-intro">
+        <div class="search-emblem" aria-hidden="true">
+          <img src="/icons/header-logo.png" alt="" width="64" height="64">
+        </div>
+        <div class="search-intro-copy">
+          <p class="search-eyebrow">Shabbat & Zmanim</p>
+          <h1 id="times-title">Shabbat Times</h1>
+          <p class="search-subcopy">Candle lighting, Havdalah, and this week’s parsha by location.</p>
+        </div>
+      </div>
+
       <div id="inputContainer">
         <div class="input-group">
           <label for="zipCodeInput" class="input-label">
@@ -30,22 +56,22 @@
 
         <div class="button-grid">
           <button id="searchButton" class="btn btn-primary" aria-label="Search Shabbat times">
-            <box-icon name='search' color='#ffffff' size='xs'></box-icon>
+            <box-icon name='search' color='currentColor' size='xs'></box-icon>
             Search
           </button>
           <button id="locationButton" class="btn btn-secondary" aria-label="Use current location">
-            <box-icon name='current-location' type='solid' color='#ffffff' size='xs'></box-icon>
+            <box-icon name='current-location' type='solid' color='currentColor' size='xs'></box-icon>
             Current Location
           </button>
         </div>
 
         <div class="action-buttons">
           <button id="resetButton" class="btn btn-ghost" aria-label="Reset search">
-            <box-icon name='reset' color='#0038b8' size='xs'></box-icon>
+            <box-icon name='reset' color='currentColor' size='xs'></box-icon>
             Reset
           </button>
           <button id="copyButton" class="btn btn-ghost" style="display: none;" aria-label="Copy times to clipboard">
-            <box-icon name='copy' color='#0038b8' size='xs'></box-icon>
+            <box-icon name='copy' color='currentColor' size='xs'></box-icon>
             Copy Times
           </button>
         </div>
@@ -66,7 +92,19 @@
         <box-icon name='check-circle' type='solid' color='#10b981' size='sm'></box-icon>
         Shabbat times copied to clipboard!
       </div>
-    </div>
+    </section>
+
+    <aside class="ad-more-grid" aria-label="Additional advertising spaces">
+      <a class="ad-slot" href="market.html" aria-label="Rent this advertising space">
+        <span>Your Ad Here</span>
+      </a>
+      <a class="ad-slot" href="market.html" aria-label="Rent this advertising space">
+        <span>Your Ad Here</span>
+      </a>
+      <a class="ad-slot" href="market.html" aria-label="Rent this advertising space">
+        <span>Your Ad Here</span>
+      </a>
+    </aside>
   </main>
 
   {{> footer}}

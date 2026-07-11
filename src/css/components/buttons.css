@@ -1,5 +1,5 @@
 /* =====================================
-   BUTTONS - iOS System Style
+   BUTTONS
    ===================================== */
 .btn {
   display: flex;
@@ -7,22 +7,31 @@
   justify-content: center;
   gap: var(--spacing-8);
   width: 100%;
-  min-height: 44px; /* iOS minimum touch target */
-  padding: 0 16px;
-  border: none;
+  min-height: 48px; /* iOS minimum touch target */
+  padding: 0 18px;
+  border: 1px solid var(--separator);
   border-radius: var(--corner-radius);
   font-family: var(--font-system);
   font-size: 17px;
   font-weight: 600;
   cursor: pointer;
   text-align: center;
-  letter-spacing: -0.41px;
-  background: var(--secondary-grouped-background);
-  color: var(--accent);
+  letter-spacing: 0;
+  background: var(--elevated-background);
+  color: var(--brand-navy);
+  box-shadow: 0 10px 24px rgba(5, 39, 66, 0.08), 0 1px 0 rgba(255, 255, 255, 0.65) inset;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(200, 148, 60, 0.42);
+  box-shadow: var(--shadow-card);
 }
 
 .btn:active {
-  opacity: 0.3;
+  opacity: 0.86;
+  transform: translateY(0);
 }
 
 .btn box-icon {
@@ -30,32 +39,61 @@
 }
 
 .btn-primary {
-  background: var(--theme-color);
+  background: var(--brand-navy);
+  border-color: transparent;
   color: white;
+  box-shadow: var(--shadow-control), 0 1px 0 rgba(255, 255, 255, 0.18) inset;
 }
 
 .btn-secondary {
-  background: var(--accent);
-  color: white;
+  background: var(--brand-gold);
+  border-color: transparent;
+  color: var(--brand-ink);
+  box-shadow: 0 12px 28px rgba(145, 97, 31, 0.24), 0 1px 0 rgba(255, 255, 255, 0.20) inset;
 }
 
 .btn-ghost {
-  background: var(--secondary-grouped-background);
-  color: var(--accent);
+  background: rgba(255, 253, 247, 0.62);
+  color: var(--brand-navy);
+  border-color: rgba(5, 39, 66, 0.12);
 }
 
 .button-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-12);
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--spacing-12);
 }
 
 .action-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-12);
-  margin-top: var(--spacing-16);
+  margin-top: var(--spacing-12);
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn {
+    background: var(--elevated-background);
+    color: var(--label);
+    border-color: rgba(255, 244, 220, 0.14);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  }
+
+  .btn-primary {
+    background: var(--brand-gold-2);
+    color: #09233b;
+  }
+
+  .btn-secondary {
+    background: var(--brand-navy-2);
+    color: white;
+  }
+
+  .btn-ghost {
+    background: rgba(255, 250, 240, 0.07);
+    color: var(--label);
+  }
 }
 
 @media (max-width: 640px) {
