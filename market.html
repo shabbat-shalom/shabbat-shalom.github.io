@@ -50,7 +50,10 @@
 
           <div class="rent-field">
             <label for="ad-website">Website</label>
-            <input id="ad-website" name="website" type="url" inputmode="url" placeholder="https://example.com">
+            <div class="rent-url-group">
+              <span class="rent-url-prefix" aria-hidden="true">https://</span>
+              <input id="ad-website" name="website" type="text" inputmode="url" autocomplete="url" placeholder="example.com">
+            </div>
           </div>
         </div>
 
@@ -94,5 +97,22 @@
   {{> footer}}
 
   <script type="module" src="/src/js/shared.js"></script>
+  <script>
+    (function () {
+      var form = document.querySelector('.rent-form');
+      var website = document.getElementById('ad-website');
+      if (!form || !website) return;
+
+      website.addEventListener('input', function () {
+        var stripped = website.value.replace(/^\s*https?:\/\//i, '');
+        if (stripped !== website.value) website.value = stripped;
+      });
+
+      form.addEventListener('submit', function () {
+        var value = website.value.trim().replace(/^https?:\/\//i, '');
+        website.value = value ? 'https://' + value : '';
+      });
+    })();
+  </script>
 </body>
 </html>
