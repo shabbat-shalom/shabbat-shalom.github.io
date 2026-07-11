@@ -1,0 +1,29 @@
+<div class="menu-overlay" id="menu-overlay">
+  <div class="menu-content">
+    <div class="menu-header">
+      <h2>Menu</h2>
+      <button class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
+    </div>
+    <nav class="menu-navigation" aria-label="Site navigation">
+      <a href="index.html" class="menu-item{{#if isHome}} active" aria-current="page{{/if}}">
+        <box-icon name='home' color='#007AFF' size='sm'></box-icon>
+        Home
+      </a>
+      <a href="market.html" class="menu-item{{#if isMarket}} active" aria-current="page{{/if}}">
+        <box-icon name='shopping-bag' color='#007AFF' size='sm'></box-icon>
+        Marketplace
+      </a>
+      <a href="about.html" class="menu-item{{#if isAbout}} active" aria-current="page{{/if}}">
+        <box-icon name='info-circle' color='#007AFF' size='sm'></box-icon>
+        About & Disclaimer
+      </a>
+      <button id="install-btn" class="menu-item menu-install-btn" hidden aria-label="Install app">
+        <box-icon name='download' color='#007AFF' size='sm'></box-icon>
+        Install App
+      </button>
+    </nav>
+    <div class="menu-footer">
+      <p>© 2025 Jewish Times</p>
+    </div>
+  </div>
+</div>

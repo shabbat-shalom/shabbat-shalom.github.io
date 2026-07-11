@@ -1,0 +1,66 @@
+/* =====================================
+   BUTTONS - iOS System Style
+   ===================================== */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  width: 100%;
+  min-height: 44px; /* iOS minimum touch target */
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--corner-radius);
+  font-family: var(--font-system);
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: -0.41px;
+  background: var(--secondary-grouped-background);
+  color: var(--accent);
+}
+
+.btn:active {
+  opacity: 0.3;
+}
+
+.btn box-icon {
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background: var(--theme-color);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-ghost {
+  background: var(--secondary-grouped-background);
+  color: var(--accent);
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-12);
+  margin-bottom: var(--spacing-16);
+}
+
+.action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-12);
+  margin-top: var(--spacing-16);
+}
+
+@media (max-width: 640px) {
+  .button-grid,
+  .action-buttons {
+    grid-template-columns: 1fr;
+  }
+}

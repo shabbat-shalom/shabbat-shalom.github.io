@@ -1,0 +1,201 @@
+/* =====================================
+   LOADING - iOS Activity Indicator
+   ===================================== */
+#loadingIndicator {
+  text-align: center;
+  padding: var(--spacing-44) 0;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--quaternary-label);
+  border-top-color: var(--ios-gray);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto var(--spacing-12);
+}
+
+.loading-text {
+  color: var(--secondary-label);
+  font-size: 15px;
+  letter-spacing: -0.24px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* =====================================
+   SHABBAT TIMES - iOS Grouped List
+   ===================================== */
+#shabbatTimes {
+  margin-top: var(--spacing-16);
+}
+
+.hebcal-container {
+  font-family: var(--font-system);
+}
+
+/* Section header above grouped list */
+.hebcal-container h3 {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--secondary-label);
+  text-transform: uppercase;
+  letter-spacing: -0.08px;
+  margin-bottom: var(--spacing-8);
+  padding: 0 var(--spacing-16);
+  text-align: left;
+}
+
+.hebcal-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--tertiary-fill);
+  border-radius: var(--corner-radius);
+  overflow: hidden;
+}
+
+.hebcal-results li {
+  padding: 12px 16px;
+  font-size: 17px;
+  line-height: 1.41176;
+  letter-spacing: -0.41px;
+  color: var(--label);
+  border-bottom: 0.5px solid var(--separator);
+  margin: 0;
+  min-height: 44px;
+  display: block;
+}
+
+.hebcal-results li:last-child {
+  border-bottom: none;
+}
+
+.hebcal-results li:active {
+  background: var(--quaternary-fill);
+}
+
+/* Time row - label on left, time on right */
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.time-label {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--label);
+  letter-spacing: -0.41px;
+}
+
+.time-value {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--label);
+  letter-spacing: -0.41px;
+  margin-left: 12px;
+}
+
+.time-date {
+  font-size: 15px;
+  color: var(--secondary-label);
+  letter-spacing: -0.24px;
+  margin-top: 1px;
+}
+
+/* Semantic time colors */
+.hebcal-results .candles .time-value {
+  color: var(--danger);
+}
+
+.hebcal-results .havdalah .time-value {
+  color: var(--success);
+}
+
+/* Event titles (holidays, parashat) */
+.event-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.41px;
+  margin-bottom: 2px;
+}
+
+.event-subtitle {
+  font-size: 15px;
+  color: var(--secondary-label);
+  letter-spacing: -0.24px;
+  margin-top: 2px;
+}
+
+.event-date {
+  font-size: 13px;
+  color: var(--tertiary-label);
+  letter-spacing: -0.08px;
+  margin-top: 2px;
+}
+
+/* Attribution footer */
+.copyright {
+  font-size: 13px;
+  color: var(--secondary-label);
+  margin-top: var(--spacing-16);
+  text-align: center;
+  padding: 0 var(--spacing-16);
+  letter-spacing: -0.08px;
+}
+
+.copyright a {
+  font-size: 15px;
+  color: var(--accent);
+  letter-spacing: -0.24px;
+}
+
+.copyright a:visited {
+  color: var(--accent);
+}
+
+/* =====================================
+   ERROR CARD
+   ===================================== */
+.error-card {
+  padding: 1.5rem;
+  background: var(--danger-background);
+  color: var(--danger);
+  border: 2px solid var(--danger);
+  border-radius: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.error-card p {
+  margin-top: 0.5rem;
+}
+
+.error-card .btn {
+  margin-top: var(--spacing-16);
+}
+
+/* =====================================
+   FEEDBACK MESSAGE - iOS Banner
+   ===================================== */
+.feedback-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  padding: 12px 16px;
+  background: var(--secondary-grouped-background);
+  color: var(--success);
+  font-weight: 400;
+  font-size: 17px;
+  border-radius: var(--corner-radius);
+  margin-top: var(--spacing-16);
+  letter-spacing: -0.41px;
+  border: 0.5px solid var(--separator);
+}

@@ -1,0 +1,74 @@
+/* =====================================
+   CARD + INPUT SECTION - iOS Grouped Style
+   ===================================== */
+.card {
+  background: var(--secondary-grouped-background);
+  margin: 36px 16px;
+  border-radius: var(--large-corner-radius);
+  padding: var(--spacing-16);
+  border: 0.5px solid var(--separator);
+}
+
+#inputContainer {
+  margin-bottom: 0;
+}
+
+.input-group {
+  background: var(--secondary-grouped-background);
+  border-radius: var(--corner-radius);
+  overflow: hidden;
+  margin-bottom: var(--spacing-16);
+  border: 2px solid var(--theme-color);
+}
+
+.input-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--theme-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 16px 6px 16px;
+  margin-bottom: 0;
+}
+
+#zipCodeInput {
+  width: 100%;
+  padding: 8px 16px 14px 16px;
+  border: none;
+  font-size: 28px;
+  font-weight: 600;
+  font-family: var(--font-system);
+  background: var(--secondary-grouped-background);
+  text-align: center;
+  color: var(--label);
+  letter-spacing: 2px;
+  outline: none;
+}
+
+#zipCodeInput::placeholder {
+  color: var(--tertiary-label);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.41px;
+}
+
+.input-group:focus-within {
+  border-color: var(--theme-color);
+  box-shadow: 0 0 0 3px rgba(0, 56, 184, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .input-label {
+    color: var(--accent);
+  }
+
+  .input-group {
+    border-color: var(--accent);
+  }
+
+  .input-group:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.25);
+  }
+}
