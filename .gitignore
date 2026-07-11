@@ -134,3 +134,6 @@ pyth/venv
 
 #vscode
 .vscode
+node_modules/
+dist/
+.DS_Store
