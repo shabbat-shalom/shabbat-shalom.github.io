@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head-meta}}
+</head>
+
+<body>
+  {{> header}}
+  {{> menu}}
+
+  <main class="calendar-container">
+    <aside class="calendar-ad-grid calendar-ad-grid--top" aria-label="Calendar advertising">
+      <a class="calendar-ad-card" href="market.html" aria-label="Rent the calendar top advertising space">
+        <span>Your Ad Here</span>
+      </a>
+      <a class="calendar-ad-card calendar-ad-card--accent" href="market.html" aria-label="Rent a featured calendar advertising space">
+        <span>Your Ad Here</span>
+      </a>
+    </aside>
+
+    <section class="calendar-shell" aria-labelledby="calendar-title">
+      <div class="calendar-header">
+        <p class="calendar-eyebrow">Jewish Calendar</p>
+        <h1 id="calendar-title">Calendar</h1>
+        <p class="calendar-subtitle">Jewish holidays, Torah readings, Hebrew dates, and observances.</p>
+      </div>
+
+      <div id="calendarLoading" class="calendar-status" role="status" aria-live="polite" hidden>
+        Loading calendar...
+      </div>
+
+      <div id="calendarError" class="calendar-alert" role="alert" hidden>
+        <box-icon name='error-circle' color='currentColor' size='sm'></box-icon>
+        <span>Calendar events could not be loaded.</span>
+        <button id="calendarRetry" class="btn btn-secondary" type="button">
+          <box-icon name='refresh' color='currentColor' size='xs'></box-icon>
+          Retry
+        </button>
+      </div>
+
+      <div id="calendar" class="calendar-view" aria-label="Jewish calendar"></div>
+    </section>
+
+    <aside class="calendar-ad-grid calendar-ad-grid--bottom" aria-label="Additional calendar advertising spaces">
+      <a class="calendar-ad-card" href="market.html" aria-label="Rent this calendar advertising space">
+        <span>Your Ad Here</span>
+      </a>
+      <a class="calendar-ad-card" href="market.html" aria-label="Rent this calendar advertising space">
+        <span>Your Ad Here</span>
+      </a>
+      <a class="calendar-ad-card" href="market.html" aria-label="Rent this calendar advertising space">
+        <span>Your Ad Here</span>
+      </a>
+    </aside>
+  </main>
+
+  {{> footer}}
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js" integrity="sha384-wv6yRjQC0TqzEnAjFQVXM2V0JrF6Nk0dh6QAGf1RwzTqPArdwU3luBZjVCi2YSVH" crossorigin="anonymous"></script>
+  <script type="module" src="/src/js/calendar.js"></script>
+</body>
+</html>

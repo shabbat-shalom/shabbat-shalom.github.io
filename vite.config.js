@@ -6,6 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 const pageData = {
   '/index.html': {
     isHome: true,
+    hebcalPowered: true,
     ads: true,
     title: 'Shabbat Times - Jewish Times | Find Accurate Shabbat & Zmanim',
     description: 'Find accurate Shabbat times and Zmanim for your location. A modern reference for Jewish times on the World Wide Web. Search by zip code or use your current location.',
@@ -24,6 +25,16 @@ const pageData = {
     ogTitle: 'Rent Ad Space - Jewish Times',
     ogDescription: 'Advertise with Jewish Times and reach people checking Shabbat times',
     ogUrl: 'https://shabbat-shalom.github.io/market.html',
+  },
+  '/calendar.html': {
+    isCalendar: true,
+    hebcalPowered: true,
+    title: 'Jewish Calendar - Jewish Times',
+    description: 'Browse Jewish holidays, Torah readings, Hebrew dates, and observances with a Hebcal-powered calendar.',
+    keywords: 'Jewish calendar, Hebrew calendar, Hebcal, Jewish holidays, Torah readings, Parsha, Rosh Chodesh, Hebrew dates',
+    ogTitle: 'Jewish Calendar - Jewish Times',
+    ogDescription: 'Browse Jewish holidays, Torah readings, Hebrew dates, and observances',
+    ogUrl: 'https://shabbat-shalom.github.io/calendar.html',
   },
   '/about.html': {
     isAbout: true,
@@ -84,6 +95,13 @@ export default defineConfig({
             url: '/market.html?shortcut=ads',
             icons: [{ src: '/icons/pwa-192.png', sizes: '192x192', type: 'image/png' }],
           },
+          {
+            name: 'Jewish Calendar',
+            short_name: 'Calendar',
+            description: 'Browse Jewish holidays and Hebrew dates',
+            url: '/calendar.html?shortcut=calendar',
+            icons: [{ src: '/icons/pwa-192.png', sizes: '192x192', type: 'image/png' }],
+          },
         ],
         share_target: {
           action: '/',
@@ -126,6 +144,15 @@ export default defineConfig({
               cacheableResponse: { statuses: [0, 200] },
             },
           },
+          {
+            urlPattern: /^https:\/\/cdn\.jsdelivr\.net\/.*/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'jtimes-cdn',
+              expiration: { maxEntries: 16, maxAgeSeconds: 365 * 24 * 60 * 60 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
         ],
       },
     }),
@@ -134,6 +161,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        calendar: resolve(__dirname, 'calendar.html'),
         market: resolve(__dirname, 'market.html'),
         about: resolve(__dirname, 'about.html'),
       },

@@ -3,6 +3,7 @@
 import { initMenu } from './menu.js';
 import { initInstall } from './pwa/install.js';
 import { initNetworkStatus } from './pwa/network-status.js';
+import { initShare } from './share.js';
 
 import { registerSW } from 'virtual:pwa-register';
 
@@ -28,6 +29,7 @@ function registerServiceWorker() {
 
 export function bootPage() {
   initMenu();
+  initShare();
   initInstall();
   initNetworkStatus();
   registerServiceWorker();
