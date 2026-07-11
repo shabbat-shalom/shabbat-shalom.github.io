@@ -1,0 +1,121 @@
+/* =====================================
+   ABOUT PAGE
+   ===================================== */
+.about-card {
+  padding: var(--spacing-32);
+}
+
+.about-section {
+  margin-bottom: var(--spacing-32);
+  padding-bottom: var(--spacing-32);
+  border-bottom: 1px solid rgba(200, 148, 60, 0.22);
+}
+
+.about-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.about-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--brand-navy);
+  margin-bottom: var(--spacing-16);
+  font-family: var(--font-system);
+}
+
+.about-heading box-icon {
+  fill: currentColor;
+  color: var(--brand-gold);
+}
+
+.about-section p {
+  color: var(--label);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-16);
+}
+
+.about-section a {
+  color: var(--brand-navy);
+  text-decoration: underline;
+  font-weight: 600;
+  text-decoration-color: rgba(200, 148, 60, 0.55);
+  text-underline-offset: 3px;
+}
+
+.about-list {
+  color: var(--label);
+  line-height: 1.7;
+  margin-left: 1.5rem;
+  margin-bottom: var(--spacing-16);
+}
+
+.about-alert {
+  display: block;
+  color: var(--danger);
+  line-height: 1.8;
+  font-weight: 600;
+  padding: var(--spacing-16);
+  background: var(--danger-background);
+  border: 1px solid rgba(169, 91, 50, 0.28);
+  border-left: 4px solid var(--danger);
+  border-radius: var(--corner-radius);
+}
+
+.about-panel {
+  background: rgba(255, 253, 247, 0.62);
+  padding: var(--spacing-16);
+  border-radius: var(--corner-radius);
+  border: 1px solid rgba(200, 148, 60, 0.24);
+  margin-bottom: var(--spacing-16);
+}
+
+.about-panel p {
+  margin-bottom: var(--spacing-8);
+}
+
+.about-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.about-cta {
+  text-align: center;
+  margin-top: var(--spacing-20);
+}
+
+.about-cta .btn {
+  display: inline-flex;
+  width: auto;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .about-heading,
+  .about-section a {
+    color: var(--label);
+  }
+
+  .about-panel {
+    background: rgba(255, 250, 240, 0.05);
+    border-color: rgba(224, 184, 102, 0.22);
+  }
+
+  .about-alert {
+    background: rgba(169, 91, 50, 0.18);
+  }
+}
+
+@media (max-width: 520px) {
+  .about-card {
+    padding: var(--spacing-20);
+  }
+
+  .about-heading {
+    font-size: 21px;
+  }
+}

@@ -1,0 +1,205 @@
+/* ===================================== 
+   INSTALL MODAL
+   ===================================== */
+#ios-install-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+}
+
+.ios-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 22, 36, 0.64);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: var(--spacing-16);
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.ios-modal-content {
+  width: 100%;
+  max-width: 448px;
+  max-height: 85vh;
+  margin: var(--spacing-32) auto 0;
+  overflow: hidden;
+  background: var(--elevated-background);
+  border: 1px solid rgba(200, 148, 60, 0.28);
+  border-radius: var(--large-corner-radius);
+  box-shadow: var(--shadow-soft);
+  color: var(--label);
+  animation: slideUp 0.3s ease-out;
+}
+
+.ios-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) var(--spacing-20);
+  border-bottom: 1px solid var(--separator);
+}
+
+.ios-modal-header h2 {
+  margin: 0;
+  color: var(--brand-navy);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+
+.ios-modal-close {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(5, 39, 66, 0.08);
+  color: var(--brand-navy);
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 300;
+  font-family: var(--font-system);
+  line-height: 1;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.ios-modal-close:hover,
+.ios-modal-close:focus-visible {
+  background: var(--secondary-fill);
+  color: var(--brand-navy);
+  outline: none;
+}
+
+.ios-modal-close:active {
+  opacity: 0.6;
+}
+
+.ios-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  max-height: calc(85vh - 65px);
+  overflow-y: auto;
+  padding: var(--spacing-16) var(--spacing-20);
+  color: var(--secondary-label);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.ios-install-card {
+  padding: var(--spacing-12);
+  background: rgba(255, 253, 247, 0.62);
+  border: 1px solid rgba(200, 148, 60, 0.24);
+  border-radius: var(--corner-radius);
+}
+
+.ios-install-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-12);
+}
+
+.ios-install-row p {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: var(--secondary-label);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.ios-install-icon-row {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--spacing-8);
+  order: -1;
+}
+
+.ios-install-icon-row span {
+  color: var(--tertiary-label);
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.ios-install-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 4px;
+  border: 1px solid var(--separator);
+  border-radius: var(--corner-radius);
+  background: var(--brand-ivory);
+  object-fit: contain;
+}
+
+.ios-install-icon-large {
+  width: 48px;
+  height: 48px;
+}
+
+@media (max-width: 380px) {
+  .ios-install-row {
+    flex-direction: column;
+  }
+
+  .ios-install-icon-row {
+    align-self: flex-start;
+    order: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .ios-modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .ios-modal-content {
+    background: var(--elevated-background);
+    border-color: rgba(224, 184, 102, 0.24);
+  }
+
+  .ios-modal-header h2,
+  .ios-modal-close {
+    color: var(--label);
+  }
+
+  .ios-install-card {
+    background: rgba(255, 250, 240, 0.06);
+    border-color: rgba(224, 184, 102, 0.20);
+  }
+}

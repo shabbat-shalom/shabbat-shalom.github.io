@@ -1,0 +1,99 @@
+/* =====================================
+   COUNTDOWN CARD
+   ===================================== */
+.countdown-card {
+  text-align: center;
+  padding: var(--spacing-20);
+  margin-bottom: var(--spacing-12);
+  background: var(--brand-navy);
+  color: white;
+  border-radius: var(--corner-radius);
+  box-shadow: var(--shadow-control);
+  border: 1px solid rgba(255, 250, 240, 0.12);
+}
+
+.countdown-label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: rgba(255, 250, 240, 0.82);
+  margin-bottom: var(--spacing-4);
+}
+
+.countdown-value {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Shabbat in progress */
+.countdown-card--active {
+  background: var(--brand-gold);
+  color: var(--brand-ink);
+}
+
+/* =====================================
+   PARSHA CARD
+   ===================================== */
+.parsha-card {
+  padding: 18px;
+  margin-bottom: var(--spacing-12);
+  background: rgba(255, 253, 247, 0.58);
+  border-radius: var(--corner-radius);
+  text-align: center;
+  border: 1px solid rgba(200, 148, 60, 0.28);
+}
+
+.parsha-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: var(--brand-gold);
+  margin-bottom: var(--spacing-4);
+}
+
+.parsha-title {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-navy);
+  letter-spacing: 0;
+}
+
+.parsha-hebrew {
+  font-size: 17px;
+  color: var(--label);
+  margin-top: var(--spacing-2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .countdown-card {
+    background: var(--brand-gold-2);
+    color: #09233b;
+  }
+
+  .countdown-label {
+    color: rgba(9, 35, 59, 0.72);
+  }
+
+  .countdown-card--active {
+    background: var(--brand-navy-2);
+    color: white;
+  }
+
+  .countdown-card--active .countdown-label {
+    color: rgba(255, 250, 240, 0.78);
+  }
+
+  .parsha-card {
+    background: rgba(255, 250, 240, 0.05);
+    border-color: rgba(224, 184, 102, 0.24);
+  }
+
+  .parsha-title {
+    color: var(--label);
+  }
+}

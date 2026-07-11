@@ -1,0 +1,397 @@
+/* =====================================
+   CARD + INPUT SECTION
+   ===================================== */
+.ad-rent-sign {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  margin: var(--spacing-24) 0 0;
+  padding: 0;
+  background: var(--brand-navy);
+  color: var(--brand-ivory);
+  border: 1px solid rgba(200, 148, 60, 0.42);
+  border-radius: var(--corner-radius);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  text-align: center;
+}
+
+.ad-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 72px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  padding: var(--spacing-12) var(--spacing-16);
+  color: inherit;
+  text-decoration: none;
+}
+
+.ad-panel + .ad-panel {
+  border-left: 1px solid rgba(200, 148, 60, 0.42);
+}
+
+.ad-panel--forest {
+  background: var(--brand-ivory);
+  color: var(--brand-navy);
+  text-decoration: none;
+  transition: background var(--transition-fast), color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.ad-panel--available {
+  transition: background var(--transition-fast), color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.ad-panel--available:hover {
+  background: var(--brand-navy-2);
+  color: var(--brand-ivory);
+}
+
+.ad-panel--available:active {
+  opacity: 0.82;
+}
+
+.ad-panel--forest:hover {
+  background: var(--elevated-background);
+  color: var(--brand-navy);
+}
+
+.ad-panel--forest:active {
+  opacity: 0.82;
+}
+
+.ad-panel > span {
+  color: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.ad-panel small {
+  color: currentColor;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  opacity: 0.72;
+}
+
+.ad-panel-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.ad-panel-cta span {
+  display: inline-block;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+  transform: translateY(2px);
+}
+
+.ad-panel-cta box-icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+}
+
+.ad-more-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-12);
+  margin: 0 0 36px;
+}
+
+.ad-slot {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-12);
+  background: var(--brand-ivory);
+  color: var(--brand-navy);
+  border: 1px solid rgba(5, 39, 66, 0.14);
+  border-radius: var(--corner-radius);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  text-decoration: none;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.ad-slot:hover {
+  background: var(--elevated-background);
+  border-color: rgba(200, 148, 60, 0.42);
+  color: var(--brand-navy);
+  transform: translateY(-1px);
+}
+
+.ad-slot:active {
+  opacity: 0.84;
+  transform: translateY(0);
+}
+
+.ad-slot span {
+  color: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.card {
+  position: relative;
+  background: var(--secondary-grouped-background);
+  margin: 44px 0 36px;
+  border-radius: var(--large-corner-radius);
+  padding: var(--spacing-24);
+  border: 1px solid rgba(5, 39, 66, 0.14);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  backdrop-filter: saturate(150%) blur(18px);
+  -webkit-backdrop-filter: saturate(150%) blur(18px);
+}
+
+.times-card {
+  margin-top: var(--spacing-16);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: var(--brand-navy);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 5px 0 0;
+  pointer-events: none;
+  background: transparent;
+}
+
+.times-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.search-intro {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding-bottom: var(--spacing-20);
+  margin-bottom: var(--spacing-20);
+  border-bottom: 1px solid rgba(200, 148, 60, 0.28);
+}
+
+.search-intro-copy {
+  min-width: 0;
+}
+
+.search-eyebrow {
+  margin: 0 0 var(--spacing-4);
+  color: var(--brand-gold);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.search-intro h1 {
+  margin: 0;
+  color: var(--brand-navy);
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.search-subcopy {
+  max-width: 34rem;
+  margin: var(--spacing-4) 0 0;
+  color: var(--secondary-label);
+  font-size: 11px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+#inputContainer {
+  margin-bottom: 0;
+}
+
+.input-group {
+  background: var(--elevated-background);
+  border-radius: var(--corner-radius);
+  overflow: hidden;
+  margin-bottom: var(--spacing-20);
+  border: 1px solid rgba(200, 148, 60, 0.36);
+  box-shadow: 0 14px 32px rgba(5, 39, 66, 0.09), 0 1px 0 rgba(255, 255, 255, 0.70) inset;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.input-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--brand-navy);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  padding: 14px 18px 4px;
+  margin-bottom: 0;
+}
+
+#zipCodeInput {
+  width: 100%;
+  padding: 8px 18px 16px;
+  border: none;
+  font-size: 34px;
+  font-weight: 700;
+  font-family: var(--font-system);
+  background: transparent;
+  text-align: center;
+  color: var(--brand-navy);
+  letter-spacing: 0;
+  outline: none;
+  font-variant-numeric: tabular-nums;
+}
+
+#zipCodeInput::placeholder {
+  color: var(--tertiary-label);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.input-group:focus-within {
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 0 4px rgba(200, 148, 60, 0.18), var(--shadow-card);
+  transform: translateY(-1px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .ad-rent-sign {
+    background: var(--brand-gold-2);
+    color: var(--brand-ink);
+    border-color: rgba(255, 244, 220, 0.22);
+  }
+
+  .ad-panel + .ad-panel {
+    border-left-color: rgba(5, 39, 66, 0.26);
+  }
+
+  .ad-panel--forest {
+    background: var(--brand-ink);
+    color: var(--brand-ivory);
+  }
+
+  .ad-panel--forest:hover {
+    background: var(--brand-navy);
+    color: var(--brand-ivory);
+  }
+
+  .ad-panel--available:hover {
+    background: var(--brand-gold);
+    color: var(--brand-ink);
+  }
+
+  .ad-slot {
+    background: var(--elevated-background);
+    color: var(--label);
+    border-color: rgba(224, 184, 102, 0.20);
+  }
+
+  .ad-slot:hover {
+    background: var(--tertiary-system-background);
+    border-color: rgba(224, 184, 102, 0.34);
+    color: var(--label);
+  }
+
+  .card {
+    background: var(--secondary-grouped-background);
+    border-color: rgba(224, 184, 102, 0.22);
+  }
+
+  .search-intro h1,
+  .input-label,
+  #zipCodeInput {
+    color: var(--label);
+  }
+
+  .input-label {
+    color: var(--brand-gold-2);
+  }
+
+  .input-group {
+    background: var(--elevated-background);
+    border-color: rgba(224, 184, 102, 0.32);
+  }
+
+  .input-group:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(224, 184, 102, 0.18), var(--shadow-card);
+  }
+}
+
+@media (max-width: 520px) {
+  .ad-rent-sign {
+    min-height: 62px;
+    margin-top: var(--spacing-16);
+  }
+
+  .ad-panel {
+    min-height: 62px;
+    padding: var(--spacing-12) var(--spacing-8);
+  }
+
+  .ad-panel > span {
+    font-size: 11px;
+  }
+
+  .ad-panel small {
+    font-size: 10px;
+  }
+
+  .ad-panel-cta box-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .ad-more-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-24);
+  }
+
+  .ad-slot {
+    min-height: 58px;
+  }
+
+  .card {
+    margin-top: var(--spacing-20);
+    padding: var(--spacing-16);
+  }
+
+  .search-intro {
+    align-items: flex-start;
+    gap: var(--spacing-12);
+  }
+
+  .search-intro h1 {
+    font-size: 30px;
+  }
+
+  #zipCodeInput {
+    font-size: 30px;
+  }
+}

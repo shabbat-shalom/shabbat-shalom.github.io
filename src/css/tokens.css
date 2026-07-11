@@ -1,0 +1,143 @@
+/* =====================================
+   MODERN APP DESIGN TOKENS
+   ===================================== */
+:root {
+  color-scheme: light dark;
+
+  /* Logo-inspired brand palette */
+  --brand-ink: #052742;
+  --brand-navy: #073252;
+  --brand-navy-2: #0d456f;
+  --brand-parchment: #f7f0df;
+  --brand-parchment-2: #efe2c7;
+  --brand-ivory: #fffaf0;
+  --brand-gold: #c8943c;
+  --brand-gold-2: #e0b866;
+  --brand-copper: #a95b32;
+  --brand-sage: #277063;
+
+  /* Core palette */
+  --ios-blue: var(--brand-navy-2);
+  --ios-green: var(--brand-sage);
+  --ios-red: var(--brand-copper);
+  --ios-orange: #b87926;
+  --ios-yellow: var(--brand-gold-2);
+  --ios-teal: var(--brand-sage);
+  --ios-purple: #624f82;
+
+  /* Theme color from manifest */
+  --theme-color: var(--brand-navy);
+
+  /* Semantic aliases */
+  --accent: var(--brand-gold);
+  --accent-contrast: #ffffff;
+  --brand-warm: var(--brand-gold);
+  --danger: var(--ios-red);
+  --success: var(--ios-green);
+  --warning: var(--ios-orange);
+
+  /* iOS System Grays */
+  --ios-gray: #8d8374;
+  --ios-gray2: #aaa08f;
+  --ios-gray3: #c7bba7;
+  --ios-gray4: #d8ccb6;
+  --ios-gray5: #e8ddc9;
+  --ios-gray6: #f5eddd;
+
+  /* Surfaces */
+  --system-background: var(--brand-ivory);
+  --secondary-system-background: #faf3e5;
+  --tertiary-system-background: #f1e5ce;
+  --grouped-background: var(--brand-parchment);
+  --secondary-grouped-background: rgba(255, 250, 240, 0.9);
+  --elevated-background: #fffdf7;
+
+  /* Text */
+  --label: #09233b;
+  --secondary-label: #5f5546;
+  --tertiary-label: #8b806d;
+  --quaternary-label: #b8ac96;
+
+  /* Lines and fills */
+  --separator: rgba(5, 39, 66, 0.14);
+  --opaque-separator: #decfaf;
+
+  --fill: rgba(5, 39, 66, 0.09);
+  --secondary-fill: rgba(200, 148, 60, 0.16);
+  --tertiary-fill: rgba(5, 39, 66, 0.06);
+  --quaternary-fill: rgba(200, 148, 60, 0.09);
+
+  /* Danger surfaces (error cards / alerts) */
+  --danger-background: #fff0e8;
+
+  /* Translucent chrome (header/footer bars) */
+  --chrome-background: rgba(255, 250, 240, 0.84);
+
+  /* Shadows */
+  --shadow-soft: 0 22px 58px rgba(5, 39, 66, 0.16);
+  --shadow-card: 0 14px 32px rgba(5, 39, 66, 0.11);
+  --shadow-control: 0 12px 28px rgba(5, 39, 66, 0.22);
+
+  /* iOS Spacing */
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-44: 44px;
+
+  /* Typography */
+  --font-system: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+
+  /* Corner Radius */
+  --corner-radius: 8px;
+  --large-corner-radius: 8px;
+
+  /* Transitions */
+  --transition-fast: 0.18s ease-out;
+}
+
+/* =====================================
+   DARK MODE TOKENS
+   ===================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-color: #f0c979;
+    --accent: #e0b866;
+    --accent-contrast: #09233b;
+    --brand-warm: #e0b866;
+
+    --system-background: #061826;
+    --secondary-system-background: #0a2135;
+    --tertiary-system-background: #12314a;
+    --grouped-background: #071b2a;
+    --secondary-grouped-background: rgba(8, 31, 49, 0.9);
+    --elevated-background: #0c263b;
+
+    --label: #fff8eb;
+    --secondary-label: #d8ccb9;
+    --tertiary-label: #a99d88;
+    --quaternary-label: #756c5c;
+
+    --separator: rgba(255, 244, 220, 0.16);
+    --opaque-separator: #29455e;
+
+    --fill: rgba(224, 184, 102, 0.15);
+    --secondary-fill: rgba(255, 250, 240, 0.08);
+    --tertiary-fill: rgba(255, 250, 240, 0.07);
+    --quaternary-fill: rgba(224, 184, 102, 0.10);
+
+    --ios-blue: #9ec9f3;
+    --ios-green: #7ec7a5;
+    --ios-red: #f39a76;
+
+    --danger-background: rgba(169, 91, 50, 0.16);
+    --chrome-background: rgba(6, 24, 38, 0.84);
+    --shadow-soft: 0 24px 62px rgba(0, 0, 0, 0.42);
+    --shadow-card: 0 16px 38px rgba(0, 0, 0, 0.34);
+    --shadow-control: 0 14px 32px rgba(0, 0, 0, 0.36);
+  }
+}

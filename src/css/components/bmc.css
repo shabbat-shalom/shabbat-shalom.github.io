@@ -1,0 +1,51 @@
+/* ===================================== 
+   BUY ME A COFFEE WIDGET - RESPONSIVE
+   ===================================== */
+/* Adjust widget for mobile devices */
+@media (max-width: 640px) {
+  #bmc-wbtn {
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+  
+  /* Make widget slightly smaller on mobile */
+  #bmc-wbtn img {
+    max-width: 48px !important;
+    max-height: 48px !important;
+  }
+
+  /* Cap modal height before JS repositions it */
+  #bmc-iframe {
+    max-height: min(72vh, 520px) !important;
+    min-height: 0 !important;
+    width: min(calc(100vw - 24px), 420px) !important;
+    max-width: min(calc(100vw - 24px), 420px) !important;
+  }
+}
+
+/* Ensure widget doesn't interfere with content */
+#bmc-wbtn {
+  z-index: 9999 !important;
+}
+
+/* Make iframe responsive on all devices */
+#bmc-iframe {
+  max-width: 100%;
+  border-radius: var(--large-corner-radius);
+}
+
+/* Hide the X/close button for BMC modal only — the floating widget button
+   already turns into a down-arrow to signal it can be clicked to close */
+.bmc-btn-close,
+#bmc-iframe + div button,
+#bmc-close-btn {
+  display: none !important;
+}
+
+/* Center the BMC popup and keep it well-proportioned on larger screens */
+@media (min-width: 641px) {
+  #bmc-iframe {
+    width: min(28rem, 90vw) !important;
+    max-height: 85vh !important;
+  }
+}

@@ -1,0 +1,66 @@
+/* =====================================
+   SKELETON LOADING ROWS
+   ===================================== */
+#loadingIndicator {
+  padding: var(--spacing-16) 0;
+}
+
+.skeleton-list {
+  background: var(--elevated-background);
+  border-radius: var(--corner-radius);
+  overflow: hidden;
+  border: 1px solid rgba(5, 39, 66, 0.14);
+  box-shadow: 0 16px 34px rgba(5, 39, 66, 0.09);
+}
+
+.skeleton-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding: 14px 16px;
+  min-height: 44px;
+  border-bottom: 1px solid var(--separator);
+}
+
+.skeleton-row:last-child {
+  border-bottom: none;
+}
+
+.skeleton-bar {
+  height: 14px;
+  border-radius: 7px;
+  background: var(--secondary-fill);
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+.skeleton-bar--label {
+  width: 45%;
+}
+
+.skeleton-bar--value {
+  width: 20%;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-bar {
+    animation: none;
+    background: var(--quaternary-fill);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .skeleton-list {
+    background: var(--elevated-background);
+    border-color: rgba(255, 244, 220, 0.14);
+  }
+}

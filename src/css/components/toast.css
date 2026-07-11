@@ -1,0 +1,57 @@
+/* =====================================
+   PWA TOASTS (online/offline, install)
+   ===================================== */
+.pwa-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--brand-navy);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: var(--corner-radius);
+  border: 1px solid rgba(255, 250, 240, 0.16);
+  box-shadow: var(--shadow-soft);
+  font-family: var(--font-system);
+  font-weight: 600;
+  font-size: 0.875rem;
+  z-index: 10000;
+  animation: toast-slide-up 0.3s ease-out;
+  max-width: 90%;
+  text-align: center;
+}
+
+.pwa-toast--success {
+  background: var(--brand-sage);
+}
+
+.pwa-toast--warning {
+  background: var(--brand-gold);
+  color: var(--brand-ink);
+}
+
+.pwa-toast--hiding {
+  animation: toast-slide-down 0.3s ease-out;
+}
+
+@keyframes toast-slide-up {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes toast-slide-down {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+}

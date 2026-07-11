@@ -1,0 +1,238 @@
+/* =====================================
+   SHABBAT TIMES
+   ===================================== */
+#shabbatTimes {
+  margin-top: var(--spacing-20);
+}
+
+.hebcal-container {
+  font-family: var(--font-system);
+}
+
+/* Section header above grouped list */
+.hebcal-container h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 30px;
+  padding: 0 var(--spacing-12);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--brand-navy);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  margin: 0 auto var(--spacing-12);
+  text-align: center;
+  background: rgba(255, 253, 247, 0.70);
+  border: 1px solid rgba(200, 148, 60, 0.24);
+  border-radius: var(--corner-radius);
+}
+
+.hebcal-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--elevated-background);
+  border-radius: var(--corner-radius);
+  overflow: hidden;
+  border: 1px solid rgba(5, 39, 66, 0.14);
+  box-shadow: 0 16px 34px rgba(5, 39, 66, 0.10);
+}
+
+.hebcal-results li {
+  position: relative;
+  padding: 14px 18px;
+  font-size: 17px;
+  line-height: 1.41176;
+  letter-spacing: 0;
+  color: var(--label);
+  border-bottom: 1px solid var(--separator);
+  margin: 0;
+  min-height: 58px;
+  display: block;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.hebcal-results li::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 0;
+  width: 3px;
+  border-radius: 0 999px 999px 0;
+  background: transparent;
+  transition: background var(--transition-fast);
+}
+
+.hebcal-results li:last-child {
+  border-bottom: none;
+}
+
+.hebcal-results li:active {
+  background: rgba(200, 148, 60, 0.10);
+}
+
+.hebcal-results li:hover {
+  background: rgba(255, 253, 247, 0.78);
+}
+
+.hebcal-results li:hover::before {
+  background: var(--brand-gold);
+}
+
+/* Time row - label on left, time on right */
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--spacing-16);
+  margin-bottom: 2px;
+}
+
+.time-label {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--label);
+  letter-spacing: 0;
+  min-width: 0;
+}
+
+.time-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--brand-navy);
+  letter-spacing: 0;
+  margin-left: 0;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-date {
+  font-size: 15px;
+  color: var(--secondary-label);
+  letter-spacing: 0;
+  margin-top: 1px;
+}
+
+/* Semantic time colors */
+.hebcal-results .candles .time-value {
+  color: var(--brand-copper);
+}
+
+.hebcal-results .candles::before {
+  background: var(--brand-copper);
+}
+
+.hebcal-results .havdalah .time-value {
+  color: var(--brand-sage);
+}
+
+.hebcal-results .havdalah::before {
+  background: var(--brand-sage);
+}
+
+/* Event titles (holidays, parashat) */
+.event-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--brand-navy);
+  letter-spacing: 0;
+  margin-bottom: 2px;
+}
+
+.event-subtitle {
+  font-size: 15px;
+  color: var(--secondary-label);
+  letter-spacing: 0;
+  margin-top: 2px;
+}
+
+.event-date {
+  font-size: 13px;
+  color: var(--tertiary-label);
+  letter-spacing: 0;
+  margin-top: 2px;
+}
+
+/* =====================================
+   ERROR CARD
+   ===================================== */
+.error-card {
+  padding: 1.5rem;
+  background: var(--danger-background);
+  color: var(--danger);
+  border: 1px solid rgba(169, 91, 50, 0.28);
+  border-radius: var(--corner-radius);
+  font-weight: 600;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.error-card p {
+  margin-top: 0.5rem;
+}
+
+.error-card .btn {
+  margin-top: var(--spacing-16);
+}
+
+/* =====================================
+   FEEDBACK MESSAGE - iOS Banner
+   ===================================== */
+.feedback-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  padding: 12px 16px;
+  background: var(--elevated-background);
+  color: var(--success);
+  font-weight: 400;
+  font-size: 17px;
+  border-radius: var(--corner-radius);
+  margin-top: var(--spacing-16);
+  letter-spacing: 0;
+  border: 1px solid var(--separator);
+  box-shadow: var(--shadow-card);
+}
+
+@media (prefers-color-scheme: dark) {
+  .hebcal-container h3 {
+    color: var(--label);
+    background: rgba(255, 250, 240, 0.08);
+    border-color: rgba(224, 184, 102, 0.22);
+  }
+
+  .hebcal-results {
+    background: var(--elevated-background);
+    border-color: rgba(255, 244, 220, 0.14);
+  }
+
+  .hebcal-results li:hover {
+    background: rgba(224, 184, 102, 0.08);
+  }
+
+  .time-value,
+  .event-title {
+    color: var(--label);
+  }
+
+  .feedback-message {
+    background: var(--elevated-background);
+  }
+}
+
+@media (max-width: 420px) {
+  .time-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+
+  .time-value {
+    font-size: 21px;
+  }
+}
