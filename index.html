@@ -52,8 +52,12 @@
       </div>
 
       <div id="loadingIndicator" style="display: none;" role="status" aria-live="polite">
-        <div class="loader" aria-hidden="true"></div>
-        <p class="loading-text">Fetching Shabbat times...</p>
+        <div class="skeleton-list" aria-hidden="true">
+          <div class="skeleton-row"><span class="skeleton-bar skeleton-bar--label"></span><span class="skeleton-bar skeleton-bar--value"></span></div>
+          <div class="skeleton-row"><span class="skeleton-bar skeleton-bar--label"></span><span class="skeleton-bar skeleton-bar--value"></span></div>
+          <div class="skeleton-row"><span class="skeleton-bar skeleton-bar--label"></span><span class="skeleton-bar skeleton-bar--value"></span></div>
+        </div>
+        <span class="sr-only">Fetching Shabbat times...</span>
       </div>
 
       <div id="shabbatTimes" role="region" aria-live="polite" aria-label="Shabbat times results"></div>
