@@ -1,7 +1,6 @@
-// Common boot for every page: menu, BMC widget handlers, PWA install layer,
+// Common boot for every page: menu, PWA install layer,
 // network toasts, and service worker registration.
 import { initMenu } from './menu.js';
-import { initBMC } from './bmc.js';
 import { initInstall } from './pwa/install.js';
 import { initNetworkStatus } from './pwa/network-status.js';
 
@@ -29,7 +28,6 @@ function registerServiceWorker() {
 
 export function bootPage() {
   initMenu();
-  initBMC();
   initInstall();
   initNetworkStatus();
   registerServiceWorker();
