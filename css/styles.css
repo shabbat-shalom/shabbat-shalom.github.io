@@ -101,12 +101,14 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  /* Use dynamic viewport height with fallback for mobile browsers */
+  min-height: 100dvh;
+  min-height: 100vh; /* Fallback for browsers that don't support dvh */
   /* Flexbox layout for sticky footer */
   display: flex;
   flex-direction: column;
-  /* PWA safe areas */
-  padding-top: env(safe-area-inset-top);
+  /* PWA safe areas - header now handles top, footer handles bottom */
+  padding-top: calc(44px + env(safe-area-inset-top)); /* Account for fixed header */
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -197,14 +199,26 @@ a:active {
    HEADER - Clean App Header
    ===================================== */
 .app-header {
-  background: var(--system-background);
   border-bottom: 0.5px solid var(--separator);
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
+  /* Fully opaque background to block background image - extends to cover status bar area */
+  background: var(--system-background);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  background: rgba(255, 255, 255, 0.72);
+  /* Ensure full viewport coverage on mobile including safe areas */
+  width: 100vw;
+  left: 0;
+  right: 0;
+  margin: 0;
+  /* Cover the safe area insets - extend background into this area */
+  padding-top: env(safe-area-inset-top);
+  /* Ensure it stays above the background image */
+  height: auto;
+  min-height: calc(44px + env(safe-area-inset-top));
+  /* Make sure background extends to cover entire header including safe area */
+  background-clip: border-box;
 }
 
 .header-content {
@@ -422,8 +436,10 @@ a:active {
 .main-container {
   max-width: 672px; /* iOS standard content width */
   margin: 0 auto;
-  padding: 0;
-  flex: 1; /* Grow to fill available space, pushing footer to bottom */
+  padding: 0 var(--spacing-16);
+  flex: 1; /* Grow to fill available space */
+  /* Account for fixed header and footer */
+  margin-bottom: calc(60px + env(safe-area-inset-bottom)); /* Space for fixed footer */
 }
 
 /* ===================================== 
@@ -787,10 +803,28 @@ div.hebcal-container div a:active {
    FOOTER - iOS Style
    ===================================== */
 .footer {
+  /* Fully opaque background to block background image */
   background: var(--grouped-background);
   padding: var(--spacing-20) var(--spacing-16);
   text-align: center;
-  margin-top: var(--spacing-24);
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  /* Ensure full viewport coverage on mobile including safe areas */
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* Cover the bottom safe area - extend background into this area */
+  padding-bottom: calc(var(--spacing-20) + env(safe-area-inset-bottom));
+  /* Ensure footer stays above background */
+  z-index: 1000;
+  /* Add border to separate from content */
+  border-top: 0.5px solid var(--separator);
+  /* Make sure background extends to cover entire footer including safe area */
+  background-clip: border-box;
 }
 
 .footer-content {
