@@ -1110,7 +1110,8 @@ iframe[src*="buymeacoffee.com"] {
   border-radius: var(--large-corner-radius);
 }
 
-/* Hide the X/close button for BMC modal only */
+/* Hide the X/close button for BMC modal only — the floating widget button
+   already turns into a down-arrow to signal it can be clicked to close */
 .bmc-btn-close,
 iframe[src*="buymeacoffee.com"] + div button,
 div[id*="bmc"] button[style*="position: absolute"] {
@@ -1125,6 +1126,32 @@ div[id*="bmc"] button[style*="position: absolute"] {
 /* Make overlay clickable to close */
 div[id*="bmc"][style*="position: fixed"] {
   pointer-events: auto !important;
+}
+
+/* Center the BMC popup and keep it well-proportioned on larger screens */
+@media (min-width: 641px) {
+  div[id*="bmc"][style*="position: fixed"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  iframe[src*="buymeacoffee.com"] {
+    width: min(28rem, 90vw) !important;
+    max-height: 85vh !important;
+  }
+}
+
+/* Tighten up spacing on very small screens so the popup never crowds the edges */
+@media (max-width: 400px) {
+  iframe[src*="buymeacoffee.com"] {
+    max-width: 94vw !important;
+    width: 94vw !important;
+  }
+
+  div[id*="bmc"] {
+    max-width: 94vw !important;
+  }
 }
 
 /* ===================================== 
@@ -1168,168 +1195,156 @@ div[id*="bmc"][style*="position: fixed"] {
 #ios-install-modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: 10000;
 }
 
 .ios-modal-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
   padding: var(--spacing-16);
+  overflow-y: auto;
   animation: fadeIn 0.3s ease-out;
 }
 
 .ios-modal-content {
-  background: var(--secondary-grouped-background);
-  border-radius: var(--large-corner-radius);
-  max-width: 480px;
   width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  max-width: 448px;
+  max-height: 85vh;
+  margin: var(--spacing-32) auto 0;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+  color: #111827;
   animation: slideUp 0.3s ease-out;
 }
 
 .ios-modal-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  padding: var(--spacing-20) var(--spacing-20) var(--spacing-16);
-  border-bottom: 0.5px solid var(--separator);
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) var(--spacing-20);
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .ios-modal-header h2 {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--label);
   margin: 0;
-  letter-spacing: 0.352px;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.55;
+  letter-spacing: 0;
 }
 
 .ios-modal-close {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background: var(--quaternary-fill);
-  color: var(--secondary-label);
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 24px;
   font-weight: 300;
   font-family: var(--font-system);
-  transition: background var(--transition-fast);
+  line-height: 1;
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
-.ios-modal-close:hover {
-  background: var(--tertiary-fill);
+.ios-modal-close:hover,
+.ios-modal-close:focus-visible {
+  background: #f3f4f6;
+  color: #4b5563;
+  outline: none;
 }
 
 .ios-modal-close:active {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .ios-modal-body {
-  padding: var(--spacing-20);
-}
-
-.ios-modal-intro {
-  font-size: 15px;
-  color: var(--secondary-label);
-  text-align: center;
-  margin-bottom: var(--spacing-24);
-  line-height: 1.4;
-  letter-spacing: -0.24px;
-}
-
-.ios-install-steps {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-20);
-  margin-bottom: var(--spacing-24);
-}
-
-.ios-install-step {
-  display: flex;
   gap: var(--spacing-16);
-  padding: var(--spacing-16);
-  background: var(--grouped-background);
-  border-radius: var(--corner-radius);
-  border: 0.5px solid var(--separator);
+  max-height: calc(85vh - 65px);
+  overflow-y: auto;
+  padding: var(--spacing-16) var(--spacing-20);
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0;
 }
 
-.ios-step-number {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--ios-blue);
-  color: white;
+.ios-install-card {
+  padding: var(--spacing-12);
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.ios-install-row {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.41px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-12);
 }
 
-.ios-step-content {
+.ios-install-row p {
   flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0;
 }
 
-.ios-step-text {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--label);
-  margin-bottom: var(--spacing-8);
-  letter-spacing: -0.41px;
-}
-
-.ios-icon-demo {
+.ios-install-icon-row {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
-  justify-content: center;
-  padding: var(--spacing-12) 0;
+  gap: var(--spacing-8);
 }
 
-.ios-step-hint {
-  font-size: 13px;
-  color: var(--secondary-label);
-  margin-top: var(--spacing-8);
-  letter-spacing: -0.08px;
+.ios-install-icon-row span {
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0;
 }
 
-.ios-modal-button {
-  width: 100%;
-  min-height: 50px;
-  background: var(--theme-color);
-  color: white;
-  border: none;
-  border-radius: var(--corner-radius);
-  font-family: var(--font-system);
-  font-size: 17px;
-  font-weight: 600;
-  cursor: pointer;
-  letter-spacing: -0.41px;
-  transition: opacity var(--transition-fast);
+.ios-install-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 4px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  object-fit: contain;
 }
 
-.ios-modal-button:active {
-  opacity: 0.7;
+.ios-install-icon-large {
+  width: 48px;
+  height: 48px;
+}
+
+@media (max-width: 380px) {
+  .ios-install-row {
+    flex-direction: column;
+  }
+
+  .ios-install-icon-row {
+    align-self: flex-end;
+  }
 }
 
 @keyframes fadeIn {

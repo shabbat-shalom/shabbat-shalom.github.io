@@ -48,25 +48,42 @@ function init() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const testMode = urlParams.has('test-install');
 
-	// Allow testing with ?test-install in URL or show on actual iOS
-	if (isIOSSafari || testMode) {
-		// Show iOS install button
-		if (installBtn) {
-			installBtn.hidden = false;
-			installBtn.style.display = 'flex';
-			installBtn.innerHTML =
-				'<box-icon name="info-circle" color="#007AFF" size="sm"></box-icon>How to Install';
-			installBtn.addEventListener('click', showIOSInstallGuide);
-		}
+	showInstallButton();
 
-		// Show guide automatically on first visit (optional) - only on actual iOS, not test mode
-		if (!hasSeenGuide && isIOSSafari && !testMode) {
-			// Delay showing guide on first load
-			setTimeout(() => {
-				showIOSInstallGuide();
-			}, 2000);
-		}
+	// Show guide automatically on first visit (optional) - only on actual iOS, not test mode
+	if (!hasSeenGuide && isIOSSafari && !testMode) {
+		// Delay showing guide on first load
+		setTimeout(() => {
+			showIOSInstallGuide();
+		}, 2000);
 	}
+}
+
+function closeNavMenu() {
+	const menuOverlay = document.getElementById('menu-overlay');
+	const hamburgerBtn = document.getElementById('hamburger-btn');
+
+	if (menuOverlay?.classList.contains('menu-open')) {
+		menuOverlay.classList.remove('menu-open');
+		hamburgerBtn?.setAttribute('aria-expanded', 'false');
+		document.body.style.overflow = '';
+	}
+}
+
+function handleInstallButtonClick(event) {
+	event.preventDefault();
+	closeNavMenu();
+	showIOSInstallGuide();
+}
+
+function showInstallButton() {
+	if (!installBtn) return;
+
+	installBtn.hidden = false;
+	installBtn.style.display = 'flex';
+	installBtn.innerHTML =
+		'<box-icon name="info-circle" color="#007AFF" size="sm"></box-icon>How to Install';
+	installBtn.onclick = handleInstallButtonClick;
 }
 
 // Helper function to reset install state (for testing)
@@ -90,47 +107,60 @@ function showIOSInstallGuide() {
 		iosInstallModal.id = 'ios-install-modal';
 		iosInstallModal.innerHTML = `
 			<div class="ios-modal-overlay">
-				<div class="ios-modal-content">
+				<div class="ios-modal-content" role="dialog" aria-modal="true" aria-labelledby="ios-install-title">
 					<div class="ios-modal-header">
-						<h2>Install JTimes</h2>
-						<button class="ios-modal-close" aria-label="Close">✕</button>
+						<h2 id="ios-install-title">How to Add to Home Screen</h2>
+						<button class="ios-modal-close" aria-label="Close add to home screen instructions">
+							<span aria-hidden="true">&times;</span>
+						</button>
 					</div>
 					<div class="ios-modal-body">
-						<p class="ios-modal-intro">Add JTimes to your home screen for quick access to Shabbat times!</p>
-						
-						<div class="ios-install-steps">
-							<div class="ios-install-step">
-								<div class="ios-step-number">1</div>
-								<div class="ios-step-content">
-									<p class="ios-step-text">Tap the <strong>Share</strong> button</p>
-									<div class="ios-icon-demo">
-										<box-icon name='share' type='solid' color='#007AFF' size='lg'></box-icon>
-									</div>
-									<p class="ios-step-hint">Look for it at the bottom of Safari</p>
-								</div>
+						<div class="ios-install-card">
+							<div class="ios-install-row">
+								<p>Go to the Safari app on your iPhone, then open this website.</p>
+								<img
+									src="/ui-assets/safari.png"
+									alt="Safari app icon"
+									class="ios-install-icon ios-install-icon-large"
+								>
 							</div>
-							
-							<div class="ios-install-step">
-								<div class="ios-step-number">2</div>
-								<div class="ios-step-content">
-									<p class="ios-step-text">Scroll and tap <strong>"Add to Home Screen"</strong></p>
-									<div class="ios-icon-demo">
-										<box-icon name='plus-square' color='#007AFF' size='lg'></box-icon>
-									</div>
-									<p class="ios-step-hint">You may need to scroll down in the menu</p>
-								</div>
-							</div>
-							
-							<div class="ios-install-step">
-								<div class="ios-step-number">3</div>
-								<div class="ios-step-content">
-									<p class="ios-step-text">Tap <strong>"Add"</strong> to confirm</p>
-									<p class="ios-step-hint">The app will appear on your home screen!</p>
+						</div>
+
+						<div class="ios-install-card">
+							<div class="ios-install-row">
+								<p>Tap the More button, then tap Share.</p>
+								<div class="ios-install-icon-row">
+									<img
+										src="/ui-assets/dots.png"
+										alt="More button"
+										class="ios-install-icon"
+									>
+									<span>then</span>
+									<img
+										src="/ui-assets/share.png"
+										alt="Share button"
+										class="ios-install-icon"
+									>
 								</div>
 							</div>
 						</div>
-						
-						<button class="ios-modal-button" onclick="closeIOSInstallGuide()">Got it!</button>
+
+						<div class="ios-install-card">
+							<div class="ios-install-row">
+								<p>Scroll down the list of options, then tap Add to Home Screen.</p>
+								<img
+									src="/ui-assets/add.png"
+									alt="Add to Home Screen button"
+									class="ios-install-icon"
+								>
+							</div>
+						</div>
+
+						<div class="ios-install-card">
+							<div class="ios-install-row">
+								<p>If you don't see this option, scroll down to the bottom, tap Edit Actions, then ensure "Add to Home Screen" is turned on and repeat steps.</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -153,6 +183,7 @@ function showIOSInstallGuide() {
 	// Show modal
 	iosInstallModal.style.display = 'block';
 	document.body.style.overflow = 'hidden';
+	iosInstallModal.querySelector('.ios-modal-close').focus();
 
 	// Announce to screen readers
 	announceToScreenReader('Installation guide opened');
@@ -193,16 +224,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 	// Stash the event so it can be triggered later
 	deferredPrompt = e;
 
-	// Show the install button
-	if (installBtn) {
-		installBtn.hidden = false;
-		installBtn.style.display = 'flex';
-		installBtn.innerHTML =
-			'<box-icon name="download" color="#007AFF" size="sm"></box-icon>Install App';
-
-		// Add click event listener
-		installBtn.addEventListener('click', installApp);
-	}
+	showInstallButton();
 });
 
 // Install app function (Chrome/Android)

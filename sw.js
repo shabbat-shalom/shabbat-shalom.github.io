@@ -2,7 +2,7 @@
 // Service Worker - JTimes PWA
 // =====================================
 
-const CACHE_VERSION = 'jtimes-v3.2';
+const CACHE_VERSION = 'jtimes-v3.3';
 const CACHE_NAME = `${CACHE_VERSION}-cache`;
 
 // Assets to cache on install
@@ -15,13 +15,16 @@ const CORE_ASSETS = [
 	'/app.js',
 	'/manifest.webmanifest',
 	'/logo.png',
-	'/assets/JTimes.png',
 	'/assets/candles.jpg',
 	'/assets/challah cover.jpg',
 	'/assets/grape juice.jpg',
 	'/assets/havdalah candle.jpg',
 	'/assets/kiddush cup.jpg',
 	'/assets/besamim.jpg',
+	'/ui-assets/add.png',
+	'/ui-assets/dots.png',
+	'/ui-assets/safari.png',
+	'/ui-assets/share.png',
 ];
 
 // External resources to cache opportunistically
