@@ -13,24 +13,32 @@ const copyButton = document.getElementById('copyButton');
 const copyFeedback = document.getElementById('copyFeedback');
 
 let lastQuery = null;
+let lastResult = null;
 
 function setLoading(loading) {
   loadingIndicator.style.display = loading ? 'block' : 'none';
 }
 
 function showError(message, retryable = false) {
+  lastResult = null;
+  copyButton.style.display = 'none';
+  copyFeedback.style.display = 'none';
   renderError(message, retryable && lastQuery ? () => loadTimes(lastQuery) : undefined);
   announceToScreenReader(message);
 }
 
 async function loadTimes(location, successMessage = 'Shabbat times loaded successfully') {
   lastQuery = location;
+  lastResult = null;
   setLoading(true);
   clearResults();
+  copyButton.style.display = 'none';
+  copyFeedback.style.display = 'none';
   try {
     const data = await getShabbatTimes(location);
     renderShabbatTimes(data);
     saveLocation(location, data.location?.title);
+    lastResult = data;
     copyButton.style.display = 'inline-flex';
     announceToScreenReader(successMessage);
   } catch (error) {
@@ -42,6 +50,7 @@ async function loadTimes(location, successMessage = 'Shabbat times loaded succes
         : 'Unable to fetch Shabbat times. Please check the zip code and try again.',
       true
     );
+    lastResult = null;
     copyButton.style.display = 'none';
   } finally {
     setLoading(false);
@@ -66,6 +75,9 @@ function validateAndSearch() {
 
 function useCurrentLocation() {
   zipInput.value = '';
+  lastResult = null;
+  copyButton.style.display = 'none';
+  copyFeedback.style.display = 'none';
 
   if (!navigator.geolocation) {
     showError('Geolocation is not supported by your browser.');
@@ -111,6 +123,7 @@ function resetSearch() {
   clearResults();
   clearSavedLocation();
   lastQuery = null;
+  lastResult = null;
   copyButton.style.display = 'none';
   copyFeedback.style.display = 'none';
   announceToScreenReader('Search reset');
@@ -119,7 +132,7 @@ function resetSearch() {
 document.getElementById('searchButton').addEventListener('click', validateAndSearch);
 document.getElementById('locationButton').addEventListener('click', useCurrentLocation);
 document.getElementById('resetButton').addEventListener('click', resetSearch);
-copyButton.addEventListener('click', () => copyResults(showError));
+copyButton.addEventListener('click', () => copyResults(lastResult, showError));
 
 zipInput.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
