@@ -63,9 +63,15 @@
   display: flex;
   flex-direction: column;
   gap: 1px;
+  min-width: 0;
 }
 
 .header-title {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 16px;
   font-weight: 800;
   line-height: 1.2;
@@ -80,9 +86,18 @@
   text-transform: uppercase;
 }
 
+.header-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin-left: var(--spacing-12);
+}
+
 /* =====================================
-   HAMBURGER MENU BUTTON
+   HEADER ACTION BUTTONS
    ===================================== */
+.header-icon-button,
 .hamburger-menu {
   background: var(--elevated-background);
   border: 1px solid var(--separator);
@@ -90,8 +105,6 @@
   padding: var(--spacing-8);
   cursor: pointer;
   display: flex;
-  flex-direction: column;
-  gap: 5px;
   width: 44px;
   height: 44px;
   align-items: center;
@@ -100,6 +113,20 @@
   transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
+.header-icon-button {
+  color: var(--brand-navy);
+}
+
+.header-icon-button box-icon {
+  flex-shrink: 0;
+}
+
+.hamburger-menu {
+  flex-direction: column;
+  gap: 5px;
+}
+
+.header-icon-button:hover,
 .hamburger-menu:hover {
   background: var(--brand-ivory);
   border-color: rgba(200, 148, 60, 0.48);
@@ -114,10 +141,12 @@
   transition: all 0.3s ease;
 }
 
+.header-icon-button:active,
 .hamburger-menu:active .hamburger-line {
   opacity: 0.72;
 }
 
+.header-icon-button:active,
 .hamburger-menu:active {
   transform: translateY(1px);
 }
@@ -465,11 +494,17 @@
     color: var(--label);
   }
 
+  .header-icon-button,
   .hamburger-menu {
     background: var(--elevated-background);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
   }
 
+  .header-icon-button {
+    color: var(--label);
+  }
+
+  .header-icon-button:hover,
   .hamburger-menu:hover {
     background: var(--tertiary-system-background);
     border-color: rgba(224, 184, 102, 0.46);

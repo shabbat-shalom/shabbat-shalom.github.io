@@ -16,6 +16,64 @@
   text-align: center;
 }
 
+.share-banner {
+  grid-column: 1 / -1;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 38px;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid rgba(200, 148, 60, 0.42);
+  background: var(--brand-gold);
+  color: var(--brand-ink);
+  cursor: pointer;
+  font-family: var(--font-system);
+  text-align: left;
+}
+
+.share-banner-track {
+  display: inline-flex;
+  min-width: max-content;
+  align-items: center;
+  height: 100%;
+  animation: share-banner-scroll 16s linear infinite;
+  will-change: transform;
+}
+
+.share-banner-track span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding-inline: var(--spacing-20);
+  color: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.share-banner:hover .share-banner-track,
+.share-banner:focus-visible .share-banner-track {
+  animation-play-state: paused;
+}
+
+.share-banner:active {
+  opacity: 0.86;
+}
+
+@keyframes share-banner-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .ad-panel {
   display: flex;
   min-width: 0;
@@ -290,6 +348,12 @@
     border-left-color: rgba(5, 39, 66, 0.26);
   }
 
+  .share-banner {
+    background: var(--brand-navy);
+    color: var(--brand-ivory);
+    border-bottom-color: rgba(255, 244, 220, 0.22);
+  }
+
   .ad-panel--forest {
     background: var(--brand-ink);
     color: var(--brand-ivory);
@@ -354,6 +418,16 @@
     padding: var(--spacing-12) var(--spacing-8);
   }
 
+  .share-banner {
+    height: 34px;
+  }
+
+  .share-banner-track span {
+    min-height: 34px;
+    padding-inline: var(--spacing-16);
+    font-size: 11px;
+  }
+
   .ad-panel > span {
     font-size: 11px;
   }
@@ -393,5 +467,27 @@
 
   #zipCodeInput {
     font-size: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .share-banner {
+    text-align: center;
+  }
+
+  .share-banner-track {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    animation: none;
+  }
+
+  .share-banner-track span:first-child {
+    white-space: normal;
+  }
+
+  .share-banner-track span:not(:first-child) {
+    display: none;
   }
 }

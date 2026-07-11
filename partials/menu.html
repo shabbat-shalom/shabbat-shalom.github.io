@@ -5,15 +5,19 @@
       <button class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
     </div>
     <nav class="menu-navigation" aria-label="Site navigation">
-      <a href="index.html" class="menu-item{{#if isHome}} active" aria-current="page{{/if}}">
+      <a href="index.html" class="menu-item{{#if isHome}} active{{/if}}"{{#if isHome}} aria-current="page"{{/if}}>
         <box-icon name='home' color='currentColor' size='sm'></box-icon>
         Home
       </a>
-      <a href="market.html" class="menu-item{{#if isMarket}} active" aria-current="page{{/if}}">
+      <a href="calendar.html" class="menu-item{{#if isCalendar}} active{{/if}}"{{#if isCalendar}} aria-current="page"{{/if}}>
+        <box-icon name='calendar' color='currentColor' size='sm'></box-icon>
+        Calendar
+      </a>
+      <a href="market.html" class="menu-item{{#if isMarket}} active{{/if}}"{{#if isMarket}} aria-current="page"{{/if}}>
         <box-icon name='purchase-tag-alt' color='currentColor' size='sm'></box-icon>
         Rent Ad Space
       </a>
-      <a href="about.html" class="menu-item{{#if isAbout}} active" aria-current="page{{/if}}">
+      <a href="about.html" class="menu-item{{#if isAbout}} active{{/if}}"{{#if isAbout}} aria-current="page"{{/if}}>
         <box-icon name='info-circle' color='currentColor' size='sm'></box-icon>
         About & Disclaimer
       </a>
