@@ -141,6 +141,44 @@
   resize: vertical;
 }
 
+.rent-url-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid rgba(200, 148, 60, 0.34);
+  border-radius: var(--corner-radius);
+  background: var(--elevated-background);
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.rent-url-group:focus-within {
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 0 4px rgba(200, 148, 60, 0.18);
+}
+
+.rent-url-prefix {
+  display: flex;
+  align-items: center;
+  padding: 12px 0 12px 14px;
+  color: var(--secondary-label, var(--label));
+  font-size: 16px;
+  line-height: 1.4;
+  user-select: none;
+}
+
+.rent-field .rent-url-group input {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding-left: 2px;
+}
+
+.rent-field .rent-url-group input:focus {
+  border: none;
+  box-shadow: none;
+}
+
 .rent-field input:focus,
 .rent-field select:focus,
 .rent-field textarea:focus {
@@ -177,6 +215,16 @@
     border-color: rgba(224, 184, 102, 0.28);
     background: var(--elevated-background);
     color: var(--label);
+  }
+
+  .rent-url-group {
+    border-color: rgba(224, 184, 102, 0.28);
+    background: var(--elevated-background);
+  }
+
+  .rent-field .rent-url-group input {
+    border: none;
+    background: transparent;
   }
 }
 

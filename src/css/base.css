@@ -183,8 +183,7 @@ box-icon {
   .menu-overlay,
   .footer,
   .btn,
-  #inputContainer,
-  #bmc-wbtn {
+  #inputContainer {
     display: none !important;
   }
 
