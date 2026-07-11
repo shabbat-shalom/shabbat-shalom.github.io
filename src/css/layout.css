@@ -263,6 +263,19 @@
   letter-spacing: 0;
 }
 
+.menu-footer a {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-decoration: none;
+}
+
+.menu-footer a:hover {
+  color: var(--brand-gold);
+}
+
 /* =====================================
    PAGE TITLE
    ===================================== */
@@ -394,6 +407,47 @@
   letter-spacing: 0;
 }
 
+.footer-made {
+  color: var(--tertiary-label);
+  font-size: 12px;
+  margin-top: var(--spacing-4);
+  letter-spacing: 0;
+}
+
+.footer-made a {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-decoration: none;
+}
+
+.footer-made a:hover {
+  color: var(--brand-gold);
+}
+
+.footer-made--lead {
+  color: var(--brand-navy);
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.footer-copyright--middle {
+  font-size: 13px;
+  margin-top: var(--spacing-4);
+}
+
+.footer-powered--small {
+  margin: var(--spacing-4) 0 0;
+}
+
+.footer-powered--small a {
+  font-size: 12px;
+  font-weight: 600;
+}
+
 @media (prefers-color-scheme: dark) {
   .app-header {
     background: var(--chrome-background);
@@ -405,6 +459,7 @@
   .menu-close,
   .page-title h1,
   .footer-title,
+  .footer-made--lead,
   .footer-powered a {
     color: var(--label);
   }

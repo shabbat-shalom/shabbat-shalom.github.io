@@ -38,6 +38,11 @@
   flex-shrink: 0;
 }
 
+.times-card .btn-label {
+  display: inline-block;
+  transform: translateY(1.5px);
+}
+
 .btn-primary {
   background: var(--brand-navy);
   border-color: transparent;

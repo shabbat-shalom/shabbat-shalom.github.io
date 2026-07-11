@@ -19,19 +19,20 @@
         href="https://foresthillsweb.com/"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Visit ForestHillsWeb.com">
+        aria-label="Visit ForestHillsWeb.com, web developer sponsor, opens in a new tab">
         <span>ForestHillsWeb.com</span>
-        <small>Visit sponsor</small>
+        <small class="ad-panel-service">Web Developer</small>
+        <small class="ad-panel-cta">
+          <span>Visit sponsor</span>
+          <box-icon name='link-external' color='currentColor' size='xs' aria-hidden="true"></box-icon>
+        </small>
       </a>
     </aside>
 
     <section class="card times-card" aria-labelledby="times-title">
       <div class="search-intro">
-        <div class="search-emblem" aria-hidden="true">
-          <img src="/icons/header-logo.png" alt="" width="64" height="64">
-        </div>
         <div class="search-intro-copy">
-          <p class="search-eyebrow">Shabbat & Zmanim</p>
+          <p class="search-eyebrow">Zmanim</p>
           <h1 id="times-title">Shabbat Times</h1>
           <p class="search-subcopy">Candle lighting, Havdalah, and this week’s parsha by location.</p>
         </div>
@@ -57,22 +58,22 @@
         <div class="button-grid">
           <button id="searchButton" class="btn btn-primary" aria-label="Search Shabbat times">
             <box-icon name='search' color='currentColor' size='xs'></box-icon>
-            Search
+            <span class="btn-label">Search</span>
           </button>
           <button id="locationButton" class="btn btn-secondary" aria-label="Use current location">
             <box-icon name='current-location' type='solid' color='currentColor' size='xs'></box-icon>
-            Current Location
+            <span class="btn-label">Current Location</span>
           </button>
         </div>
 
         <div class="action-buttons">
           <button id="resetButton" class="btn btn-ghost" aria-label="Reset search">
             <box-icon name='reset' color='currentColor' size='xs'></box-icon>
-            Reset
+            <span class="btn-label">Reset</span>
           </button>
           <button id="copyButton" class="btn btn-ghost" style="display: none;" aria-label="Copy times to clipboard">
             <box-icon name='copy' color='currentColor' size='xs'></box-icon>
-            Copy Times
+            <span class="btn-label">Copy Times</span>
           </button>
         </div>
       </div>

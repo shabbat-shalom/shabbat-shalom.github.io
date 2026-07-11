@@ -51,7 +51,7 @@ export function stopCountdown() {
 }
 
 // Renders (and keeps ticking) a countdown card inside `container`.
-export function startCountdown(container, items) {
+export function startCountdown(container, items, afterNode) {
   stopCountdown();
 
   const card = document.createElement('div');
@@ -75,7 +75,11 @@ export function startCountdown(container, items) {
   }
 
   if (!computeState(items)) return;
-  container.prepend(card);
+  if (afterNode?.parentNode === container) {
+    afterNode.after(card);
+  } else {
+    container.prepend(card);
+  }
   update();
   timerId = setInterval(update, 30 * 1000);
 }

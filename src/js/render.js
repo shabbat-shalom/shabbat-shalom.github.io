@@ -85,9 +85,11 @@ export function renderShabbatTimes(data) {
 
   const wrapper = el('div', 'hebcal-container');
   const inner = el('div');
+  let locationHeading = null;
 
   if (data.location?.title) {
-    inner.append(el('h3', null, data.location.title));
+    locationHeading = el('h3', null, data.location.title);
+    inner.append(locationHeading);
   }
 
   const items = data.items.filter((item) => item && typeof item === 'object');
@@ -107,7 +109,7 @@ export function renderShabbatTimes(data) {
   wrapper.append(inner);
   container.append(wrapper);
 
-  startCountdown(inner, items);
+  startCountdown(inner, items, locationHeading);
 }
 
 export function renderError(message, retry) {

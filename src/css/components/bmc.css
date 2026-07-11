@@ -13,18 +13,13 @@
     max-width: 48px !important;
     max-height: 48px !important;
   }
-  
-  /* Make the modal/iframe smaller on mobile */
-  iframe[src*="buymeacoffee.com"] {
-    max-width: 90vw !important;
-    max-height: 80vh !important;
-    width: 90vw !important;
-    height: auto !important;
-  }
-  
-  /* Adjust the BMC widget container */
-  div[id*="bmc"] {
-    max-width: 90vw !important;
+
+  /* Cap modal height before JS repositions it */
+  #bmc-iframe {
+    max-height: min(72vh, 520px) !important;
+    min-height: 0 !important;
+    width: min(calc(100vw - 24px), 420px) !important;
+    max-width: min(calc(100vw - 24px), 420px) !important;
   }
 }
 
@@ -34,7 +29,7 @@
 }
 
 /* Make iframe responsive on all devices */
-iframe[src*="buymeacoffee.com"] {
+#bmc-iframe {
   max-width: 100%;
   border-radius: var(--large-corner-radius);
 }
@@ -42,39 +37,15 @@ iframe[src*="buymeacoffee.com"] {
 /* Hide the X/close button for BMC modal only — the floating widget button
    already turns into a down-arrow to signal it can be clicked to close */
 .bmc-btn-close,
-iframe[src*="buymeacoffee.com"] + div button,
-div[id*="bmc"] button[style*="position: absolute"] {
+#bmc-iframe + div button,
+#bmc-close-btn {
   display: none !important;
-}
-
-/* Make overlay clickable to close */
-div[id*="bmc"][style*="position: fixed"] {
-  pointer-events: auto !important;
 }
 
 /* Center the BMC popup and keep it well-proportioned on larger screens */
 @media (min-width: 641px) {
-  div[id*="bmc"][style*="position: fixed"] {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  iframe[src*="buymeacoffee.com"] {
+  #bmc-iframe {
     width: min(28rem, 90vw) !important;
     max-height: 85vh !important;
   }
 }
-
-/* Tighten up spacing on very small screens so the popup never crowds the edges */
-@media (max-width: 400px) {
-  iframe[src*="buymeacoffee.com"] {
-    max-width: 94vw !important;
-    width: 94vw !important;
-  }
-
-  div[id*="bmc"] {
-    max-width: 94vw !important;
-  }
-}
-

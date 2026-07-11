@@ -14,13 +14,19 @@
     </nav>
 
     <p class="footer-copyright">© 2025 Jewish Times. All rights reserved.</p>
+    <p class="footer-made">
+      <a href="https://justinsilbiger.com/" target="_blank" rel="noopener noreferrer">Made with ❤️ by Justin</a>
+    </p>
     {{else}}
+    <p class="footer-made footer-made--lead">
+      <a href="https://justinsilbiger.com/" target="_blank" rel="noopener noreferrer">Made with ❤️ by Justin</a>
+    </p>
+    <p class="footer-copyright footer-copyright--middle">Shabbat Shalom</p>
     {{#if isHome}}
-    <p class="footer-powered">
+    <p class="footer-powered footer-powered--small">
       <a href="https://www.hebcal.com/" target="_blank" rel="noopener noreferrer">Powered by Hebcal.com</a>
     </p>
     {{/if}}
-    <p class="footer-copyright">Shabbat Shalom</p>
     {{/if}}
   </div>
 </footer>

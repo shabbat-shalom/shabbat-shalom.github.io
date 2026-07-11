@@ -11,8 +11,11 @@
 
 /* Section header above grouped list */
 .hebcal-container h3 {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
   min-height: 30px;
   padding: 0 var(--spacing-12);
   font-size: 13px;
@@ -20,8 +23,8 @@
   color: var(--brand-navy);
   text-transform: uppercase;
   letter-spacing: 0;
-  margin-bottom: var(--spacing-12);
-  text-align: left;
+  margin: 0 auto var(--spacing-12);
+  text-align: center;
   background: rgba(255, 253, 247, 0.70);
   border: 1px solid rgba(200, 148, 60, 0.24);
   border-radius: var(--corner-radius);
