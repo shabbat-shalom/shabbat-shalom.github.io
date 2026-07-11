@@ -46,6 +46,7 @@
   gap: var(--spacing-12);
   color: var(--label);
   min-width: 0;
+  text-decoration: none;
 }
 
 .header-logo img {
